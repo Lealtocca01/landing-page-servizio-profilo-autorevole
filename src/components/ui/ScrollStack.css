@@ -1,0 +1,20 @@
+.scroll-stack-scroller {
+  width: 100%;
+  height: auto;
+  overflow: visible;
+  position: relative;
+}
+
+.scroll-stack-inner {
+  position: relative;
+  min-height: 100%;
+}
+
+.scroll-stack-text-section {
+  margin-bottom: 80px;
+  text-align: center;
+}
+
+.scroll-stack-text-section:last-child {
+  margin-bottom: 0;
+}
