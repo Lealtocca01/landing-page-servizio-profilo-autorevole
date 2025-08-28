@@ -4,7 +4,7 @@ import { motion } from 'framer-motion';
 import { ArrowRight, Linkedin, TrendingUp, Users } from 'lucide-react';
 import { OrbitPain } from '@/components/OrbitPain';
 import ScrollReveal from './ScrollReveal';
-import AutoSizeImage from './AutoSizeImage';
+import { Card } from '@/components/ui/card';
 
 export function Hero() {
   const scrollToCTA = () => {
@@ -148,100 +148,14 @@ export function Hero() {
             </motion.div>
           </motion.div>
 
-          {/* Right Side - AutoSizeImage */}
+          {/* Right Side - BusinessStatsGraphic */}
           <motion.div
             className="flex justify-center lg:justify-end"
             initial={{ opacity: 0, x: 50 }}
             animate={{ opacity: 1, x: 0 }}
             transition={{ duration: 0.8, delay: 0.3 }}
           >
-            <div className="relative w-full max-w-4xl lg:max-w-5xl xl:max-w-6xl">
-              <AutoSizeImage
-                imageUrl="https://images.unsplash.com/photo-1522202176988-66273c2fd55f?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80"
-                sizeBasedOn="Width"
-                enableLazyLoading={true}
-                style={{
-                  border: {
-                    borderWidth: 1,
-                    borderStyle: 'solid',
-                    borderColor: 'rgba(255, 255, 255, 0.2)'
-                  },
-                  borderRadius: 16,
-                  boxShadow: '0 25px 50px -12px rgba(0, 0, 0, 0.5)'
-                }}
-              />
-              
-              {/* Statistiche sovrapposte all'immagine */}
-              
-              {/* Top Left Box - + Autorità */}
-              <motion.div
-                className="absolute top-8 left-4 bg-white/95 backdrop-blur-sm rounded-full p-4 shadow-2xl border border-white/20 max-w-[450px]"
-                initial={{ opacity: 0, scale: 0.8, x: -20 }}
-                animate={{ opacity: 1, scale: 1, x: 0 }}
-                transition={{ duration: 0.6, delay: 1.0 }}
-                whileHover={{ scale: 1.05, y: -5 }}
-              >
-                <div className="flex items-center justify-center h-full">
-                  <div className="flex items-center justify-center space-x-4">
-                    <span className="text-2xl text-[#0A66C2]">+</span>
-                    <span className="text-lg font-bold text-gray-800">Autorità</span>
-                  </div>
-                </div>
-              </motion.div>
-
-              {/* Top Right Box - + Fiducia */}
-              <motion.div
-                className="absolute top-8 right-4 bg-white/95 backdrop-blur-sm rounded-full p-4 shadow-2xl border border-white/20 max-w-[450px]"
-                initial={{ opacity: 0, scale: 0.8, x: 20 }}
-                animate={{ opacity: 1, scale: 1, x: 0 }}
-                transition={{ duration: 0.6, delay: 1.2 }}
-                whileHover={{ scale: 1.05, y: -5 }}
-              >
-                <div className="flex items-center justify-center h-full">
-                  <div className="flex items-center justify-center space-x-4">
-                    <span className="text-2xl text-[#0A66C2]">+</span>
-                    <span className="text-lg font-bold text-gray-800">Fiducia</span>
-                  </div>
-                </div>
-              </motion.div>
-
-              {/* Bottom Center Box - + Clienti */}
-              <motion.div
-                className="absolute bottom-8 left-1/2 transform -translate-x-1/2 bg-white/95 backdrop-blur-sm rounded-full p-4 shadow-2xl border border-white/20 max-w-[450px]"
-                initial={{ opacity: 0, scale: 0.8, y: 20 }}
-                animate={{ opacity: 1, scale: 1, y: 0 }}
-                transition={{ duration: 0.6, delay: 1.4 }}
-                whileHover={{ scale: 1.05, y: -5 }}
-              >
-                <div className="flex items-center justify-center h-full">
-                  <div className="flex items-center justify-center space-x-4">
-                    <span className="text-2xl text-[#0A66C2]">+</span>
-                    <span className="text-lg font-bold text-gray-800">Clienti</span>
-                  </div>
-                </div>
-              </motion.div>
-
-              {/* Icona LinkedIn in basso a destra */}
-              <motion.div
-                className="absolute bottom-6 right-6 bg-[#0A66C2] rounded-2xl p-3 shadow-2xl"
-                initial={{ opacity: 0, scale: 0.8, rotate: -15 }}
-                animate={{ opacity: 1, scale: 1, rotate: 0 }}
-                transition={{ duration: 0.6, delay: 1.6 }}
-                whileHover={{ scale: 1.1, rotate: 5 }}
-              >
-                <Linkedin size={24} className="text-white" />
-              </motion.div>
-
-              {/* Indicatore di navigazione a sinistra */}
-              <motion.div
-                className="absolute left-2 top-1/2 transform -translate-y-1/2 bg-white/20 backdrop-blur-sm rounded-full p-2"
-                initial={{ opacity: 0, x: -10 }}
-                animate={{ opacity: 1, x: 0 }}
-                transition={{ duration: 0.6, delay: 1.8 }}
-              >
-                <ArrowRight size={16} className="text-white rotate-180" />
-              </motion.div>
-            </div>
+            <BusinessStatsGraphic />
           </motion.div>
         </div>
 
@@ -349,7 +263,6 @@ export function Hero() {
               <div key={index} className="text-center max-w-4xl mx-auto px-4">
                 {/* Title with ScrollReveal */}
                 <ScrollReveal
-                  scrollContainerRef={null}
                   enableBlur={true}
                   baseOpacity={0.1}
                   baseRotation={0}
@@ -364,7 +277,6 @@ export function Hero() {
 
                 {/* Subtitle with ScrollReveal */}
                 <ScrollReveal
-                  scrollContainerRef={null}
                   enableBlur={true}
                   baseOpacity={0.1}
                   baseRotation={0}
@@ -435,5 +347,65 @@ export function Hero() {
         </div>
       </motion.div>
     </section>
+  );
+}
+
+// BusinessStatsGraphic Component
+export function BusinessStatsGraphic() {
+  return (
+    <div 
+      className="relative w-full max-w-2xl overflow-hidden rounded-xl bg-gray-900/50 border border-gray-600/30"
+      style={{
+        boxShadow: '0 25px 50px -12px rgba(0, 0, 0, 0.8)'
+      }}
+    >
+      {/* Background Image with fallback */}
+      <div
+        className="absolute inset-0 h-[500px] bg-cover bg-center bg-no-repeat opacity-90 overflow-hidden shadow-inner"
+        style={{
+          backgroundImage: `url('https://images.unsplash.com/photo-1522202176988-66273c2fd55f?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80')`,
+        }}
+      >
+        {/* Overlay for better text readability */}
+        <div className="absolute inset-0 bg-black/30" />
+      </div>
+
+      {/* Content Container */}
+      <div className="relative z-10 flex h-[500px] items-center justify-center p-6">
+        <div className="grid w-full grid-cols-3 gap-4">
+          {/* Autorità Callout */}
+          <Card 
+            className="group relative transform bg-white/20 p-4 shadow-xl backdrop-blur-md border border-white/30 transition-all duration-300 hover:scale-110 hover:shadow-2xl hover:bg-white/30 hover:-translate-y-2 hover:z-10"
+            style={{
+              transform: 'translateZ(0)',
+            }}
+          >
+            <div className="text-center">
+              <div className="mb-2 text-3xl font-bold text-white">+</div>
+              <h3 className="text-xl font-bold text-white">Autorità</h3>
+              <p className="mt-2 text-sm text-white/90">Crea la tua reputazione</p>
+            </div>
+          </Card>
+
+          {/* Fiducia Callout */}
+          <Card className="group relative transform bg-white/20 p-4 shadow-xl backdrop-blur-md border border-white/30 transition-all duration-300 hover:scale-110 hover:shadow-2xl hover:bg-white/30 hover:-translate-y-2">
+            <div className="text-center">
+              <div className="mb-2 text-3xl font-bold text-white">+</div>
+              <h3 className="text-xl font-bold text-white">Fiducia</h3>
+              <p className="mt-2 text-sm text-white/90">Aumenta la tua credibilità</p>
+            </div>
+          </Card>
+
+          {/* Clienti Callout */}
+          <Card className="group relative transform bg-white/20 p-4 shadow-xl backdrop-blur-md border border-white/30 transition-all duration-300 hover:scale-110 hover:shadow-2xl hover:bg-white/30 hover:-translate-y-2">
+            <div className="text-center">
+              <div className="mb-2 text-3xl font-bold text-white">+</div>
+              <h3 className="text-xl font-bold text-white">Clienti</h3>
+              <p className="mt-2 text-sm text-white/90">Aumenta il tuo fatturato</p>
+            </div>
+          </Card>
+        </div>
+      </div>
+    </div>
   );
 }
