@@ -1,61 +1,51 @@
 'use client';
 
-import { useEffect, useState } from 'react';
+import { motion, useScroll, useTransform } from 'framer-motion';
+import { useRef } from 'react';
 
 interface ProgressBarProps {
-  barColor?: string;
-  containerColor?: string;
-  position?: 'top' | 'bottom';
+  backgroundColor?: string;
+  fillColor?: string;
   height?: number;
+  className?: string;
 }
 
-export default function ProgressBar({
-  barColor = '#3B82F6',
-  containerColor = '#F2F2F2',
-  position = 'top',
-  height = 6
-}: ProgressBarProps) {
-  const [progress, setProgress] = useState(0);
+export const ProgressBar = ({ 
+  backgroundColor = "rgb(221, 221, 221)", 
+  fillColor = "rgb(119, 11, 244)",
+  height = 206,
+  className = ""
+}: ProgressBarProps) => {
+  const containerRef = useRef<HTMLDivElement>(null);
+  const { scrollYProgress } = useScroll({
+    target: containerRef,
+    offset: ["start end", "end start"]
+  });
 
-  useEffect(() => {
-    let ticking = false;
-    
-    const handleScroll = () => {
-      if (!ticking) {
-        requestAnimationFrame(() => {
-          const scrollTop = window.scrollY;
-          const docHeight = document.documentElement.scrollHeight - window.innerHeight;
-          const scrolled = docHeight > 0 ? (scrollTop / docHeight) * 100 : 0;
-          setProgress(scrolled);
-          ticking = false;
-        });
-        ticking = true;
-      }
-    };
-
-    window.addEventListener('scroll', handleScroll, { passive: true });
-    return () => window.removeEventListener('scroll', handleScroll);
-  }, []);
+  const scaleY = useTransform(scrollYProgress, [0, 1], [0, 1]);
 
   return (
-    <div
-      className="fixed left-0 z-50 pointer-events-none"
-      style={{
-        width: '100%',
-        height: `${height}px`,
-        background: containerColor,
-        [position]: 0,
-      }}
+    <div 
+      ref={containerRef}
+      className={`relative ${className}`}
+      style={{ height: `${height}px`, width: '2px' }}
     >
-      <div
-        style={{
-          height: '100%',
-          width: `${progress}%`,
-          backgroundColor: barColor,
-          transition: 'width 0.08s cubic-bezier(0.4, 0, 0.2, 1)',
-          willChange: 'width',
-        }}
-      />
+      {/* Background Container */}
+      <div 
+        className="absolute inset-0 overflow-hidden"
+        style={{ backgroundColor }}
+      >
+        {/* Progress Filler */}
+        <motion.div
+          className="absolute bottom-0 left-0 w-full origin-bottom"
+          style={{ 
+            backgroundColor: fillColor,
+            height: '150px',
+            scaleY,
+            transformOrigin: 'bottom'
+          }}
+        />
+      </div>
     </div>
   );
-}
+};

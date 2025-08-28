@@ -2,6 +2,7 @@
 
 import { motion } from 'framer-motion';
 import { Search, PenTool, Rocket, BarChart3 } from 'lucide-react';
+import { ProgressBar } from './ProgressBar';
 
 export function HowItWorksNew() {
   const steps = [
@@ -15,7 +16,7 @@ export function HowItWorksNew() {
     {
       number: "02", 
       icon: <PenTool className="w-8 h-8" />,
-      title: "Ottimizzazione Compl",
+      title: "Ottimizzazione Completa",
       description: "Riscriviamo il tuo profilo LinkedIn con copywriting professionale, ottimizziamo le parole chiave e creiamo un'identità visiva coerente.",
       duration: "Giorno 4-10"
     },
@@ -59,62 +60,63 @@ export function HowItWorksNew() {
         </motion.div>
 
         <div className="relative">
-          {/* Timeline line */}
-          <div className="hidden lg:block absolute left-1/2 transform -translate-x-1/2 w-1 h-full bg-gradient-to-b from-blue-500 via-green-500 to-yellow-500 rounded-full opacity-30" />
+          {/* Progress Bar Container */}
+          <div className="hidden lg:flex justify-center mb-16">
+            <div className="relative">
+              {/* Progress Bar */}
+              <ProgressBar 
+                backgroundColor="rgba(59, 130, 246, 0.3)"
+                fillColor="rgb(119, 11, 244)"
+                height={400}
+                className="mx-auto"
+              />
+              
+              {/* Step Indicators on Progress Bar */}
+              {steps.map((step, index) => (
+                <div
+                  key={index}
+                  className="absolute left-1/2 transform -translate-x-1/2 w-6 h-6 bg-gradient-to-br from-blue-500 to-green-400 rounded-full border-4 border-white shadow-lg"
+                  style={{
+                    top: `${(index / (steps.length - 1)) * 100}%`,
+                    transform: 'translate(-50%, -50%)'
+                  }}
+                />
+              ))}
+            </div>
+          </div>
           
-          <div className="space-y-16 lg:space-y-24">
+          {/* Steps Grid */}
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-8 lg:gap-12">
             {steps.map((step, index) => (
               <motion.div
                 key={index}
-                className={`flex flex-col lg:flex-row items-center gap-8 ${
-                  index % 2 === 0 ? 'lg:flex-row' : 'lg:flex-row-reverse'
-                }`}
-                initial={{ opacity: 0, x: index % 2 === 0 ? -100 : 100 }}
-                whileInView={{ opacity: 1, x: 0 }}
+                className="relative"
+                initial={{ opacity: 0, y: 50 }}
+                whileInView={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.8, delay: index * 0.2 }}
                 viewport={{ once: true }}
               >
-                {/* Content */}
-                <div className="flex-1 lg:max-w-md">
-                  <motion.div
-                    className="glass rounded-2xl p-8 card-hover"
-                    whileHover={{ scale: 1.05 }}
-                  >
-                    <div className="flex items-center space-x-4 mb-6">
-                      <div className="w-16 h-16 bg-gradient-to-br from-blue-500 to-green-400 rounded-2xl flex items-center justify-center text-white">
-                        {step.icon}
-                      </div>
-                      <div>
-                        <div className="text-sm text-blue-400 font-semibold">{step.duration}</div>
-                        <h3 className="text-2xl font-bold text-white">{step.title}</h3>
-                      </div>
+                {/* Content Card */}
+                <motion.div
+                  className="glass rounded-2xl p-8 card-hover h-full"
+                  whileHover={{ scale: 1.02, y: -5 }}
+                >
+                  <div className="flex items-start space-x-4 mb-6">
+                    <div className="w-16 h-16 bg-gradient-to-br from-blue-500 to-green-400 rounded-2xl flex items-center justify-center text-white flex-shrink-0">
+                      {step.icon}
                     </div>
-                    <p className="text-gray-300 leading-relaxed">{step.description}</p>
-                  </motion.div>
-                </div>
-
-                {/* Step number */}
-                <div className="relative z-10">
-                  <motion.div
-                    className="w-20 h-20 bg-gradient-to-br from-blue-500 to-green-400 rounded-full flex items-center justify-center text-white font-bold text-2xl shadow-2xl"
-                    whileHover={{ scale: 1.1 }}
-                    animate={{ 
-                      boxShadow: [
-                        "0 0 20px rgba(59, 130, 246, 0.5)",
-                        "0 0 40px rgba(34, 197, 94, 0.5)",
-                        "0 0 20px rgba(59, 130, 246, 0.5)"
-                      ]
-                    }}
-                    transition={{ 
-                      boxShadow: { duration: 3, repeat: Infinity },
-                      scale: { duration: 0.2 }
-                    }}
-                  >
-                    {step.number}
-                  </motion.div>
-                </div>
-
-                <div className="flex-1 lg:max-w-md" />
+                    <div className="flex-1">
+                      <div className="flex items-center justify-between mb-2">
+                        <div className="text-sm text-blue-400 font-semibold">{step.duration}</div>
+                        <div className="w-8 h-8 bg-gradient-to-br from-blue-500 to-green-400 rounded-full flex items-center justify-center text-white font-bold text-sm">
+                          {step.number}
+                        </div>
+                      </div>
+                      <h3 className="text-2xl font-bold text-white mb-3">{step.title}</h3>
+                      <p className="text-gray-300 leading-relaxed">{step.description}</p>
+                    </div>
+                  </div>
+                </motion.div>
               </motion.div>
             ))}
           </div>
