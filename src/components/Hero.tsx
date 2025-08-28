@@ -3,7 +3,8 @@
 import { motion } from 'framer-motion';
 import { ArrowRight, Linkedin, TrendingUp, Users } from 'lucide-react';
 import { OrbitPain } from '@/components/OrbitPain';
-import ScrollStack from './ui/ScrollStack';
+import ScrollReveal from './ScrollReveal';
+import AutoSizeImage from './AutoSizeImage';
 
 export function Hero() {
   const scrollToCTA = () => {
@@ -18,15 +19,19 @@ export function Hero() {
   const stickyContent = [
     {
       title: "Fare da soli",
-      description: "Sprechi mesi tentando di capire l'algoritmo LinkedIn. Zero risultati dopo settimane di sforzi, contenuti che nessuno vede o condivide, frustrazione e perdita di tempo prezioso."
+      subtitle: "Non hai tempo e competenze = INUTILE"
     },
     {
-      title: "Delegare male",
-      description: "Affidi il tuo LinkedIn a persone che non capiscono il tuo business. Contenuti generici che non ti rappresentano, perdita della tua voce professionale autentica, investimento buttato senza risultati concreti."
+      title: "Delegare",
+      subtitle: "Magari a qualche agenzia che ha scoperto Linkedln ieri e infatti ti fa firmare un bel contrattone vincolante"
     },
     {
       title: "Ignorare LinkedIn",
-      description: "Pensi che LinkedIn non sia importante per il tuo settore. I competitor ti superano e attirano i tuoi clienti, opportunità di business perse ogni giorno, diventi invisibile ai decision maker del tuo settore."
+      subtitle: "L'errore più grande nel 2025"
+    },
+    {
+      title: "Esiste però un alternativa",
+      subtitle: "Valida"
     }
   ];
 
@@ -143,102 +148,99 @@ export function Hero() {
             </motion.div>
           </motion.div>
 
-          {/* Right Side - Image Card */}
+          {/* Right Side - AutoSizeImage */}
           <motion.div
             className="flex justify-center lg:justify-end"
             initial={{ opacity: 0, x: 50 }}
             animate={{ opacity: 1, x: 0 }}
             transition={{ duration: 0.8, delay: 0.3 }}
           >
-            <div className="relative">
-              {/* LinkedIn Profile Card */}
-              <div className="w-full max-w-md lg:max-w-lg xl:max-w-xl rounded-2xl overflow-hidden bg-gradient-to-br from-white/10 to-white/5 backdrop-blur-sm border border-white/20 shadow-2xl">
-                {/* LinkedIn Profile Header */}
-                <div className="bg-gradient-to-r from-blue-400 to-cyan-400 h-20 relative">
-                  <div className="absolute top-4 right-4 w-8 h-8 bg-blue-300 rounded-full flex items-center justify-center">
-                    <div className="w-4 h-4 bg-white rounded-full"></div>
-                  </div>
-                </div>
-                
-                {/* Profile Picture */}
-                <div className="flex justify-center -mt-16 mb-4">
-                  <div className="w-32 h-32 rounded-full overflow-hidden border-4 border-white shadow-lg">
-                    <div className="w-full h-full bg-gradient-to-br from-gray-800 to-gray-900 flex items-center justify-center">
-                      <div className="text-center text-white text-xs p-2">
-                        <div className="w-16 h-16 bg-green-500/20 rounded-full mx-auto mb-2 flex items-center justify-center">
-                          <div className="w-8 h-8 bg-green-400 rounded-full"></div>
-                        </div>
-                        <div className="text-green-400 font-bold">TWIP++</div>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-                
-                {/* Profile Info */}
-                <div className="text-center mb-6 px-4">
-                  <div className="flex items-center justify-center mb-2">
-                    <h3 className="text-xl font-bold text-white mr-2">Alessandro Cattolico</h3>
-                    <div className="w-5 h-5 bg-blue-500 rounded-full flex items-center justify-center">
-                      <div className="w-2 h-2 bg-white rounded-full"></div>
-                    </div>
-                  </div>
-                  
-                                      <p className="text-sm text-gray-300 leading-relaxed mb-3">
-                      Founder @Twip | Helping local businesses grow through Marketing & Sales | Built my first tech startup from scratch at 19 — here&apos;s where I share the journey.
-                    </p>
-                  
-                  <div className="text-xs text-gray-400 mb-3">
-                    Milano · Informazioni di contatto
-                  </div>
-                  
-                  <div className="text-xs text-gray-400 mb-4">
-                    692 follower · Più di 500 collegamenti
-                  </div>
-                  
-                  {/* Action Buttons */}
-                  <div className="space-y-2">
-                    <button className="w-full bg-blue-600 text-white text-sm py-2 px-4 rounded-lg font-medium">
-                      Disponibile per
-                    </button>
-                    <div className="grid grid-cols-3 gap-2">
-                      <button className="bg-white text-blue-600 text-xs py-1 px-2 rounded border border-blue-600">
-                        Aggiungi sezione
-                      </button>
-                      <button className="bg-white text-blue-600 text-xs py-1 px-2 rounded border border-blue-600">
-                        Pulsante
-                      </button>
-                      <button className="bg-white text-blue-600 text-xs py-1 px-2 rounded border border-blue-600">
-                        Risorse
-                      </button>
-                      </div>
-                  </div>
-                </div>
-                
-                {/* Company & Education */}
-                <div className="px-4 pb-4 space-y-3 text-sm">
-                  <div className="flex items-center space-x-3">
-                    <div className="w-8 h-8 bg-gradient-to-br from-blue-500 to-purple-600 rounded flex items-center justify-center text-white font-bold text-xs">
-                      T
-                    </div>
-                    <div>
-                      <div className="text-white font-medium">TWIP official</div>
-                    </div>
-                  </div>
-                  
-                  <div className="flex items-center space-x-3">
-                    <div className="w-8 h-8 bg-blue-600 rounded flex items-center justify-center text-white text-xs">
-                      IC
-                    </div>
-                    <div>
-                      <div className="text-white font-medium">Istituto Istruzione Superiore Italo Calvino</div>
-                    </div>
-                  </div>
-                </div>
-              </div>
+            <div className="relative w-full max-w-4xl lg:max-w-5xl xl:max-w-6xl">
+              <AutoSizeImage
+                imageUrl="https://images.unsplash.com/photo-1522202176988-66273c2fd55f?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80"
+                sizeBasedOn="Width"
+                enableLazyLoading={true}
+                style={{
+                  border: {
+                    borderWidth: 1,
+                    borderStyle: 'solid',
+                    borderColor: 'rgba(255, 255, 255, 0.2)'
+                  },
+                  borderRadius: 16,
+                  boxShadow: '0 25px 50px -12px rgba(0, 0, 0, 0.5)'
+                }}
+              />
               
-              {/* Floating elements for visual interest */}
-              <div className="absolute -top-4 -right-4 w-8 h-8 bg-blue-500/20 rounded-full backdrop-blur-sm border border-blue-400/30" />
-              <div className="absolute -bottom-4 -left-4 w-6 h-6 bg-green-500/20 rounded-full backdrop-blur-sm border border-green-400/30" />
+              {/* Statistiche sovrapposte all'immagine */}
+              
+              {/* Top Left Box - + Autorità */}
+              <motion.div
+                className="absolute top-8 left-4 bg-white/95 backdrop-blur-sm rounded-full p-4 shadow-2xl border border-white/20 max-w-[450px]"
+                initial={{ opacity: 0, scale: 0.8, x: -20 }}
+                animate={{ opacity: 1, scale: 1, x: 0 }}
+                transition={{ duration: 0.6, delay: 1.0 }}
+                whileHover={{ scale: 1.05, y: -5 }}
+              >
+                <div className="flex items-center justify-center h-full">
+                  <div className="flex items-center justify-center space-x-4">
+                    <span className="text-2xl text-[#0A66C2]">+</span>
+                    <span className="text-lg font-bold text-gray-800">Autorità</span>
+                  </div>
+                </div>
+              </motion.div>
+
+              {/* Top Right Box - + Fiducia */}
+              <motion.div
+                className="absolute top-8 right-4 bg-white/95 backdrop-blur-sm rounded-full p-4 shadow-2xl border border-white/20 max-w-[450px]"
+                initial={{ opacity: 0, scale: 0.8, x: 20 }}
+                animate={{ opacity: 1, scale: 1, x: 0 }}
+                transition={{ duration: 0.6, delay: 1.2 }}
+                whileHover={{ scale: 1.05, y: -5 }}
+              >
+                <div className="flex items-center justify-center h-full">
+                  <div className="flex items-center justify-center space-x-4">
+                    <span className="text-2xl text-[#0A66C2]">+</span>
+                    <span className="text-lg font-bold text-gray-800">Fiducia</span>
+                  </div>
+                </div>
+              </motion.div>
+
+              {/* Bottom Center Box - + Clienti */}
+              <motion.div
+                className="absolute bottom-8 left-1/2 transform -translate-x-1/2 bg-white/95 backdrop-blur-sm rounded-full p-4 shadow-2xl border border-white/20 max-w-[450px]"
+                initial={{ opacity: 0, scale: 0.8, y: 20 }}
+                animate={{ opacity: 1, scale: 1, y: 0 }}
+                transition={{ duration: 0.6, delay: 1.4 }}
+                whileHover={{ scale: 1.05, y: -5 }}
+              >
+                <div className="flex items-center justify-center h-full">
+                  <div className="flex items-center justify-center space-x-4">
+                    <span className="text-2xl text-[#0A66C2]">+</span>
+                    <span className="text-lg font-bold text-gray-800">Clienti</span>
+                  </div>
+                </div>
+              </motion.div>
+
+              {/* Icona LinkedIn in basso a destra */}
+              <motion.div
+                className="absolute bottom-6 right-6 bg-[#0A66C2] rounded-2xl p-3 shadow-2xl"
+                initial={{ opacity: 0, scale: 0.8, rotate: -15 }}
+                animate={{ opacity: 1, scale: 1, rotate: 0 }}
+                transition={{ duration: 0.6, delay: 1.6 }}
+                whileHover={{ scale: 1.1, rotate: 5 }}
+              >
+                <Linkedin size={24} className="text-white" />
+              </motion.div>
+
+              {/* Indicatore di navigazione a sinistra */}
+              <motion.div
+                className="absolute left-2 top-1/2 transform -translate-y-1/2 bg-white/20 backdrop-blur-sm rounded-full p-2"
+                initial={{ opacity: 0, x: -10 }}
+                animate={{ opacity: 1, x: 0 }}
+                transition={{ duration: 0.6, delay: 1.8 }}
+              >
+                <ArrowRight size={16} className="text-white rotate-180" />
+              </motion.div>
             </div>
           </motion.div>
         </div>
@@ -270,40 +272,40 @@ export function Hero() {
                 transition={{ duration: 0.8, delay: 0.8 }}
                 viewport={{ once: true }}
               >
-                  <h3 className="text-2xl md:text-3xl font-bold text-white mb-8">
+                  <h3 className="text-2xl md:text-3xl font-bold text-white mb-6">
                   La verità è che senza una presenza curata, la tua attività verrà percepita <span className="text-red-400">di basso livello</span>.
                   </h3>
-                  <div className="space-y-8 mb-10">
-                    <div className="flex items-start space-x-6">
-                      <div className="w-1 h-6 bg-red-400 rounded-full flex-shrink-0 mt-2"></div>
+                  <div className="space-y-5 mb-8">
+                    <div className="flex items-start space-x-4">
+                      <div className="w-1 h-5 bg-red-400 rounded-full flex-shrink-0 mt-1.5"></div>
                       <p className="text-lg text-gray-300 leading-relaxed">
                         Ogni minuto che passi senza una strategia LinkedIn mirata è un&apos;opportunità persa.
                       </p>
                     </div>
                     
-                    <div className="flex items-start space-x-6">
-                      <div className="w-1 h-6 bg-red-400 rounded-full flex-shrink-0 mt-2"></div>
+                    <div className="flex items-start space-x-4">
+                      <div className="w-1 h-5 bg-red-400 rounded-full flex-shrink-0 mt-1.5"></div>
                       <p className="text-lg text-gray-300 leading-relaxed">
                         Perchè chi cerca un professionista come te ti giudica e ti sceglie da come ti presenti online. E se il tuo LinkedIn è fermo o vuoto non possono ne conoscerti ne fidarsi di te!
                       </p>
                     </div>
                     
-                    <div className="flex items-start space-x-6">
-                      <div className="w-1 h-6 bg-red-400 rounded-full flex-shrink-0 mt-2"></div>
+                    <div className="flex items-start space-x-4">
+                      <div className="w-1 h-5 bg-red-400 rounded-full flex-shrink-0 mt-1.5"></div>
                       <p className="text-lg text-gray-300 leading-relaxed">
                         Di conseguenza, andranno dai tuoi concorrenti, anche se tu sei più capace di loro..
                       </p>
                     </div>
                     
-                    <div className="flex items-start space-x-6">
-                      <div className="w-1 h-6 bg-green-400 rounded-full flex-shrink-0 mt-2"></div>
+                    <div className="flex items-start space-x-4">
+                      <div className="w-1 h-5 bg-green-400 rounded-full flex-shrink-0 mt-1.5"></div>
                       <p className="text-lg text-gray-300 leading-relaxed">
                         L&apos;unico modo che hai per essere percepito come dovresti e non restare tagliato fuori è digitalizzare la tua presenza con Linkedln.
                       </p>
                     </div>
                   </div>
-                  <div className="mt-8">
-                    <p className="text-xl md:text-2xl font-semibold text-white mb-3 text-left">
+                  <div className="mt-6">
+                    <p className="text-xl md:text-2xl font-semibold text-white mb-2 text-left">
                       C&apos;è un problema però...
                     </p>
                     <div className="w-64 h-0.5 bg-green-400 rounded-full"></div>
@@ -341,22 +343,56 @@ export function Hero() {
             </p>
           </div>
 
-          {/* ScrollStack component full width */}
-          <div className="w-full mb-16">
-            <ScrollStack
-              itemDistance={80}
-            >
-              {stickyContent.map((item, index) => (
-                <div key={index} className="scroll-stack-text-section">
-                  <h2 className="text-4xl md:text-5xl font-bold text-slate-100 mb-8">
-                    {item.title}
-                  </h2>
-                  <p className="text-xl md:text-2xl text-slate-300 max-w-3xl mx-auto leading-relaxed">
-                    {item.description}
-                  </p>
-                </div>
-              ))}
-            </ScrollStack>
+                    {/* Parallax Stacking Section with Advanced ScrollReveal */}
+          <div className="w-full mb-16 space-y-32">
+            {stickyContent.map((item, index) => (
+              <div key={index} className="text-center max-w-4xl mx-auto px-4">
+                {/* Title with ScrollReveal */}
+                <ScrollReveal
+                  scrollContainerRef={null}
+                  enableBlur={true}
+                  baseOpacity={0.1}
+                  baseRotation={0}
+                  blurStrength={4}
+                  containerClassName="mb-6"
+                  textClassName="title-large text-slate-100"
+                  rotationEnd="bottom center"
+                  wordAnimationEnd="bottom center"
+                >
+                  {item.title}
+                </ScrollReveal>
+
+                {/* Subtitle with ScrollReveal */}
+                <ScrollReveal
+                  scrollContainerRef={null}
+                  enableBlur={true}
+                  baseOpacity={0.1}
+                  baseRotation={0}
+                  blurStrength={3}
+                  containerClassName="mb-4"
+                  textClassName={`subtitle-medium ${
+                    index === 3 
+                      ? 'text-[#0cc305] large' 
+                      : 'text-red-400'
+                  }`}
+                  rotationEnd="bottom center"
+                  wordAnimationEnd="bottom center"
+                >
+                  {item.subtitle}
+                </ScrollReveal>
+
+
+                
+                                  {/* Enhanced separator with glow effect */}
+                  <div 
+                    className={`w-32 h-0.5 mx-auto rounded-full shadow-lg ${
+                      index === 3 
+                        ? 'bg-gradient-to-r from-transparent via-[#0cc305] to-transparent shadow-[#0cc305]/30' 
+                        : 'bg-gradient-to-r from-transparent via-red-400 to-transparent shadow-red-400/30'
+                    }`}
+                  />
+              </div>
+            ))}
           </div>
 
           <motion.div

@@ -1,0 +1,34 @@
+.scroll-reveal {
+  margin: 20px 0;
+}
+
+.scroll-reveal-text {
+  /* Rimuovo le dimensioni fisse per permettere alle classi Tailwind di funzionare */
+  line-height: 1.5;
+}
+
+.word {
+  display: inline-block;
+}
+
+/* Stili specifici per i diversi livelli di testo */
+.scroll-reveal-text.title-large {
+  font-size: clamp(2rem, 5vw, 3.5rem);
+  font-weight: 900;
+}
+
+.scroll-reveal-text.subtitle-medium {
+  font-size: clamp(1.2rem, 3vw, 1.8rem);
+  font-weight: 600;
+}
+
+/* Override per il quarto elemento con sottotitolo più grande */
+.scroll-reveal-text.subtitle-medium.large {
+  font-size: clamp(1.5rem, 4vw, 2.25rem) !important;
+  font-weight: 600;
+}
+
+.scroll-reveal-text.description-small {
+  font-size: clamp(1.1rem, 3vw, 1.5rem);
+  font-weight: 500;
+}

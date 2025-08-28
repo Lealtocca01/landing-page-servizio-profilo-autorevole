@@ -1,31 +1,90 @@
-@import 'tailwindcss/base';
-@import 'tailwindcss/components';
-@import 'tailwindcss/utilities';
-
-@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap');
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
 
 :root {
-  --background: #0a0a0a;
-  --foreground: #ffffff;
+  /* Updated color tokens to match professional business design brief */
+  --background: 220 14% 96%; /* #f8fafc - light gray background */
+  --foreground: 220 13% 18%; /* #1f2937 - dark gray text */
+  --card: 0 0% 100%; /* #ffffff - white card background */
+  --card-foreground: 220 13% 18%; /* #1f2937 - gray card text */
+  --popover: 0 0% 100%; /* #ffffff - white popover */
+  --popover-foreground: 220 13% 18%; /* #1f2937 - dark popover text */
+  --primary: 220 13% 18%; /* #1f2937 - primary gray */
+  --primary-foreground: 0 0% 100%; /* #ffffff - white on primary */
+  --secondary: 262 83% 58%; /* #6366f1 - professional blue */
+  --secondary-foreground: 0 0% 100%; /* #ffffff - white on secondary */
+  --muted: 220 14% 96%; /* #f8fafc - muted background */
+  --muted-foreground: 220 13% 18%; /* #1f2937 - muted text */
+  --accent: 262 83% 58%; /* #6366f1 - accent blue */
+  --accent-foreground: 0 0% 100%; /* #ffffff - white on accent */
+  --destructive: 0 84% 60%;
+  --destructive-foreground: 0 0% 98%;
+  --border: 220 13% 91%; /* #e5e7eb - light border */
+  --input: 0 0% 100%; /* #ffffff - white input */
+  --ring: 262 83% 58%; /* #6366f1 - blue focus ring */
+  --chart-1: 262 83% 58%; /* #6366f1 - blue */
+  --chart-2: 160 84% 39%; /* #10b981 - green */
+  --chart-3: 160 84% 30%; /* #059669 - darker green */
+  --chart-4: 48 96% 53%; /* #a16207 - amber */
+  --chart-5: 0 84% 60%; /* #dc2626 - red */
+  --radius: 0.5rem;
+  --sidebar: 0 0% 100%;
+  --sidebar-foreground: 220 13% 18%;
+  --sidebar-primary: 262 83% 58%;
+  --sidebar-primary-foreground: 0 0% 100%;
+  --sidebar-accent: 160 84% 39%;
+  --sidebar-accent-foreground: 0 0% 100%;
+  --sidebar-border: 220 13% 91%;
+  --sidebar-ring: 262 83% 58%;
 }
 
-* {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
+.dark {
+  --background: 220 13% 18%;
+  --foreground: 0 0% 98%;
+  --card: 220 13% 18%;
+  --card-foreground: 0 0% 98%;
+  --popover: 220 13% 18%;
+  --popover-foreground: 0 0% 98%;
+  --primary: 0 0% 98%;
+  --primary-foreground: 220 13% 18%;
+  --secondary: 262 83% 58%;
+  --secondary-foreground: 0 0% 100%;
+  --muted: 220 13% 18%;
+  --muted-foreground: 220 9% 46%;
+  --accent: 262 83% 58%;
+  --accent-foreground: 0 0% 100%;
+  --destructive: 0 62% 30%;
+  --destructive-foreground: 0 0% 98%;
+  --border: 220 13% 18%;
+  --input: 220 13% 18%;
+  --ring: 262 83% 58%;
+  --chart-1: 262 83% 58%;
+  --chart-2: 160 84% 39%;
+  --chart-3: 160 84% 30%;
+  --chart-4: 48 96% 53%;
+  --chart-5: 0 84% 60%;
+  --sidebar: 220 13% 18%;
+  --sidebar-foreground: 0 0% 98%;
+  --sidebar-primary: 262 83% 58%;
+  --sidebar-primary-foreground: 0 0% 98%;
+  --sidebar-accent: 160 84% 39%;
+  --sidebar-accent-foreground: 0 0% 98%;
+  --sidebar-border: 220 13% 18%;
+  --sidebar-ring: 262 83% 58%;
 }
 
-html {
-  scroll-behavior: smooth;
+@layer base {
+  * {
+    @apply border-border outline-ring/50;
+  }
+  body {
+    @apply bg-background text-foreground;
+    font-family: 'Inter', system-ui, sans-serif;
+  }
 }
 
-body {
-  font-family: 'Inter', system-ui, sans-serif;
-  background: var(--background);
-  color: var(--foreground);
-  overflow-x: hidden;
-}
-
+/* Custom utility classes */
 .gradient-bg {
   background: linear-gradient(
     45deg,
