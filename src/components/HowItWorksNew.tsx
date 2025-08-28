@@ -3,7 +3,7 @@
 import { motion } from 'framer-motion';
 import { Search, PenTool, Rocket, BarChart3 } from 'lucide-react';
 
-export function HowItWorks() {
+export function HowItWorksNew() {
   const steps = [
     {
       number: "01",
@@ -15,7 +15,7 @@ export function HowItWorks() {
     {
       number: "02", 
       icon: <PenTool className="w-8 h-8" />,
-      title: "Ottimizzazione Completa",
+      title: "Ottimizzazione Compl",
       description: "Riscriviamo il tuo profilo LinkedIn con copywriting professionale, ottimizziamo le parole chiave e creiamo un'identità visiva coerente.",
       duration: "Giorno 4-10"
     },

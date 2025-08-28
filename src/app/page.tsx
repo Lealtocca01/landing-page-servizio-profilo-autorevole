@@ -1,7 +1,7 @@
 import { Navbar } from '@/components/Navbar';
 import { Hero } from '@/components/Hero';
-
 import { HowItWorks } from '@/components/HowItWorks';
+import { HowItWorksNew } from '@/components/HowItWorksNew';
 import { WeeklyBenefits } from '@/components/WeeklyBenefits';
 import { SocialProof } from '@/components/SocialProof';
 import { ComparisonTable } from '@/components/ComparisonTable';
@@ -14,7 +14,8 @@ export default function Home() {
     <main className="min-h-screen gradient-bg">
       <Navbar />
       <Hero />
-      <HowItWorks />
+      {/* <HowItWorks /> */}
+      <HowItWorksNew />
       <WeeklyBenefits />
       <SocialProof />
       <ComparisonTable />
