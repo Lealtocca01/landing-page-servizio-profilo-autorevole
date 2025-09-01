@@ -13,12 +13,12 @@
 
 /* Stili specifici per i diversi livelli di testo */
 .scroll-reveal-text.title-large {
-  font-size: clamp(2rem, 5vw, 3.5rem);
+  font-size: clamp(1.75rem, 4vw, 2.5rem);
   font-weight: 900;
 }
 
 .scroll-reveal-text.subtitle-medium {
-  font-size: clamp(1.2rem, 3vw, 1.8rem);
+  font-size: clamp(1.1rem, 2.5vw, 1.5rem);
   font-weight: 600;
 }
 

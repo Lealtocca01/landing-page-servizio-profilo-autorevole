@@ -37,9 +37,6 @@ export function Hero() {
 
   return (
     <section id="hero" className="relative min-h-screen flex items-center justify-center overflow-hidden pt-20">
-      {/* Unified Background - Blue to Red gradient across all three sections */}
-      <div className="absolute inset-0 bg-gradient-to-b from-blue-950 via-slate-900 to-red-950" />
-      
       {/* Subtle overlay for better text readability */}
       <div className="absolute inset-0 bg-gradient-to-t from-black/20 via-transparent to-transparent" />
 
@@ -186,7 +183,7 @@ export function Hero() {
                 transition={{ duration: 0.8, delay: 0.8 }}
                 viewport={{ once: true }}
               >
-                  <h3 className="text-2xl md:text-3xl font-bold text-white mb-6">
+                  <h3 className="text-2xl md:text-3xl font-black text-white mb-6">
                   La verità è che senza una presenza curata, la tua attività verrà percepita <span className="text-red-400">di basso livello</span>.
                   </h3>
                   <div className="space-y-5 mb-8">
@@ -249,8 +246,8 @@ export function Hero() {
           </motion.div>
 
           <div className="text-center mb-16">
-            <h2 className="text-4xl md:text-5xl font-bold text-white mb-6">
-              Nessuno smanettone o dipendente improvvisato può farlo nel modo corretto
+            <h2 className="text-4xl md:text-5xl font-black text-white mb-6">
+              Nessuno smanettone o dipendente improvvisato <span className="border-b-4 border-white">può farlo nel modo corretto</span>
             </h2>
             <p className="text-xl text-gray-300 max-w-3xl mx-auto mb-12">
               E sai perché? Bisogna avere una strategia mirata e soprattutto costanza.
@@ -307,45 +304,11 @@ export function Hero() {
             ))}
           </div>
 
-          <motion.div
-            className="text-center mt-16"
-            initial={{ opacity: 0, y: 30 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8, delay: 0.8 }}
-            viewport={{ once: true }}
-          >
-            <div className="glass rounded-2xl p-8 max-w-4xl mx-auto border-2 border-green-400/20">
-              <h3 className="text-2xl md:text-3xl font-bold text-white mb-4">
-                ✅ La strada giusta esiste
-              </h3>
-              <p className="text-lg text-gray-300 leading-relaxed mb-6">
-                Con <span className="text-gradient font-semibold">Profilo Autorevole</span> eviti tutti questi errori e ottieni risultati concreti in 30 giorni, grazie a una strategia testata e personalizzata per il tuo business.
-              </p>
-              <motion.button
-                className="btn-primary px-8 py-3 rounded-full font-semibold text-white transform-gpu transition-all duration-200 hover:scale-105 hover:shadow-[0_10px_26px_rgba(255,255,255,0.25)]"
-                whileHover={{ scale: 1.05, boxShadow: '0 10px 26px rgba(255,255,255,0.25)' }}
-                whileTap={{ scale: 0.95 }}
-                onClick={() => {
-                  const element = document.querySelector('#come-funziona');
-                  if (element) element.scrollIntoView({ behavior: 'smooth' });
-                }}
-              >
-                Scopri il Metodo che Funziona
-              </motion.button>
-            </div>
-          </motion.div>
+
         </div>
       </div>
 
-      <motion.div
-        className="absolute bottom-8 left-1/2 transform -translate-x-1/2"
-        animate={{ y: [0, 10, 0] }}
-        transition={{ duration: 2, repeat: Infinity }}
-      >
-        <div className="w-6 h-10 border-2 border-gray-400 rounded-full flex justify-center">
-          <div className="w-1 h-3 bg-gray-400 rounded-full mt-2 animate-pulse" />
-        </div>
-      </motion.div>
+
     </section>
   );
 }

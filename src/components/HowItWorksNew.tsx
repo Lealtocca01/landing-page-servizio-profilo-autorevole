@@ -1,156 +1,340 @@
-'use client';
 
-import { motion } from 'framer-motion';
-import { Search, PenTool, Rocket, BarChart3 } from 'lucide-react';
-import { ProgressBar } from './ProgressBar';
+
+
+"use client"
+
+import { motion, useScroll, useTransform } from "framer-motion"
+import { useRef, useState } from "react"
+import { Tilt } from '@/components/ui/tilt'
+import { Spotlight } from '@/components/ui/spotlight'
+import { GlassIcons } from '@/components/ui/glass-icons'
+import { User, BarChart3, Calendar, Palette, Send, TrendingUp } from 'lucide-react'
 
 export function HowItWorksNew() {
-  const steps = [
+  const containerRef = useRef<HTMLDivElement>(null)
+  const { scrollYProgress } = useScroll({
+    target: containerRef,
+    offset: ["start start", "end end"],
+  })
+
+  // Progress bar più fluida e graduale per la timeline
+  const smoothProgress = useTransform(
+    scrollYProgress,
+    [0, 0.2, 0.8, 1],
+    [0, 0.1, 0.9, 1]
+  )
+
+  // State per la toggle list
+  const [activeBenefit, setActiveBenefit] = useState(0)
+
+  const benefits = [
     {
-      number: "01",
-      icon: <Search className="w-8 h-8" />,
-      title: "Analisi del Profilo",
-      description: "Analizziamo il tuo profilo attuale, il tuo settore e i tuoi competitor per identificare le opportunità di crescita e definire la strategia perfetta.",
-      duration: "Giorno 1-3"
+      title: "Posizionamento Chiaro",
+      description: "Il tuo profilo diventa il biglietto da visita digitale che ti distingue nel tuo settore.",
+      icon: "🎯",
+      color: "from-blue-500 to-cyan-500"
     },
     {
-      number: "02", 
-      icon: <PenTool className="w-8 h-8" />,
-      title: "Ottimizzazione Completa",
-      description: "Riscriviamo il tuo profilo LinkedIn con copywriting professionale, ottimizziamo le parole chiave e creiamo un'identità visiva coerente.",
-      duration: "Giorno 4-10"
+      title: "Reputazione Solida",
+      description: "Costruiamo autorevolezza e credibilità con contenuti professionali e strategici.",
+      icon: "🏛️",
+      color: "from-purple-500 to-pink-500"
     },
     {
-      number: "03",
-      icon: <Rocket className="w-8 h-8" />,
-      title: "Strategia di Contenuto",
-      description: "Creiamo e pubblichiamo contenuti di valore che posizionano te come leader del settore e attirano il tuo pubblico ideale.",
-      duration: "Continuo"
+      title: "Massima Visibilità",
+      description: "Ti rendiamo visibile ai decision maker e potenziali clienti giusti, non a chiunque.",
+      icon: "🔍",
+      color: "from-green-500 to-emerald-500"
     },
     {
-      number: "04",
-      icon: <BarChart3 className="w-8 h-8" />,
-      title: "Monitoring & Ottimizzazione",
-      description: "Monitoriamo le performance, analizziamo i dati e ottimizziamo continuamente la strategia per massimizzare i risultati.",
-      duration: "Mensile"
+      title: "Autorità nel Settore",
+      description: "Ti posizioniamo come riferimento credibile e influente nella tua nicchia.",
+      icon: "📢",
+      color: "from-indigo-500 to-sky-500"
+    },
+    {
+      title: "Nuove Opportunità",
+      description: "Apri le porte a clienti, collaborazioni e partnership di valore grazie a LinkedIn.",
+      icon: "💼",
+      color: "from-orange-500 to-red-500"
     }
   ];
+  
+
+  const steps = [
+    {
+      title: "Analisi e Ottimizzazione Profilo",
+      description: "Il tuo profilo LinkedIn è la base di tutto: lo analizziamo, lo ottimizziamo e lo settiamo per comunicare professionalità e autorevolezza già dal primo sguardo.",
+      color: "blue",
+      lucideIcon: User
+    },
+    {
+      title: "Studio Mercato e Competitor",
+      description: "Studiamo il tuo settore e i tuoi competitor per capire come posizionarti in modo chiaro e distinguerti agli occhi dei potenziali clienti.",
+      color: "purple",
+      lucideIcon: BarChart3
+    },
+    {
+      title: "Strategia e Piano Editoriale",
+      description: "Creiamo per te una strategia su misura, con un calendario di pubblicazione costante che ti mantiene visibile e ti fa percepire come punto di riferimento.",
+      color: "green",
+      lucideIcon: Calendar
+    },
+    {
+      title: "Contenuti e Grafiche Professionali",
+      description: "Produciamo testi e grafiche di qualità che trasmettono subito autorevolezza e ti distinguono dai competitor che improvvisano con contenuti amatoriali.",
+      color: "orange",
+      lucideIcon: Palette
+    },
+    {
+      title: "Pubblicazione e Gestione Engagement",
+      description: "Mentre tu segui la tua attività, noi pubblichiamo tre contenuti di qualità ogni settimana che trasformano i curiosi in clienti, facendoti apparire costantemente davanti al tuo pubblico.",
+      color: "indigo",
+      lucideIcon: Send
+    },
+    {
+      title: "Monitoraggio e Ottimizzazione Continua",
+      description: "Analizziamo le performance dei tuoi post, vediamo cosa funziona meglio e ottimizziamo la strategia per migliorare costantemente i risultati.",
+      color: "red",
+      lucideIcon: TrendingUp
+    },
+  ]
+
+  // Creo gli items per il GlassIcons component
+  const glassIconsItems = steps.map((step, index) => ({
+    icon: <step.lucideIcon className="w-6 h-6 text-white" />,
+    color: step.color,
+    label: `Step ${index + 1}`,
+  }))
+
+
 
   return (
-    <section id="come-funziona" className="section-padding bg-gradient-to-b from-red-950 to-slate-950">
-      <div className="container-custom">
+    <div className="min-h-screen">
+
+
+      {/* Nuova sezione Benefici */}
+      <div className="max-w-7xl mx-auto px-6 py-20">
+        {/* Titolo principale centrato */}
         <motion.div
-          className="text-center mb-20"
           initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8 }}
+          transition={{ duration: 0.6 }}
           viewport={{ once: true }}
+          className="text-center mb-16 space-y-6"
         >
-          <div className="inline-flex items-center space-x-2 bg-green-500/20 backdrop-blur-sm border border-green-400/30 rounded-full px-4 py-2 mb-6">
-            <Rocket size={16} className="text-green-400" />
-            <span className="text-sm text-green-200">Metodologia Testata</span>
-          </div>
-          
-          <h2 className="text-4xl md:text-5xl font-bold text-white mb-6">
-            Come funziona <span className="text-gradient">Profilo Autorevole</span>
+          <h2 className="text-3xl md:text-4xl lg:text-5xl font-black text-white leading-tight">
+            Affidati a <span className="text-gradient">Profilo Autorevole</span>, l'unica agenzia <span className="text-gradient">davvero specializzata</span> nel costruire la tua presenza su LinkedIn.
           </h2>
-          <p className="text-xl text-gray-300 max-w-3xl mx-auto">
-            Il nostro processo in 4 fasi trasforma il tuo LinkedIn in uno strumento di business che genera risultati concreti.
+                        <p className="text-xl md:text-2xl text-gray-300 leading-relaxed max-w-4xl mx-auto">
+                <span className="font-bold">Hai capito bene:</span> mentre le altre agenzie fanno "un po' di tutto", noi ci concentriamo su una sola cosa e la facciamo meglio di chiunque altro.
+              </p>
+        </motion.div>
+
+        {/* Sezione "Perché affidarti a noi?" allineata a sinistra */}
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.6 }}
+          viewport={{ once: true }}
+          className="mb-1"
+        >
+          <h3 className="text-2xl md:text-3xl font-bold text-white mb-0 relative">
+            Perché affidarti a noi?
+            <div className="absolute bottom-0 left-0 w-72 h-0.5 bg-white rounded-full"></div>
+          </h3>
+          <p className="text-lg text-gray-300 max-w-2xl leading-relaxed mb-1">
+            Abbiamo trasformato decine di profili professionali e aziendali!
           </p>
         </motion.div>
 
-        <div className="relative">
-          {/* Progress Bar Container */}
-          <div className="hidden lg:flex justify-center mb-16">
-            <div className="relative">
-              {/* Progress Bar */}
-              <ProgressBar 
-                backgroundColor="rgba(59, 130, 246, 0.3)"
-                fillColor="rgb(119, 11, 244)"
-                height={400}
-                className="mx-auto"
-              />
-              
-              {/* Step Indicators on Progress Bar */}
-              {steps.map((step, index) => (
-                <div
-                  key={index}
-                  className="absolute left-1/2 transform -translate-x-1/2 w-6 h-6 bg-gradient-to-br from-blue-500 to-green-400 rounded-full border-4 border-white shadow-lg"
-                  style={{
-                    top: `${(index / (steps.length - 1)) * 100}%`,
-                    transform: 'translate(-50%, -50%)'
-                  }}
-                />
-              ))}
-            </div>
-          </div>
-          
-          {/* Steps Grid */}
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-8 lg:gap-12">
-            {steps.map((step, index) => (
+        <div className="grid lg:grid-cols-2 gap-16 items-center">
+          {/* Colonna sinistra - Bullet list dei benefici */}
+          <div className="space-y-3">
+            {benefits.map((benefit, index) => (
               <motion.div
                 key={index}
-                className="relative"
-                initial={{ opacity: 0, y: 50 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.8, delay: index * 0.2 }}
+                initial={{ opacity: 0, x: -30 }}
+                whileInView={{ opacity: 1, x: 0 }}
+                transition={{ duration: 0.5, delay: index * 0.1 }}
                 viewport={{ once: true }}
+                className="flex items-start gap-4"
               >
-                {/* Content Card */}
-                <motion.div
-                  className="glass rounded-2xl p-8 card-hover h-full"
-                  whileHover={{ scale: 1.02, y: -5 }}
-                >
-                  <div className="flex items-start space-x-4 mb-6">
-                    <div className="w-16 h-16 bg-gradient-to-br from-blue-500 to-green-400 rounded-2xl flex items-center justify-center text-white flex-shrink-0">
-                      {step.icon}
-                    </div>
-                    <div className="flex-1">
-                      <div className="flex items-center justify-between mb-2">
-                        <div className="text-sm text-blue-400 font-semibold">{step.duration}</div>
-                        <div className="w-8 h-8 bg-gradient-to-br from-blue-500 to-green-400 rounded-full flex items-center justify-center text-white font-bold text-sm">
-                          {step.number}
-                        </div>
+                {/* Bullet point colorato */}
+                <div className="w-3 h-3 rounded-full mt-3 flex-shrink-0 bg-green-400" />
+                
+                {/* Contenuto del beneficio */}
+                <div className="flex-1">
+                  <h3 className="text-lg font-black mb-1 text-white">
+                    {benefit.title}
+                  </h3>
+                  <p className="text-sm text-gray-300">
+                    {benefit.description}
+                  </p>
+                </div>
+              </motion.div>
+            ))}
+          </div>
+
+          {/* Colonna destra - Componente Tilt con Spotlight */}
+          <div className="relative -mt-8">
+            <motion.div
+              initial={{ opacity: 0, scale: 0.8 }}
+              whileInView={{ opacity: 1, scale: 1 }}
+              transition={{ duration: 0.8 }}
+              viewport={{ once: true }}
+              className="relative"
+            >
+              {/* Background decorativo con glow luminoso intenso */}
+              <div className="absolute inset-0 bg-gradient-to-br from-blue-50 to-purple-50 rounded-3xl rotate-3 shadow-[0_0_80px_rgba(59,130,246,0.6),0_0_120px_rgba(59,130,246,0.4),0_0_160px_rgba(59,130,246,0.2)]" />
+              
+              {/* Container principale con Tilt */}
+              <Tilt
+                rotationFactor={8}
+                isRevese
+                style={{
+                  transformOrigin: 'center center',
+                }}
+                springOptions={{
+                  stiffness: 26.7,
+                  damping: 4.1,
+                  mass: 0.2,
+                }}
+                className='group relative rounded-3xl bg-white shadow-2xl border border-gray-100 overflow-hidden'
+              >
+                <Spotlight
+                  className='z-10 from-blue-400/50 via-blue-300/20 to-purple-400/10 blur-2xl'
+                  size={300}
+                  springOptions={{
+                    stiffness: 26.7,
+                    damping: 4.1,
+                    mass: 0.2,
+                  }}
+                />
+                
+                {/* Contenuto della card - Immagine reale */}
+                <div className="relative z-20 p-0">
+                  <img 
+                    src="/images/linkedin-devices.jpg" 
+                    alt="Laptop e smartphone che mostrano profili LinkedIn con icone neon fluttuanti"
+                    className="w-full h-full object-cover rounded-3xl"
+                  />
+                </div>
+              </Tilt>
+            </motion.div>
+          </div>
+        </div>
+      </div>
+
+      {/* Demo content */}
+      <div className="max-w-6xl mx-auto px-6 py-12">
+        <div className="text-center mb-16">
+          <h1 className="text-4xl md:text-5xl font-black mb-4 text-white">Ma come procederemo nel pratico?</h1>
+          <p className="text-xl md:text-2xl text-gray-600">
+            Un processo in 6 step strutturato e progressivo per il tuo successo
+          </p>
+        </div>
+
+        <div className="space-y-12" ref={containerRef}>
+          <div className="relative max-w-4xl mx-auto">
+            {/* Progress bar centrale */}
+            <div 
+              className="absolute"
+              style={{ 
+                left: '50%',
+                top: '1.5rem',
+                transform: 'translateX(-50%)',
+                width: '4px',
+                height: `${steps.length * 12 + 21.5}rem` 
+              }}
+            >
+              {/* Barra grigia di background */}
+              <div className="absolute inset-0 bg-gray-300 rounded-full"></div>
+              
+              {/* Barra blu di progresso */}
+              <motion.div
+                className="absolute inset-x-0 top-0 bg-blue-600 rounded-full"
+                style={{
+                  scaleY: smoothProgress,
+                  transformOrigin: 'top center',
+                  height: '100%',
+                }}
+              />
+            </div>
+
+            {steps.map((step, i) => (
+              <motion.div
+                key={i}
+                className="flex items-center relative mb-12 last:mb-0"
+                initial={{ opacity: 0, y: 30 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.6, delay: i * 0.1 }}
+                viewport={{ once: true, margin: "-100px" }}
+              >
+                {/* Card a sinistra per numeri pari */}
+                {i % 2 === 0 && (
+                  <div className="w-full flex justify-start items-center gap-6">
+                    <div className="w-7/12">
+                      {/* Glass Icon 3D animata sopra la card, centrata */}
+                      <motion.div
+                        className="flex justify-center mb-4"
+                        initial={{ opacity: 0, scale: 0 }}
+                        whileInView={{ opacity: 1, scale: 1 }}
+                        transition={{ duration: 0.5, delay: i * 0.1 + 0.3 }}
+                        viewport={{ once: true }}
+                      >
+                        <GlassIcons 
+                          items={[glassIconsItems[i]]} 
+                          className="!grid-cols-1 !gap-0 !py-0 scale-75"
+                        />
+                      </motion.div>
+                      <div className="bg-gradient-to-br from-blue-400 to-blue-600 rounded-lg shadow-[0_8px_25px_rgba(0,0,0,0.15),0_4px_10px_rgba(0,0,0,0.1),inset_0_1px_0_rgba(255,255,255,0.2)] px-8 py-5 border border-blue-300 hover:shadow-[0_12px_35px_rgba(59,130,246,0.4),0_6px_15px_rgba(0,0,0,0.2),inset_0_1px_0_rgba(255,255,255,0.3)] hover:scale-[1.02] hover:-translate-y-1 transition-all duration-300">
+                        <h3 className="text-xl font-black text-white mb-3">{step.title}</h3>
+                        <p className="text-sm text-gray-100 leading-relaxed">{step.description}</p>
                       </div>
-                      <h3 className="text-2xl font-bold text-white mb-3">{step.title}</h3>
-                      <p className="text-gray-300 leading-relaxed">{step.description}</p>
+                    </div>
+                    {/* Numero a destra della card */}
+                    <div className="text-6xl font-black text-white flex-shrink-0 select-none drop-shadow-[0_0_15px_rgba(255,255,255,0.4)] filter" style={{textShadow: '0 4px 8px rgba(0,0,0,0.5), 0 0 20px rgba(255,255,255,0.3), 0 0 35px rgba(255,255,255,0.15)'}}>
+                      {i + 1}
                     </div>
                   </div>
-                </motion.div>
+                )}
+
+                {/* Card a destra per numeri dispari */}
+                {i % 2 === 1 && (
+                  <div className="w-full flex justify-end items-center gap-6">
+                    {/* Numero a sinistra della card */}
+                    <div className="text-6xl font-black text-white flex-shrink-0 select-none drop-shadow-[0_0_15px_rgba(255,255,255,0.4)] filter" style={{textShadow: '0 4px 8px rgba(0,0,0,0.5), 0 0 20px rgba(255,255,255,0.3), 0 0 35px rgba(255,255,255,0.15)'}}>
+                      {i + 1}
+                    </div>
+                    <div className="w-7/12">
+                      {/* Glass Icon 3D animata sopra la card, centrata */}
+                      <motion.div
+                        className="flex justify-center mb-4"
+                        initial={{ opacity: 0, scale: 0 }}
+                        whileInView={{ opacity: 1, scale: 1 }}
+                        transition={{ duration: 0.5, delay: i * 0.1 + 0.3 }}
+                        viewport={{ once: true }}
+                      >
+                        <GlassIcons 
+                          items={[glassIconsItems[i]]} 
+                          className="!grid-cols-1 !gap-0 !py-0 scale-75"
+                        />
+                      </motion.div>
+                      <div className="bg-gradient-to-br from-blue-400 to-blue-600 rounded-lg shadow-[0_8px_25px_rgba(0,0,0,0.15),0_4px_10px_rgba(0,0,0,0.1),inset_0_1px_0_rgba(255,255,255,0.2)] px-8 py-5 border border-blue-300 hover:shadow-[0_12px_35px_rgba(59,130,246,0.4),0_6px_15px_rgba(0,0,0,0.2),inset_0_1px_0_rgba(255,255,255,0.3)] hover:scale-[1.02] hover:-translate-y-1 transition-all duration-300">
+                        <h3 className="text-xl font-black text-white mb-3">{step.title}</h3>
+                        <p className="text-sm text-gray-100 leading-relaxed">{step.description}</p>
+                      </div>
+                    </div>
+                  </div>
+                )}
               </motion.div>
             ))}
           </div>
         </div>
 
-        <motion.div
-          className="text-center mt-20"
-          initial={{ opacity: 0, y: 30 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8, delay: 0.8 }}
-          viewport={{ once: true }}
-        >
-          <div className="glass rounded-2xl p-8 max-w-4xl mx-auto">
-            <h3 className="text-2xl md:text-3xl font-bold text-white mb-4">
-              🎯 Risultati garantiti in 30 giorni
-            </h3>
-            <p className="text-lg text-gray-300 leading-relaxed mb-6">
-              Il nostro metodo è testato su oltre 500 professionisti e ha un tasso di successo del 95%. 
-              Se non vedi risultati concreti entro 30 giorni, ti rimborsiamo completamente.
-            </p>
-            <motion.button
-              className="btn-primary px-8 py-3 rounded-full font-semibold text-white transform-gpu transition-all duration-200 hover:scale-105 hover:shadow-[0_10px_26px_rgba(255,255,255,0.25)]"
-              whileHover={{ scale: 1.05, boxShadow: '0 10px 26px rgba(255,255,255,0.25)' }}
-              whileTap={{ scale: 0.95 }}
-              onClick={() => {
-                const element = document.querySelector('#benefici');
-                if (element) element.scrollIntoView({ behavior: 'smooth' });
-              }}
-            >
-              Scopri i Benefici
-            </motion.button>
-          </div>
-        </motion.div>
+
       </div>
-    </section>
-  );
+    </div>
+  )
 }
