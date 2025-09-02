@@ -38,7 +38,7 @@ export function HowItWorksNew() {
       title: "Reputazione Solida",
       description: "Costruiamo autorevolezza e credibilità con contenuti professionali e strategici.",
       icon: "🏛️",
-      color: "from-purple-500 to-pink-500"
+      color: "from-blue-500 to-slate-500"
     },
     {
       title: "Massima Visibilità",

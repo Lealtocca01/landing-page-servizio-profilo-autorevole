@@ -1,12 +1,11 @@
 import { Navbar } from '@/components/Navbar';
 import { Hero } from '@/components/Hero';
-import { HowItWorks } from '@/components/HowItWorks';
-import { HowItWorksNew } from '@/components/HowItWorksNew';
 
+import { HowItWorksNew } from '@/components/HowItWorksNew';
+import { NoContracts } from '@/components/NoContracts';
 
 import { ComparisonTable } from '@/components/ComparisonTable';
 import { FinalCTA } from '@/components/FinalCTA';
-import { FAQ } from '@/components/FAQ';
 import { Footer } from '@/components/Footer';
 
 export default function Home() {
@@ -14,11 +13,11 @@ export default function Home() {
     <main className="min-h-screen gradient-bg">
       <Navbar />
       <Hero />
-      {/* <HowItWorks /> */}
+
       <HowItWorksNew />
       <FinalCTA />
+      <NoContracts />
       <ComparisonTable />
-      <FAQ />
       <Footer />
     </main>
   );

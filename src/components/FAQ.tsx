@@ -134,7 +134,7 @@ export function FAQ() {
               Siamo qui per aiutarti. Scrivici e ti risponderemo entro 2 ore lavorative.
             </p>
             <motion.button
-              className="btn-primary px-6 py-3 rounded-full font-semibold text-white"
+              className="btn-primary px-6 py-3 rounded-xl font-semibold text-white"
               whileHover={{ scale: 1.05 }}
               whileTap={{ scale: 0.95 }}
               onClick={() => {

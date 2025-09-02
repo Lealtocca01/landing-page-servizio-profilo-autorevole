@@ -5,6 +5,7 @@ import { ArrowRight, Linkedin, TrendingUp, Users } from 'lucide-react';
 import { OrbitPain } from '@/components/OrbitPain';
 import ScrollReveal from './ScrollReveal';
 import { Card } from '@/components/ui/card';
+import { Tilt } from '@/components/ui/tilt';
 
 export function Hero() {
   const scrollToCTA = () => {
@@ -36,7 +37,7 @@ export function Hero() {
   ];
 
   return (
-    <section id="hero" className="relative min-h-screen flex items-center justify-center overflow-hidden pt-20">
+    <section id="hero" className="relative min-h-screen flex items-center justify-center overflow-hidden pt-20 bg-gradient-to-br from-slate-950 via-blue-950 to-blue-950">
       {/* Subtle overlay for better text readability */}
       <div className="absolute inset-0 bg-gradient-to-t from-black/20 via-transparent to-transparent" />
 
@@ -44,13 +45,13 @@ export function Hero() {
         <div className="grid lg:grid-cols-2 gap-12 items-center min-h-[80vh]">
           {/* Left Side - Text Content */}
           <motion.div
-            className="text-left"
+            className="text-center"
             initial={{ opacity: 0, x: -50 }}
             animate={{ opacity: 1, x: 0 }}
             transition={{ duration: 0.8 }}
           >
             <motion.h1
-              className="text-5xl md:text-6xl lg:text-7xl font-black text-white mb-6 leading-tight"
+              className="text-5xl md:text-6xl lg:text-7xl font-black text-white mb-6 leading-tight text-left"
               initial={{ opacity: 0, y: 30 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.8, delay: 0.2 }}
@@ -61,23 +62,23 @@ export function Hero() {
             </motion.h1>
 
             <motion.div
-              className="text-xl md:text-2xl text-gray-300 mb-8 leading-relaxed"
+              className="text-xl md:text-2xl text-gray-300 mb-8 leading-relaxed text-left"
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.8, delay: 0.4 }}
             >
               Con <span className="text-gradient font-semibold">Profilo Autorevole</span> trasformiamo il tuo LinkedIn nel{' '}
-              <span className="text-blue-400 font-semibold">biglietto da visita che attrae clienti</span>.
+              <span className="text-white font-semibold">biglietto da visita che attrae clienti portandoti online </span><span className="text-gradient font-semibold">in soli 7 giorni</span>.
             </motion.div>
 
             <motion.div
-              className="flex flex-col sm:flex-row items-start gap-4"
+              className="flex justify-start"
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.8, delay: 0.6 }}
             >
               <motion.button
-                className="btn-primary px-8 py-4 rounded-full font-semibold text-white flex items-center space-x-2 text-lg transform-gpu transition-all duration-300 hover:bg-gradient-to-r hover:from-blue-600 hover:to-blue-500 hover:shadow-[0_16px_40px_rgba(59,130,246,0.4)] hover:scale-110"
+                className="btn-primary px-8 py-4 rounded-xl font-semibold text-white flex items-center space-x-2 text-lg transform-gpu transition-all duration-300 hover:bg-gradient-to-r hover:from-blue-600 hover:to-blue-500 hover:shadow-[0_16px_40px_rgba(59,130,246,0.4)] hover:scale-110"
                 whileHover={{ 
                   scale: 1.1, 
                   rotate: 2,
@@ -100,49 +101,10 @@ export function Hero() {
                   <ArrowRight size={20} />
                 </motion.div>
               </motion.button>
-              
-              <motion.button
-                className="bg-white text-blue-900 px-8 py-4 rounded-full font-semibold flex items-center space-x-2 text-lg hover:bg-gray-50 transition-all duration-300 transform-gpu hover:shadow-[0_16px_40px_rgba(30,64,175,0.3)] hover:scale-110"
-                whileHover={{ 
-                  scale: 1.15, 
-                  rotate: -2,
-                  boxShadow: '0 20px 50px rgba(30,64,175,0.4)',
-                  transition: { type: "spring", stiffness: 400, damping: 10 }
-                }}
-                whileTap={{ scale: 0.9 }}
-                onClick={() => {
-                  const element = document.querySelector('#come-funziona');
-                  if (element) element.scrollIntoView({ behavior: 'smooth' });
-                }}
-              >
-                <motion.span
-                  whileHover={{ x: -3 }}
-                  transition={{ type: "spring", stiffness: 300 }}
-                >
-                  Vedi Come Funziona
-                </motion.span>
-              </motion.button>
+
             </motion.div>
 
-            <motion.div
-              className="flex items-center space-x-8 text-gray-400 mt-12"
-              initial={{ opacity: 0 }}
-              animate={{ opacity: 1 }}
-              transition={{ duration: 1, delay: 0.8 }}
-            >
-              <div className="flex items-center space-x-2">
-                <TrendingUp size={16} className="text-green-400" />
-                <span className="text-sm">Risultati in 30 giorni</span>
-              </div>
-              <div className="flex items-center space-x-2">
-                <Users size={16} className="text-blue-400" />
-                <span className="text-sm">500+ professionisti</span>
-              </div>
-              <div className="flex items-center space-x-2">
-                <Linkedin size={16} className="text-yellow-400" />
-                <span className="text-sm">Strategia personalizzata</span>
-              </div>
-            </motion.div>
+
           </motion.div>
 
           {/* Right Side - BusinessStatsGraphic */}
@@ -152,7 +114,20 @@ export function Hero() {
             animate={{ opacity: 1, x: 0 }}
             transition={{ duration: 0.8, delay: 0.3 }}
           >
-            <BusinessStatsGraphic />
+            <Tilt
+              rotationFactor={8}
+              isRevese
+              style={{
+                transformOrigin: 'center center',
+              }}
+              springOptions={{
+                stiffness: 26.7,
+                damping: 4.1,
+                mass: 0.2,
+              }}
+            >
+              <BusinessStatsGraphic />
+            </Tilt>
           </motion.div>
         </div>
 
@@ -166,7 +141,7 @@ export function Hero() {
             viewport={{ once: true }}
           >
                          <h2 className="text-5xl md:text-6xl lg:text-7xl font-black text-white mb-6">
-             <span className="text-gradient">Sei già in ritardo!</span>
+             <span className="text-white">Sei già in </span><span className="text-gradient">ritardo!</span>
              </h2>
             <p className="text-xl md:text-2xl text-gray-300 max-w-3xl mx-auto">
             Quanti potenziali clienti hai già <span className="font-bold text-white">perso</span>, solo perché qualcun&apos;altro sembrava <span className="font-bold text-white">&ldquo;più professionale&rdquo;</span> e <span className="font-bold text-white">&ldquo;più affidabile&rdquo;</span>” ?

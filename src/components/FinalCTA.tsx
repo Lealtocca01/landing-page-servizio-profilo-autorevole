@@ -17,7 +17,7 @@ export function FinalCTA() {
   };
 
   return (
-    <section id="cta" className="section-padding bg-gradient-to-b from-purple-950 to-slate-900 relative overflow-hidden">
+    <section id="cta" className="section-padding bg-gradient-to-b from-blue-950 to-slate-900 relative overflow-hidden">
       {/* Background effects */}
       <div className="absolute inset-0">
         <div className="absolute top-20 left-10 w-96 h-96 bg-blue-500 rounded-full mix-blend-multiply filter blur-xl opacity-10 animate-float" />
@@ -34,10 +34,10 @@ export function FinalCTA() {
           viewport={{ once: true }}
         >
           <h2 className="text-5xl md:text-6xl font-black text-white mb-6 leading-tight">
-            È il momento di <span className="text-gradient">agire</span>
+            Ma quanto <span className="text-gradient">costa</span> tutto questo?
           </h2>
           <p className="text-xl md:text-2xl text-gray-300 max-w-3xl mx-auto leading-relaxed">
-            Ogni giorno che passi senza una strategia LinkedIn professionale è un giorno in cui i tuoi competitor ti superano.
+          Quanto ti costerà costruire la tua presenza digitale e per farti scegliere dai tuoi clienti?
           </p>
         </motion.div>
 
@@ -49,22 +49,14 @@ export function FinalCTA() {
           viewport={{ once: true }}
         >
           <div className="glass rounded-3xl p-8 md:p-12 text-center border-2 border-blue-400/20 relative">
-            {/* Pricing highlight */}
-            <motion.div
-              className="inline-flex items-center space-x-2 bg-green-500/20 backdrop-blur-sm border border-green-400/30 rounded-full px-4 py-2 mb-8"
-              animate={{ scale: [1, 1.05, 1] }}
-              transition={{ duration: 2, repeat: Infinity }}
-            >
-              <CheckCircle size={16} className="text-green-400" />
-              <span className="text-sm text-green-200">Offerta Limitata - Solo 10 posti al mese</span>
-            </motion.div>
+
 
             <h3 className="text-4xl md:text-5xl font-bold text-white mb-4">
-              <span className="text-gradient">€250</span><span className="text-2xl text-gray-400">/mese</span>
+              <span className="text-2xl text-gray-300 mr-2">Solo</span><span className="text-gradient">€250</span><span className="text-2xl text-gray-400">/mese</span>
             </h3>
             
-            <p className="text-lg text-gray-300 mb-8">
-              Investimento che si ripaga da solo in meno di 30 giorni
+            <p className="text-xl text-gray-300 mb-8 font-bold">
+            Meno della metà del costo mensile di un dipendente part-time al mese.
             </p>
 
             {/* Benefits grid */}
@@ -88,7 +80,7 @@ export function FinalCTA() {
 
             {/* Main CTA Button */}
             <motion.button
-              className="btn-primary px-12 py-5 rounded-full font-bold text-white text-xl flex items-center space-x-3 mx-auto mb-6 shadow-2xl"
+              className="btn-primary px-12 py-5 rounded-xl font-bold text-white text-xl flex items-center space-x-3 mx-auto mb-6 shadow-2xl"
               whileHover={{ scale: 1.05, boxShadow: "0 20px 50px rgba(14, 165, 233, 0.5)" }}
               whileTap={{ scale: 0.98 }}
               onClick={handleCTAClick}
@@ -112,37 +104,11 @@ export function FinalCTA() {
               🔒 Nessun contratto vincolante • Cancellazione in qualsiasi momento
             </p>
 
-            {/* Guarantee */}
-            <motion.div
-              className="bg-green-500/10 border border-green-400/20 rounded-xl p-6"
-              whileHover={{ scale: 1.02 }}
-            >
-              <div className="flex items-center justify-center space-x-2 mb-3">
-                <Shield size={20} className="text-green-400" />
-                <span className="text-green-400 font-semibold">Garanzia di Risultati</span>
-              </div>
-              <p className="text-gray-300 text-sm leading-relaxed">
-                Se non vedi un miglioramento significativo della tua presenza LinkedIn entro 30 giorni, 
-                ti rimborsiamo completamente. Senza domande, senza clausole nascoste.
-              </p>
-            </motion.div>
+
           </div>
         </motion.div>
 
-        <motion.div
-          className="text-center mt-16"
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8, delay: 0.8 }}
-          viewport={{ once: true }}
-        >
-          <p className="text-gray-400 text-lg">
-            ⏰ <span className="text-yellow-400 font-semibold">Solo 10 posti disponibili ogni mese</span> per garantire la qualità del servizio
-          </p>
-          <p className="text-gray-500 text-sm mt-2">
-            Ultimo aggiornamento: Dicembre 2024 • 7 posti ancora disponibili
-          </p>
-        </motion.div>
+
       </div>
     </section>
   );

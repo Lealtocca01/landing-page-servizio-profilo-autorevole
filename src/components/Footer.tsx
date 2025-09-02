@@ -68,7 +68,7 @@ export function Footer() {
             >
               <div className="flex items-center space-x-3 mb-4">
                 <div className="w-10 h-10 bg-gradient-to-br from-blue-500 to-green-400 rounded-lg flex items-center justify-center">
-                  <Linkedin size={24} className="text-white" />
+                  <span className="text-white font-bold text-lg tracking-tight">PA</span>
                 </div>
                 <span className="font-bold text-2xl text-white">
                   Profilo <span className="text-gradient">Autorevole</span>
@@ -177,23 +177,7 @@ export function Footer() {
             </div>
           </div>
 
-          {/* Final CTA */}
-          <motion.div
-            className="mt-8 text-center glass rounded-xl p-6"
-            whileHover={{ scale: 1.02 }}
-          >
-            <p className="text-gray-300 mb-3">
-              🚀 <strong className="text-white">Ultimo promemoria:</strong> Solo 7 posti rimasti per questo mese
-            </p>
-            <motion.button
-              className="btn-primary px-6 py-2 rounded-full font-semibold text-white text-sm transform-gpu transition-all duration-200 hover:scale-105 hover:shadow-[0_10px_26px_rgba(255,255,255,0.25)]"
-              whileHover={{ scale: 1.05, boxShadow: '0 10px 26px rgba(255,255,255,0.25)' }}
-              whileTap={{ scale: 0.95 }}
-              onClick={() => scrollToSection('#cta')}
-            >
-              Non Perdere l&apos;Opportunità
-            </motion.button>
-          </motion.div>
+
         </motion.div>
       </div>
     </footer>
