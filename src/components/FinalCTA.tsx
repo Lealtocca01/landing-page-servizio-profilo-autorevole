@@ -1,20 +1,55 @@
 'use client';
 
 import { motion } from 'framer-motion';
-import { ArrowRight, CheckCircle, Clock, Shield, Zap } from 'lucide-react';
+import { PricingCards } from '@/components/ui/pricing-cards';
 
 export function FinalCTA() {
-  const benefits = [
-    { icon: <Zap className="w-5 h-5" />, text: "Setup in 48 ore" },
-    { icon: <CheckCircle className="w-5 h-5" />, text: "Primi risultati in 7 giorni" },
-    { icon: <Shield className="w-5 h-5" />, text: "Garanzia 30 giorni" },
-    { icon: <Clock className="w-5 h-5" />, text: "Assistenza prioritaria" }
-  ];
 
-  const handleCTAClick = () => {
-    // In a real implementation, this would redirect to a booking/payment page
-    window.open('mailto:info@profiloautorevole.it?subject=Richiesta Profilo Autorevole&body=Ciao, sono interessato al servizio Profilo Autorevole. Vorrei maggiori informazioni.', '_blank');
-  };
+  // Definizione dei pricing tiers
+  const pricingTiers = [
+    {
+      name: "PROFESSIONAL",
+      price: 250,
+      pricePrefix: "Solo",
+      interval: "/mese",
+      description: "Tutto questo a meno della metà del costo di un dipendente PART-TIME al mese",
+      features: [
+        { name: "3 post a settimana (12 al mese)", included: true },
+        { name: "Strategia e piano editoriale personalizzato", included: true },
+        { name: "Creazione contenuti professionali + grafiche", included: true },
+        { name: "Pubblicazione costante", included: true },
+        { name: "Gestione engagement (commenti, interazioni)", included: true },
+        { name: "Monitoraggio e ottimizzazione continua", included: true },
+      ],
+      cta: {
+        text: "Inizia con il Base",
+        onClick: () => {
+          window.open('mailto:info@profiloautorevole.it?subject=Richiesta Pacchetto Base&body=Ciao, sono interessato al Pacchetto Base (€250/mese). Vorrei maggiori informazioni.', '_blank');
+        }
+      }
+    },
+    {
+      name: "EXECUTIVE",
+      price: 490,
+      interval: "/mese",
+      description: "Perfetto per chi vuole accelerare la crescita e trasformare LinkedIn in un vero canale di acquisizione clienti.",
+      highlight: true,
+      features: [
+        { name: "1 post al giorno (24 al mese)", included: true },
+        { name: "Tutto quello incluso nel Pacchetto Base", included: true },
+        { name: "Maggiore visibilità settimanale", included: true },
+        { name: "Presenza costante e autorevole", included: true },
+        { name: "Più opportunità di interazione e crescita", included: true },
+        { name: "Monitoraggio e ottimizzazione continua + report mensile", included: true },
+      ],
+      cta: {
+        text: "Scegli Premium",
+        onClick: () => {
+          window.open('mailto:info@profiloautorevole.it?subject=Richiesta Pacchetto Premium&body=Ciao, sono interessato al Pacchetto Premium (€490/mese). Vorrei maggiori informazioni.', '_blank');
+        }
+      }
+    },
+  ];
 
   return (
     <section id="cta" className="section-padding bg-gradient-to-b from-blue-950 to-slate-900 relative overflow-hidden">
@@ -41,72 +76,24 @@ export function FinalCTA() {
           </p>
         </motion.div>
 
+        {/* Sezione Pricing Cards */}
         <motion.div
-          className="max-w-4xl mx-auto"
           initial={{ opacity: 0, y: 40 }}
           whileInView={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8, delay: 0.2 }}
+          transition={{ duration: 0.8, delay: 0.1 }}
           viewport={{ once: true }}
+          className="mb-16 mt-8 lg:-mt-28"
         >
-          <div className="glass rounded-3xl p-8 md:p-12 text-center border-2 border-blue-400/20 relative">
-
-
-            <h3 className="text-4xl md:text-5xl font-bold text-white mb-4">
-              <span className="text-2xl text-gray-300 mr-2">Solo</span><span className="text-gradient">€250</span><span className="text-2xl text-gray-400">/mese</span>
-            </h3>
-            
-            <p className="text-xl text-gray-300 mb-8 font-bold">
-            Meno della metà del costo mensile di un dipendente part-time al mese.
-            </p>
-
-            {/* Benefits grid */}
-            <div className="grid md:grid-cols-2 gap-4 mb-10">
-              {benefits.map((benefit, index) => (
-                <motion.div
-                  key={index}
-                  className="flex items-center space-x-3 bg-white/5 rounded-lg p-4"
-                  initial={{ opacity: 0, x: index % 2 === 0 ? -20 : 20 }}
-                  whileInView={{ opacity: 1, x: 0 }}
-                  transition={{ duration: 0.5, delay: index * 0.1 }}
-                  viewport={{ once: true }}
-                >
-                  <div className="text-green-400">
-                    {benefit.icon}
-                  </div>
-                  <span className="text-white font-medium">{benefit.text}</span>
-                </motion.div>
-              ))}
-            </div>
-
-            {/* Main CTA Button */}
-            <motion.button
-              className="btn-primary px-12 py-5 rounded-xl font-bold text-white text-xl flex items-center space-x-3 mx-auto mb-6 shadow-2xl"
-              whileHover={{ scale: 1.05, boxShadow: "0 20px 50px rgba(14, 165, 233, 0.5)" }}
-              whileTap={{ scale: 0.98 }}
-              onClick={handleCTAClick}
-              animate={{ 
-                boxShadow: [
-                  "0 10px 30px rgba(14, 165, 233, 0.3)",
-                  "0 20px 40px rgba(14, 165, 233, 0.5)", 
-                  "0 10px 30px rgba(14, 165, 233, 0.3)"
-                ]
-              }}
-              transition={{ 
-                boxShadow: { duration: 3, repeat: Infinity },
-                scale: { duration: 0.2 }
-              }}
-            >
-              <span>Attiva Profilo Autorevole Oggi</span>
-              <ArrowRight size={24} />
-            </motion.button>
-
-            <p className="text-sm text-gray-400 mb-6">
-              🔒 Nessun contratto vincolante • Cancellazione in qualsiasi momento
-            </p>
-
-
-          </div>
+          <PricingCards 
+            tiers={pricingTiers}
+            sectionClassName="py-0 px-0 bg-transparent"
+            containerClassName="px-0"
+            className="gap-6 lg:gap-8"
+            cardClassName="backdrop-blur-sm shadow-xl"
+          />
         </motion.div>
+
+
 
 
       </div>

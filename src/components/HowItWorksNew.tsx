@@ -230,22 +230,47 @@ export function HowItWorksNew() {
       <div className="max-w-6xl mx-auto px-6 py-12">
         <div className="text-center mb-16">
           <h1 className="text-4xl md:text-5xl font-black mb-4 text-white">Ma come procederemo nel pratico?</h1>
-          <p className="text-xl md:text-2xl text-gray-600">
+          <p className="text-xl md:text-2xl text-gray-300">
             Un processo in 6 step strutturato e progressivo per il tuo successo
           </p>
         </div>
 
         <div className="space-y-12" ref={containerRef}>
           <div className="relative max-w-4xl mx-auto">
-            {/* Progress bar centrale */}
+            {/* Progress bar centrale - Desktop */}
             <div 
-              className="absolute"
+              className="absolute hidden lg:block"
               style={{ 
                 left: '50%',
                 top: '1.5rem',
                 transform: 'translateX(-50%)',
                 width: '4px',
-                height: `${steps.length * 12 + 21.5}rem` 
+                height: `${steps.length * 12 + 21.5}rem`
+              }}
+            >
+              {/* Barra grigia di background */}
+              <div className="absolute inset-0 bg-gray-300 rounded-full"></div>
+              
+              {/* Barra blu di progresso */}
+              <motion.div
+                className="absolute inset-x-0 top-0 bg-blue-600 rounded-full"
+                style={{
+                  scaleY: smoothProgress,
+                  transformOrigin: 'top center',
+                  height: '100%',
+                }}
+              />
+            </div>
+
+            {/* Progress bar centrale - Mobile (più lunga) */}
+            <div 
+              className="absolute block lg:hidden"
+              style={{ 
+                left: '50%',
+                top: '1.5rem',
+                transform: 'translateX(-50%)',
+                width: '4px',
+                height: `${steps.length * 12 + 70}rem` // +48.5rem extra per mobile - perfetta copertura
               }}
             >
               {/* Barra grigia di background */}
