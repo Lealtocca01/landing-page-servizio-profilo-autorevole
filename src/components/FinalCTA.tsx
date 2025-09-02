@@ -52,7 +52,7 @@ export function FinalCTA() {
   ];
 
   return (
-    <section id="cta" className="section-padding bg-gradient-to-b from-blue-950 to-slate-900 relative overflow-hidden">
+    <section id="cta" className="pt-16 md:pt-24 lg:pt-32 pb-6 md:pb-3 lg:pb-1 bg-gradient-to-b from-blue-950 via-slate-900 to-slate-900 relative overflow-hidden">
       {/* Background effects */}
       <div className="absolute inset-0">
         <div className="absolute top-20 left-10 w-96 h-96 bg-blue-500 rounded-full mix-blend-multiply filter blur-xl opacity-10 animate-float" />

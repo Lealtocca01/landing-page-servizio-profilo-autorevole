@@ -9,7 +9,7 @@ export function NoContracts() {
   };
 
   return (
-    <section className="section-padding relative overflow-hidden">
+    <section className="pt-8 pb-12 md:pt-4 md:pb-8 lg:pt-2 lg:pb-8 bg-gradient-to-b from-slate-900 to-slate-900 relative overflow-hidden">
       {/* Background effects */}
       <div className="absolute inset-0">
         <div className="absolute top-20 left-10 w-96 h-96 bg-blue-500 rounded-full mix-blend-multiply filter blur-xl opacity-10 animate-float" />

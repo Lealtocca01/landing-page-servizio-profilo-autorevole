@@ -54,69 +54,81 @@ export function ComparisonTable() {
           </p>
         </motion.div>
 
-        <motion.div
-          className="overflow-x-auto"
-          initial={{ opacity: 0, y: 40 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8, delay: 0.2 }}
-          viewport={{ once: true }}
-        >
-          <div className="glass rounded-2xl p-6 min-w-[1000px]">
-            <div className="grid grid-cols-4 gap-4">
-              {/* Header */}
-              <div className="p-4">
-                <h3 className="text-white font-semibold text-lg">Caratteristiche</h3>
-              </div>
-              <div className="p-4 text-center">
-                <motion.div
-                  className="bg-gradient-to-br from-blue-500 to-green-400 rounded-xl p-4"
-                  whileHover={{ scale: 1.05 }}
-                >
-                  <Crown size={20} className="text-white mx-auto mb-2" />
-                  <h3 className="text-white font-bold">Profilo Autorevole</h3>
-                </motion.div>
-              </div>
-              <div className="p-4 text-center">
-                <div className="bg-gray-700/50 rounded-xl p-4">
-                  <h3 className="text-gray-300 font-semibold">Agenzia Tradizionale</h3>
-                </div>
-              </div>
-              <div className="p-4 text-center">
-                <div className="bg-gray-700/50 rounded-xl p-4">
-                  <h3 className="text-gray-300 font-semibold">Dipendente / Freelancer Improvvisato</h3>
-                </div>
+        {/* Modern Cards Layout */}
+        <div className="space-y-8">
+          {features.map((item, index) => (
+            <motion.div
+              key={index}
+              className="relative"
+              initial={{ opacity: 0, y: 60 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.6, delay: index * 0.15 }}
+              viewport={{ once: true }}
+            >
+              {/* Feature Title */}
+              <div className="mb-6">
+                <h3 className="text-2xl font-bold text-white mb-2">{item.feature}</h3>
+                <div className="h-0.5 bg-gradient-to-r from-blue-500 to-transparent w-24"></div>
               </div>
 
-              {/* Features */}
-              {features.map((item, index) => (
+              {/* Comparison Cards */}
+              <div className="grid md:grid-cols-3 gap-6">
+                {/* Profilo Autorevole - Winner Card */}
                 <motion.div
-                  key={index}
-                  className="contents"
-                  initial={{ opacity: 0, x: -20 }}
-                  whileInView={{ opacity: 1, x: 0 }}
-                  transition={{ duration: 0.5, delay: index * 0.1 }}
-                  viewport={{ once: true }}
+                  className="relative group"
+                  whileHover={{ y: -8, scale: 1.02 }}
+                  transition={{ type: "spring", stiffness: 300, damping: 20 }}
                 >
-                  <div className="p-4 border-t border-gray-700/50">
-                    <span className="text-gray-200">{item.feature}</span>
-                  </div>
-                  
-                  <div className="p-4 border-t border-gray-700/50">
-                    <span className="text-green-400 font-semibold text-sm leading-relaxed">{item.profiloAutorevole}</span>
-                  </div>
-                  
-                  <div className="p-4 border-t border-gray-700/50">
-                    <span className="text-gray-300 text-sm leading-relaxed">{item.competitors}</span>
-                  </div>
-                  
-                  <div className="p-4 border-t border-gray-700/50">
-                    <span className="text-gray-300 text-sm leading-relaxed">{item.freelancer}</span>
+                  <div className="absolute inset-0 bg-gradient-to-br from-blue-500/20 via-cyan-500/20 to-green-500/20 rounded-2xl blur-xl group-hover:blur-2xl transition-all duration-300"></div>
+                  <div className="relative backdrop-blur-sm bg-slate-900/80 border border-blue-500/30 rounded-2xl p-6 h-full">
+                    <div className="flex items-center mb-4">
+                      <Crown size={24} className="text-blue-400 mr-3" />
+                      <h4 className="text-white font-bold text-lg">Profilo Autorevole</h4>
+                      <div className="ml-auto">
+                        <span className="bg-green-500/20 text-green-400 px-3 py-1 rounded-full text-xs font-semibold">MIGLIORE</span>
+                      </div>
+                    </div>
+                    <p className="text-blue-200 leading-relaxed">{item.profiloAutorevole}</p>
                   </div>
                 </motion.div>
-              ))}
-            </div>
-          </div>
-        </motion.div>
+
+                {/* Agenzia Tradizionale */}
+                <motion.div
+                  className="relative group"
+                  whileHover={{ y: -4, scale: 1.01 }}
+                  transition={{ type: "spring", stiffness: 300, damping: 20 }}
+                >
+                  <div className="backdrop-blur-sm bg-slate-800/60 border border-slate-600/30 rounded-2xl p-6 h-full">
+                    <div className="flex items-center mb-4">
+                      <div className="w-6 h-6 bg-orange-500/20 rounded-full mr-3 flex items-center justify-center">
+                        <div className="w-2 h-2 bg-orange-400 rounded-full"></div>
+                      </div>
+                      <h4 className="text-slate-300 font-semibold">Agenzia Tradizionale</h4>
+                    </div>
+                    <p className="text-slate-400 leading-relaxed">{item.competitors}</p>
+                  </div>
+                </motion.div>
+
+                {/* Freelancer */}
+                <motion.div
+                  className="relative group"
+                  whileHover={{ y: -4, scale: 1.01 }}
+                  transition={{ type: "spring", stiffness: 300, damping: 20 }}
+                >
+                  <div className="backdrop-blur-sm bg-slate-800/40 border border-slate-700/30 rounded-2xl p-6 h-full">
+                    <div className="flex items-center mb-4">
+                      <div className="w-6 h-6 bg-red-500/20 rounded-full mr-3 flex items-center justify-center">
+                        <div className="w-2 h-2 bg-red-400 rounded-full"></div>
+                      </div>
+                      <h4 className="text-slate-400 font-semibold">Dipendente / Freelancer</h4>
+                    </div>
+                    <p className="text-slate-500 leading-relaxed">{item.freelancer}</p>
+                  </div>
+                </motion.div>
+              </div>
+            </motion.div>
+          ))}
+        </div>
 
         <motion.div
           className="text-center mt-16"
