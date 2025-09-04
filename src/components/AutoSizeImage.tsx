@@ -1,6 +1,7 @@
 'use client';
 
 import { useEffect, useState, useRef, useMemo, useCallback } from 'react';
+import Image from 'next/image';
 
 interface AutoSizeImageProps {
   imageUrl?: string;
@@ -143,7 +144,7 @@ export default function AutoSizeImage({
               target={newTab ? '_blank' : '_self'}
               rel={isExternalLink(getAbsoluteUrl(link)) && newTab ? 'noopener noreferrer' : ''}
             >
-              <img
+              <Image
                 src={imageUrl}
                 loading={enableLazyLoading ? 'lazy' : 'eager'}
                 style={{
@@ -154,10 +155,11 @@ export default function AutoSizeImage({
                 }}
                 onLoad={handleLoad}
                 alt="Auto size image"
+                fill
               />
             </a>
           ) : (
-            <img
+            <Image
               src={imageUrl}
               loading={enableLazyLoading ? 'lazy' : 'eager'}
               style={{
@@ -168,6 +170,7 @@ export default function AutoSizeImage({
               }}
               onLoad={handleLoad}
               alt="Auto size image"
+              fill
             />
           )}
           <div

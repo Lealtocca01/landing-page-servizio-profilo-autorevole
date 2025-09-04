@@ -13,7 +13,7 @@ export default function GlobalError({
         <div className="min-h-screen flex items-center justify-center bg-gray-900 text-white">
           <div className="text-center max-w-md mx-auto p-6">
             <h2 className="text-2xl font-bold mb-4 text-red-400">
-              Errore critico dell'applicazione
+              Errore critico dell&apos;applicazione
             </h2>
             <p className="text-gray-300 mb-6">
               Si è verificato un errore critico. Riprova o ricarica la pagina.
