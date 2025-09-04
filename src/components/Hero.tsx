@@ -233,7 +233,7 @@ export function Hero() {
                   {/* Mobile version - Profilo Autorevole Diagram */}
                   <div className="lg:hidden flex justify-center overflow-hidden my-8">
                     <motion.img 
-                      src="/images/+ Fiducia.png" 
+                      src="/images/fiducia.png" 
                       alt="Diagramma Profilo Autorevole - Fiducia, Autorità e Clienti"
                       className="w-[1000px] h-auto object-contain scale-125"
                       initial={{ opacity: 0, scale: 0.7, y: 30, rotate: -5 }}
@@ -266,7 +266,7 @@ export function Hero() {
             {/* Right side - Profilo Autorevole Diagram - Hidden on mobile */}
             <div className="hidden lg:block lg:w-1/2 flex justify-end items-start -mt-16">
               <motion.img 
-                src="/images/+ Fiducia.png" 
+                src="/images/fiducia.png" 
                 alt="Diagramma Profilo Autorevole - Fiducia, Autorità e Clienti"
                 className="w-[600px] h-auto object-contain"
                 initial={{ opacity: 0, scale: 0.7, x: 80, rotate: -3 }}
