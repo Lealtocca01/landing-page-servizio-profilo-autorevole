@@ -12,7 +12,7 @@ export function Footer() {
   const socialLinks = [
     { icon: <Linkedin size={20} />, href: "https://linkedin.com/company/profilo-autorevole", label: "LinkedIn" },
     { icon: <Mail size={20} />, href: "mailto:info@profiloautorevole.it", label: "Email" },
-    { icon: <Phone size={20} />, href: "tel:+393901234567", label: "Telefono" }
+    { icon: <Phone size={20} />, href: "tel:+393442517856", label: "Telefono" }
   ];
 
   const scrollToSection = (href: string) => {
@@ -57,7 +57,7 @@ export function Footer() {
                 </div>
                 <div className="flex items-center justify-center space-x-3 text-gray-300 text-sm">
                   <Phone size={14} className="text-green-400" />
-                  <span>+39 390 123 4567</span>
+                  <span>+39 344 251 7856</span>
                 </div>
                 <div className="flex items-center justify-center space-x-3 text-gray-300 text-sm">
                   <MapPin size={14} className="text-yellow-400" />
@@ -94,7 +94,7 @@ export function Footer() {
         >
           <div className="flex flex-col md:flex-row items-center justify-between space-y-4 md:space-y-0">
             <div className="text-gray-400 text-sm">
-              © {currentYear} Profilo Autorevole. Tutti i diritti riservati. P.IVA 12345678901
+              © {currentYear} Profilo Autorevole. Tutti i diritti riservati.
             </div>
             
             <div className="flex items-center space-x-6 text-sm">

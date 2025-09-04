@@ -7,17 +7,40 @@ import { useState } from "react"
 interface ContactPopupProps {
   isOpen: boolean
   onClose: () => void
+  sorgente?: string // Aggiungiamo il campo sorgente per tracciare da dove proviene la richiesta
 }
 
-export function ContactPopup({ isOpen, onClose }: ContactPopupProps) {
-  const [formData, setFormData] = useState({
+// Interfaccia per i dati del form
+interface FormData {
+  nome: string
+  cognome: string
+  email: string
+  telefono: string
+  azienda: string // Rinominiamo attivita in azienda per essere coerenti con l'API
+  settore: string
+  sorgente?: string
+}
+
+// Interfaccia per gli errori di validazione
+interface ValidationErrors {
+  [key: string]: string[]
+}
+
+export function ContactPopup({ isOpen, onClose, sorgente = "popup" }: ContactPopupProps) {
+  const [formData, setFormData] = useState<FormData>({
     nome: "",
     cognome: "",
     email: "",
     telefono: "",
-    attivita: "",
-    settore: ""
+    azienda: "",
+    settore: "",
+    sorgente: sorgente
   })
+
+  // Stati per gestire il caricamento e gli errori
+  const [isLoading, setIsLoading] = useState(false)
+  const [errors, setErrors] = useState<ValidationErrors>({})
+  const [successMessage, setSuccessMessage] = useState("")
 
   const handleInputChange = (e: React.ChangeEvent<HTMLInputElement | HTMLSelectElement>) => {
     const { name, value } = e.target
@@ -25,14 +48,75 @@ export function ContactPopup({ isOpen, onClose }: ContactPopupProps) {
       ...prev,
       [name]: value
     }))
+    
+    // Rimuovi l'errore per questo campo quando l'utente inizia a digitare
+    if (errors[name]) {
+      setErrors(prev => ({
+        ...prev,
+        [name]: []
+      }))
+    }
   }
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault()
-    // Qui puoi aggiungere la logica per inviare i dati
-    console.log("Form submitted:", formData)
-    // Per ora chiudiamo il popup
-    onClose()
+    setIsLoading(true)
+    setErrors({})
+    setSuccessMessage("")
+
+    try {
+      // Prepara i dati per l'API (rimuoviamo il campo sorgente se vuoto)
+      const apiData = {
+        nome: formData.nome,
+        cognome: formData.cognome,
+        email: formData.email,
+        telefono: formData.telefono || undefined, // Invia undefined se vuoto
+        azienda: formData.azienda || undefined,
+        settore: formData.settore,
+        sorgente: formData.sorgente || undefined
+      }
+
+      const response = await fetch('/api/contact', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(apiData),
+      })
+
+      const result = await response.json()
+
+      if (result.ok) {
+        // Successo - mostra messaggio e chiudi il popup dopo 2 secondi
+        setSuccessMessage(result.message)
+        setTimeout(() => {
+          onClose()
+          // Reset del form
+          setFormData({
+            nome: "",
+            cognome: "",
+            email: "",
+            telefono: "",
+            azienda: "",
+            settore: "",
+            sorgente: sorgente
+          })
+          setSuccessMessage("")
+        }, 2000)
+      } else {
+        // Errore - mostra errori di validazione o altri errori
+        if (result.errors) {
+          setErrors(result.errors)
+        } else {
+          setErrors({ general: [result.message || "Si è verificato un errore"] })
+        }
+      }
+    } catch (error) {
+      console.error('Errore nella richiesta:', error)
+      setErrors({ general: ["Errore di connessione. Riprova più tardi."] })
+    } finally {
+      setIsLoading(false)
+    }
   }
 
   return (
@@ -80,9 +164,14 @@ export function ContactPopup({ isOpen, onClose }: ContactPopupProps) {
                     placeholder="Il tuo Nome"
                     value={formData.nome}
                     onChange={handleInputChange}
-                    className="w-full px-4 py-3 bg-gray-800 border border-gray-600 rounded-lg text-white placeholder-gray-400 focus:outline-none focus:border-blue-500 focus:ring-1 focus:ring-blue-500 transition-colors"
+                    className={`w-full px-4 py-3 bg-gray-800 border rounded-lg text-white placeholder-gray-400 focus:outline-none focus:ring-1 transition-colors ${
+                      errors.nome ? 'border-red-500 focus:border-red-500 focus:ring-red-500' : 'border-gray-600 focus:border-blue-500 focus:ring-blue-500'
+                    }`}
                     required
                   />
+                  {errors.nome && (
+                    <p className="mt-1 text-sm text-red-400">{errors.nome[0]}</p>
+                  )}
                 </div>
 
                 {/* Cognome */}
@@ -93,9 +182,14 @@ export function ContactPopup({ isOpen, onClose }: ContactPopupProps) {
                     placeholder="Il tuo Cognome"
                     value={formData.cognome}
                     onChange={handleInputChange}
-                    className="w-full px-4 py-3 bg-gray-800 border border-gray-600 rounded-lg text-white placeholder-gray-400 focus:outline-none focus:border-blue-500 focus:ring-1 focus:ring-blue-500 transition-colors"
+                    className={`w-full px-4 py-3 bg-gray-800 border rounded-lg text-white placeholder-gray-400 focus:outline-none focus:ring-1 transition-colors ${
+                      errors.cognome ? 'border-red-500 focus:border-red-500 focus:ring-red-500' : 'border-gray-600 focus:border-blue-500 focus:ring-blue-500'
+                    }`}
                     required
                   />
+                  {errors.cognome && (
+                    <p className="mt-1 text-sm text-red-400">{errors.cognome[0]}</p>
+                  )}
                 </div>
 
                 {/* Email */}
@@ -106,9 +200,14 @@ export function ContactPopup({ isOpen, onClose }: ContactPopupProps) {
                     placeholder="La tua mail"
                     value={formData.email}
                     onChange={handleInputChange}
-                    className="w-full px-4 py-3 bg-gray-800 border border-gray-600 rounded-lg text-white placeholder-gray-400 focus:outline-none focus:border-blue-500 focus:ring-1 focus:ring-blue-500 transition-colors"
+                    className={`w-full px-4 py-3 bg-gray-800 border rounded-lg text-white placeholder-gray-400 focus:outline-none focus:ring-1 transition-colors ${
+                      errors.email ? 'border-red-500 focus:border-red-500 focus:ring-red-500' : 'border-gray-600 focus:border-blue-500 focus:ring-blue-500'
+                    }`}
                     required
                   />
+                  {errors.email && (
+                    <p className="mt-1 text-sm text-red-400">{errors.email[0]}</p>
+                  )}
                 </div>
 
                 {/* Telefono */}
@@ -119,22 +218,30 @@ export function ContactPopup({ isOpen, onClose }: ContactPopupProps) {
                     placeholder="Il tuo numero"
                     value={formData.telefono}
                     onChange={handleInputChange}
-                    className="w-full px-4 py-3 bg-gray-800 border border-gray-600 rounded-lg text-white placeholder-gray-400 focus:outline-none focus:border-blue-500 focus:ring-1 focus:ring-blue-500 transition-colors"
-                    required
+                    className={`w-full px-4 py-3 bg-gray-800 border rounded-lg text-white placeholder-gray-400 focus:outline-none focus:ring-1 transition-colors ${
+                      errors.telefono ? 'border-red-500 focus:border-red-500 focus:ring-red-500' : 'border-gray-600 focus:border-blue-500 focus:ring-blue-500'
+                    }`}
                   />
+                  {errors.telefono && (
+                    <p className="mt-1 text-sm text-red-400">{errors.telefono[0]}</p>
+                  )}
                 </div>
 
-                {/* Attività */}
+                {/* Azienda */}
                 <div>
                   <input
                     type="text"
-                    name="attivita"
+                    name="azienda"
                     placeholder="Indica il nome della tua attività"
-                    value={formData.attivita}
+                    value={formData.azienda}
                     onChange={handleInputChange}
-                    className="w-full px-4 py-3 bg-gray-800 border border-gray-600 rounded-lg text-white placeholder-gray-400 focus:outline-none focus:border-blue-500 focus:ring-1 focus:ring-blue-500 transition-colors"
-                    required
+                    className={`w-full px-4 py-3 bg-gray-800 border rounded-lg text-white placeholder-gray-400 focus:outline-none focus:ring-1 transition-colors ${
+                      errors.azienda ? 'border-red-500 focus:border-red-500 focus:ring-red-500' : 'border-gray-600 focus:border-blue-500 focus:ring-blue-500'
+                    }`}
                   />
+                  {errors.azienda && (
+                    <p className="mt-1 text-sm text-red-400">{errors.azienda[0]}</p>
+                  )}
                 </div>
 
                 {/* Settore */}
@@ -143,7 +250,9 @@ export function ContactPopup({ isOpen, onClose }: ContactPopupProps) {
                     name="settore"
                     value={formData.settore}
                     onChange={handleInputChange}
-                    className="w-full px-4 py-3 bg-gray-800 border border-gray-600 rounded-lg text-white focus:outline-none focus:border-blue-500 focus:ring-1 focus:ring-blue-500 transition-colors"
+                    className={`w-full px-4 py-3 bg-gray-800 border rounded-lg text-white focus:outline-none focus:ring-1 transition-colors ${
+                      errors.settore ? 'border-red-500 focus:border-red-500 focus:ring-red-500' : 'border-gray-600 focus:border-blue-500 focus:ring-blue-500'
+                    }`}
                     required
                   >
                     <option value="" className="text-gray-400">In che settore operi?</option>
@@ -167,14 +276,36 @@ export function ContactPopup({ isOpen, onClose }: ContactPopupProps) {
                     <option value="immobiliare" className="text-white">Immobiliare</option>
                     <option value="altro" className="text-white">Altro</option>
                   </select>
+                  {errors.settore && (
+                    <p className="mt-1 text-sm text-red-400">{errors.settore[0]}</p>
+                  )}
                 </div>
+
+                {/* Messaggi di errore generale */}
+                {errors.general && (
+                  <div className="bg-red-900/20 border border-red-500 rounded-lg p-3">
+                    <p className="text-red-400 text-sm">{errors.general[0]}</p>
+                  </div>
+                )}
+
+                {/* Messaggio di successo */}
+                {successMessage && (
+                  <div className="bg-green-900/20 border border-green-500 rounded-lg p-3">
+                    <p className="text-green-400 text-sm">{successMessage}</p>
+                  </div>
+                )}
 
                 {/* Submit Button */}
                 <button
                   type="submit"
-                  className="w-full bg-blue-500 hover:bg-blue-600 text-white font-bold py-4 px-6 rounded-lg transition-colors duration-200 text-lg"
+                  disabled={isLoading}
+                  className={`w-full font-bold py-4 px-6 rounded-lg transition-colors duration-200 text-lg ${
+                    isLoading
+                      ? 'bg-gray-600 cursor-not-allowed text-gray-300'
+                      : 'bg-blue-500 hover:bg-blue-600 text-white'
+                  }`}
                 >
-                  Sì, Voglio Maggiori informazioni
+                  {isLoading ? 'Invio in corso...' : 'Sì, Voglio Maggiori informazioni'}
                 </button>
               </form>
             </div>
