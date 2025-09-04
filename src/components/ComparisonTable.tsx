@@ -1,6 +1,7 @@
 'use client';
 
 import { motion } from 'framer-motion';
+import Image from 'next/image';
 import { Crown } from 'lucide-react';
 import GradientButton from '@/components/ui/GradientButton';
 import { useContactPopup } from '@/contexts/ContactPopupContext';
@@ -47,9 +48,11 @@ export function ComparisonTable() {
           viewport={{ once: true }}
         >
           <div className="relative max-w-sm mx-auto">
-            <img 
+            <Image 
               src="/images/Cell.png" 
               alt="Smartphone con analytics di performance e crescita business"
+              width={400}
+              height={600}
               className="w-full h-auto object-contain drop-shadow-lg filter"
               style={{
                 filter: 'drop-shadow(0 0 8px rgba(255, 255, 255, 0.15)) drop-shadow(0 0 16px rgba(255, 255, 255, 0.1))',

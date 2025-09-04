@@ -4,6 +4,7 @@
 "use client"
 
 import { motion } from "framer-motion"
+import Image from "next/image"
 import { Tilt } from '@/components/ui/tilt'
 import { Spotlight } from '@/components/ui/spotlight'
 import { GlassIcons } from '@/components/ui/glass-icons'
@@ -114,17 +115,17 @@ export function HowItWorksNew() {
             {/* Layout mobile con distribuzione su più righe */}
             <div className="block md:hidden space-y-2">
               <div><span className="text-3xl font-normal">Affidati a</span> <span className="text-gradient text-3xl font-normal">Profilo Autorevole</span><span className="text-3xl font-normal">,</span></div>
-              <div>l'unica agenzia <span className="text-gradient">davvero specializzata</span></div>
+              <div>l&apos;unica agenzia <span className="text-gradient">davvero specializzata</span></div>
               <div><span className="text-3xl font-normal">nel costruire la tua presenza</span></div>
               <div><span className="text-3xl font-normal">su LinkedIn.</span></div>
             </div>
             {/* Layout desktop normale */}
             <div className="hidden md:block">
-              Affidati a <span className="text-gradient">Profilo Autorevole</span>, l'unica agenzia <span className="text-gradient">davvero specializzata</span> nel costruire la tua presenza su LinkedIn.
+              Affidati a <span className="text-gradient">Profilo Autorevole</span>, l&apos;unica agenzia <span className="text-gradient">davvero specializzata</span> nel costruire la tua presenza su LinkedIn.
             </div>
           </h2>
                         <p className="text-xl md:text-2xl text-gray-300 leading-relaxed max-w-4xl text-left">
-                <span className="font-bold">Hai capito bene:</span> mentre le altre agenzie fanno "un po' di tutto", noi ci concentriamo su una sola cosa e la facciamo meglio di chiunque altro.
+                <span className="font-bold">Hai capito bene:</span> mentre le altre agenzie fanno &quot;un po&apos; di tutto&quot;, noi ci concentriamo su una sola cosa e la facciamo meglio di chiunque altro.
               </p>
               
               {/* CTA Button aggiuntivo */}
@@ -218,9 +219,11 @@ export function HowItWorksNew() {
                 
                 {/* Contenuto della card - Immagine reale */}
                 <div className="relative z-20 p-0">
-                  <img 
+                  <Image 
                     src="/images/linkedin-devices.jpg" 
                     alt="Laptop e smartphone che mostrano profili LinkedIn con icone neon fluttuanti"
+                    width={800}
+                    height={600}
                     className="w-full h-full object-cover rounded-3xl"
                   />
                 </div>

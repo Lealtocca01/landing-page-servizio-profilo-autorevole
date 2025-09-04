@@ -1,6 +1,7 @@
 'use client';
 
 import { motion } from 'framer-motion';
+import Image from 'next/image';
 import { Shield, ArrowRight } from 'lucide-react';
 import { BGPattern } from '@/components/ui/bg-pattern';
 import GradientButton from '@/components/ui/GradientButton';
@@ -38,9 +39,11 @@ export function NoContracts() {
             viewport={{ once: true }}
           >
             <div className="relative max-w-xl mx-auto">
-              <img 
+              <Image 
                 src="/images/Cell.png" 
                 alt="Smartphone con analytics di performance e crescita business"
+                width={400}
+                height={600}
                 className="w-full h-auto object-contain drop-shadow-lg filter"
                 style={{
                   filter: 'drop-shadow(0 0 8px rgba(255, 255, 255, 0.15)) drop-shadow(0 0 16px rgba(255, 255, 255, 0.1))',
@@ -74,7 +77,7 @@ export function NoContracts() {
             {/* Section 2 */}
             <div>
               <h4 className="text-2xl md:text-3xl font-bold text-white mb-4">
-                Dov'è l'inghippo allora? <span className="font-normal">Non tutti riusciranno ad accedere a</span>{' '}
+                Dov&apos;è l&apos;inghippo allora? <span className="font-normal">Non tutti riusciranno ad accedere a</span>{' '}
                 <span className="text-blue-400">Profilo Autorevole</span>.
               </h4>
             </div>
