@@ -10,10 +10,9 @@ import { Footer } from '@/components/Footer';
 
 export default function Home() {
   return (
-    <main className="min-h-screen gradient-bg">
+    <main className="min-h-screen" style={{ background: '#060130' }}>
       <Navbar />
       <Hero />
-
       <HowItWorksNew />
       <FinalCTA />
       <NoContracts />

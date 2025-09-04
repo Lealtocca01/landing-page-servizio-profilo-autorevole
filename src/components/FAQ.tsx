@@ -3,9 +3,12 @@
 import { useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { Plus, Minus, HelpCircle } from 'lucide-react';
+import GradientButton from '@/components/ui/GradientButton';
+import { useContactPopup } from '@/contexts/ContactPopupContext';
 
 export function FAQ() {
   const [openFAQ, setOpenFAQ] = useState<number | null>(0);
+  const { openPopup } = useContactPopup();
 
   const faqs = [
     {
@@ -43,7 +46,7 @@ export function FAQ() {
   ];
 
   return (
-    <section className="section-padding bg-gradient-to-b from-slate-900 to-slate-950">
+    <section className="section-padding">
       <div className="container-custom">
         <motion.div
           className="text-center mb-20"
@@ -133,16 +136,9 @@ export function FAQ() {
             <p className="text-gray-300 mb-6">
               Siamo qui per aiutarti. Scrivici e ti risponderemo entro 2 ore lavorative.
             </p>
-            <motion.button
-              className="btn-primary px-6 py-3 rounded-xl font-semibold text-white"
-              whileHover={{ scale: 1.05 }}
-              whileTap={{ scale: 0.95 }}
-              onClick={() => {
-                window.open('mailto:info@profiloautorevole.it?subject=Domanda su Profilo Autorevole', '_blank');
-              }}
-            >
-              Contattaci Ora
-            </motion.button>
+            <GradientButton onClick={openPopup}>
+              <span>Candidati ora per Profilo Autorevole</span>
+            </GradientButton>
           </div>
         </motion.div>
       </div>

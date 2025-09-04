@@ -1,6 +1,8 @@
 import type { Metadata } from 'next';
 import './globals.css';
 import { ScrollProgressBar } from '@/components/ScrollProgressBar';
+import { ContactPopupProvider } from '@/contexts/ContactPopupContext';
+import { ContactPopupManager } from '@/components/ContactPopupManager';
 
 export const metadata: Metadata = {
   title: 'Profilo Autorevole | Trasforma il tuo LinkedIn in uno strumento di business',
@@ -34,8 +36,11 @@ export default function RootLayout({
   return (
     <html lang="it" className="scroll-smooth">
       <body className="antialiased">
-        <ScrollProgressBar />
-        {children}
+        <ContactPopupProvider>
+          <ScrollProgressBar />
+          {children}
+          <ContactPopupManager />
+        </ContactPopupProvider>
       </body>
     </html>
   );

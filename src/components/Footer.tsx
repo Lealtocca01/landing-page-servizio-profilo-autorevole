@@ -2,39 +2,12 @@
 
 import { motion } from 'framer-motion';
 import { Linkedin, Mail, Phone, MapPin, ExternalLink } from 'lucide-react';
+import GradientButton from '@/components/ui/GradientButton';
 
 export function Footer() {
   const currentYear = new Date().getFullYear();
 
-  const footerLinks = [
-    {
-      title: "Servizi",
-      links: [
-        { label: "Ottimizzazione Profilo", href: "#come-funziona" },
-        { label: "Content Strategy", href: "#benefici" },
-        { label: "Personal Branding", href: "#testimonianze" },
-        { label: "LinkedIn Analytics", href: "#prezzi" }
-      ]
-    },
-    {
-      title: "Azienda",
-      links: [
-        { label: "Chi Siamo", href: "#" },
-        { label: "Il Nostro Team", href: "#" },
-        { label: "Casi Studio", href: "#testimonianze" },
-        { label: "Blog & Risorse", href: "#" }
-      ]
-    },
-    {
-      title: "Supporto",
-      links: [
-        { label: "FAQ", href: "#faq" },
-        { label: "Contatti", href: "#contatti" },
-        { label: "Garanzia", href: "#garanzia" },
-        { label: "Termini di Servizio", href: "#" }
-      ]
-    }
-  ];
+
 
   const socialLinks = [
     { icon: <Linkedin size={20} />, href: "https://linkedin.com/company/profilo-autorevole", label: "LinkedIn" },
@@ -54,97 +27,66 @@ export function Footer() {
   };
 
   return (
-    <footer className="bg-gradient-to-t from-slate-950 to-slate-900 border-t border-gray-800">
-      <div className="container-custom py-16">
-        <div className="grid md:grid-cols-2 lg:grid-cols-5 gap-12">
+    <footer className="border-t border-gray-800" style={{ background: '#060732' }}>
+      <div className="container-custom py-8 md:py-16">
+        <div className="max-w-4xl mx-auto">
           {/* Brand Section */}
-          <div className="lg:col-span-2">
+          <div>
             <motion.div
-              className="mb-6"
+              className="mb-4 md:mb-6 text-center"
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.6 }}
               viewport={{ once: true }}
             >
-              <div className="flex items-center space-x-3 mb-4">
-                <div className="w-10 h-10 bg-gradient-to-br from-blue-500 to-green-400 rounded-lg flex items-center justify-center">
-                  <span className="text-white font-bold text-lg tracking-tight">PA</span>
-                </div>
-                <span className="font-bold text-2xl text-white">
+              <div className="flex items-center justify-center space-x-3 mb-3 md:mb-4">
+                <span className="font-bold text-xl md:text-2xl text-white">
                   Profilo <span className="text-gradient">Autorevole</span>
                 </span>
               </div>
-              <p className="text-gray-300 leading-relaxed mb-6">
+              <p className="text-gray-300 leading-relaxed mb-4 md:mb-6 text-sm md:text-base">
                 Trasformiamo il tuo LinkedIn nel biglietto da visita che attrae clienti. 
                 Oltre 500 professionisti hanno già scelto la nostra expertise per dominare LinkedIn.
               </p>
               
               {/* Contact Info */}
-              <div className="space-y-3 mb-6">
-                <div className="flex items-center space-x-3 text-gray-300">
-                  <Mail size={16} className="text-blue-400" />
+              <div className="space-y-2 md:space-y-3 mb-4 md:mb-6">
+                <div className="flex items-center justify-center space-x-3 text-gray-300 text-sm">
+                  <Mail size={14} className="text-blue-400" />
                   <span>info@profiloautorevole.it</span>
                 </div>
-                <div className="flex items-center space-x-3 text-gray-300">
-                  <Phone size={16} className="text-green-400" />
+                <div className="flex items-center justify-center space-x-3 text-gray-300 text-sm">
+                  <Phone size={14} className="text-green-400" />
                   <span>+39 390 123 4567</span>
                 </div>
-                <div className="flex items-center space-x-3 text-gray-300">
-                  <MapPin size={16} className="text-yellow-400" />
+                <div className="flex items-center justify-center space-x-3 text-gray-300 text-sm">
+                  <MapPin size={14} className="text-yellow-400" />
                   <span>Milano, Italia</span>
                 </div>
               </div>
 
               {/* Social Links */}
-              <div className="flex space-x-4">
+              <div className="flex justify-center space-x-3">
                 {socialLinks.map((social, index) => (
                   <motion.button
                     key={index}
-                    className="w-10 h-10 bg-gray-800/50 rounded-full flex items-center justify-center text-gray-400 hover:text-white hover:bg-blue-500/20 transition-all duration-300"
+                    className="w-8 h-8 md:w-10 md:h-10 bg-gray-800/50 rounded-full flex items-center justify-center text-gray-400 hover:text-white hover:bg-blue-500/20 transition-all duration-300"
                     whileHover={{ scale: 1.1 }}
                     whileTap={{ scale: 0.95 }}
                     onClick={() => scrollToSection(social.href)}
                     aria-label={social.label}
                   >
-                    {social.icon}
+                    <div className="scale-75 md:scale-100">{social.icon}</div>
                   </motion.button>
                 ))}
               </div>
             </motion.div>
           </div>
-
-          {/* Links Sections */}
-          {footerLinks.map((section, index) => (
-            <motion.div
-              key={section.title}
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.6, delay: index * 0.1 }}
-              viewport={{ once: true }}
-            >
-              <h3 className="text-white font-semibold mb-4">{section.title}</h3>
-              <ul className="space-y-2">
-                {section.links.map((link, linkIndex) => (
-                  <li key={linkIndex}>
-                    <button
-                      className="text-gray-400 hover:text-white transition-colors duration-200 flex items-center space-x-1 group"
-                      onClick={() => scrollToSection(link.href)}
-                    >
-                      <span>{link.label}</span>
-                      {!link.href.startsWith('#') && (
-                        <ExternalLink size={12} className="opacity-0 group-hover:opacity-100 transition-opacity duration-200" />
-                      )}
-                    </button>
-                  </li>
-                ))}
-              </ul>
-            </motion.div>
-          ))}
         </div>
 
         {/* Bottom Section */}
         <motion.div
-          className="border-t border-gray-800 mt-12 pt-8"
+          className="border-t border-gray-800 mt-8 md:mt-12 pt-6 md:pt-8"
           initial={{ opacity: 0 }}
           whileInView={{ opacity: 1 }}
           transition={{ duration: 0.6, delay: 0.4 }}

@@ -2,8 +2,12 @@
 
 import { motion } from 'framer-motion';
 import { Crown } from 'lucide-react';
+import GradientButton from '@/components/ui/GradientButton';
+import { useContactPopup } from '@/contexts/ContactPopupContext';
 
 export function ComparisonTable() {
+  const { openPopup } = useContactPopup();
+
   const features = [
     {
       feature: "Cosa Offre",
@@ -32,7 +36,29 @@ export function ComparisonTable() {
   ];
 
   return (
-    <section id="prezzi" className="section-padding bg-gradient-to-b from-slate-950 to-blue-950">
+    <section id="prezzi" className="section-padding" style={{ background: '#040124' }}>
+      {/* Immagine - visibile solo su mobile */}
+      <div className="mb-12 block lg:hidden">
+        <motion.div
+          className="relative flex justify-center"
+          initial={{ opacity: 0, y: 30 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.8 }}
+          viewport={{ once: true }}
+        >
+          <div className="relative max-w-sm mx-auto">
+            <img 
+              src="/images/Cell.png" 
+              alt="Smartphone con analytics di performance e crescita business"
+              className="w-full h-auto object-contain drop-shadow-lg filter"
+              style={{
+                filter: 'drop-shadow(0 0 8px rgba(255, 255, 255, 0.15)) drop-shadow(0 0 16px rgba(255, 255, 255, 0.1))',
+              }}
+            />
+          </div>
+        </motion.div>
+      </div>
+      
       <div className="container-custom">
         <motion.div
           className="text-center mb-20"
@@ -137,17 +163,11 @@ export function ComparisonTable() {
           transition={{ duration: 0.8, delay: 0.8 }}
           viewport={{ once: true }}
         >
-          <motion.button
-            className="btn-primary px-8 py-3 rounded-xl font-semibold text-white transform-gpu transition-all duration-200 hover:scale-105 hover:shadow-[0_10px_26px_rgba(255,255,255,0.25)]"
-            whileHover={{ scale: 1.05, boxShadow: '0 10px 26px rgba(255,255,255,0.25)' }}
-            whileTap={{ scale: 0.95 }}
-            onClick={() => {
-              const element = document.querySelector('#cta');
-              if (element) element.scrollIntoView({ behavior: 'smooth' });
-            }}
-          >
-            Scegli Profilo Autorevole Ora
-          </motion.button>
+          <div className="flex justify-center lg:justify-start">
+            <GradientButton onClick={openPopup}>
+              <span>Candidati ora per Profilo Autorevole</span>
+            </GradientButton>
+          </div>
         </motion.div>
       </div>
     </section>

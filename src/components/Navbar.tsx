@@ -34,11 +34,11 @@ export function NavBar({ items, className }: NavBarProps) {
   return (
     <div
       className={cn(
-        "fixed bottom-0 sm:top-0 left-1/2 -translate-x-1/2 z-50 mb-6 sm:pt-6",
+        "fixed bottom-0 sm:top-0 left-1/2 -translate-x-1/2 z-50 mb-6 sm:pt-2",
         className,
       )}
     >
-      <div className="flex items-center gap-3 bg-background/5 border border-border backdrop-blur-lg py-1 px-1 rounded-full shadow-lg">
+      <div className="flex items-center gap-3 bg-background/5 border border-border backdrop-blur-lg py-1.5 px-1.5 rounded-full shadow-lg">
         {items.map((item) => {
           const Icon = item.icon;
           const isActive = activeTab === item.name;
@@ -49,7 +49,7 @@ export function NavBar({ items, className }: NavBarProps) {
               href={item.url}
               onClick={() => setActiveTab(item.name)}
               className={cn(
-                "relative cursor-pointer text-sm font-semibold px-6 py-2 rounded-full transition-all duration-300 group",
+                "relative cursor-pointer text-sm font-semibold px-6 py-2.5 rounded-full transition-all duration-300 group",
                 "text-white/80 hover:text-white hover:scale-105",
                 isActive && "text-white",
               )}
@@ -76,7 +76,7 @@ export function NavBar({ items, className }: NavBarProps) {
               
               <span className="hidden md:inline relative z-10">{item.name}</span>
               <span className="md:hidden relative z-10">
-                <Icon size={18} strokeWidth={2.5} />
+                <Icon size={19} strokeWidth={2.5} />
               </span>
               {isActive && (
                 <motion.div
@@ -103,9 +103,7 @@ export function Navbar() {
   const items: NavItem[] = [
     { name: "Home", url: "#hero", icon: Home },
     { name: "Come funziona", url: "#come-funziona", icon: Info },
-    { name: "Benefici", url: "#benefici", icon: ThumbsUp },
-    { name: "Testimonianze", url: "#testimonianze", icon: Quote },
-    { name: "Prezzi", url: "#prezzi", icon: CreditCard },
+    { name: "Perché noi?", url: "#prezzi", icon: ThumbsUp }, // Links to ComparisonTable section
   ];
 
   return <NavBar items={items} />;

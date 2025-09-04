@@ -6,6 +6,7 @@ import { cn } from "@/lib/utils";
 import { CheckIcon, ArrowRightIcon } from "@radix-ui/react-icons";
 import { motion, useInView } from "framer-motion";
 import { useRef, useEffect, useState } from "react";
+import PricingGradientButton from "@/components/ui/PricingGradientButton";
 
 // Componente per il contatore animato del prezzo
 const AnimatedPrice = ({ price, highlight, delay = 0 }: { price: number; highlight?: boolean; delay?: number }) => {
@@ -93,8 +94,8 @@ export function PricingCards({
         <section
             className={cn(
                 "text-foreground",
-                "py-12 sm:py-24 md:py-32 px-4",
-                "fade-bottom overflow-hidden pb-0",
+                "pt-4 pb-8 sm:py-24 md:py-16 lg:py-8 px-4",
+                "fade-bottom",
                 sectionClassName
             )}
         >
@@ -121,11 +122,16 @@ export function PricingCards({
                             className={cn(
                                 "relative group cursor-pointer",
                                 "rounded-2xl transition-all duration-500",
-                                tier.highlight
-                                    ? "glass border-blue-400/30"
-                                    : "relative bg-gradient-to-r from-blue-500 via-cyan-500 to-green-500 p-[2px] scale-105 -translate-y-4 z-20",
-                                tier.highlight ? "hover:border-blue-400/50 dark:hover:border-blue-400/50" : "",
-                                tier.highlight 
+                                // Special styling for second package (index 1) with platinum border
+                                index === 1 
+                                    ? "glass border-2 border-[#E5E4E2] shadow-[0_0_0_2px_rgba(229,228,226,0.4)]"
+                                    : tier.highlight
+                                        ? "glass border-[1px] border-[#E5E4E2]"
+                                        : "relative bg-gradient-to-r from-blue-500 via-cyan-500 to-green-500 p-[2px] scale-105 -translate-y-4 z-20",
+                                tier.highlight && index !== 1 ? "hover:border-[#E5E4E2] dark:hover:border-[#E5E4E2]" : "",
+                                // Enhanced hover for second package
+                                index === 1 ? "hover:border-[#E5E4E2] hover:shadow-[0_0_0_3px_rgba(229,228,226,0.6)]" : "",
+                                tier.highlight && index !== 1
                                     ? "hover:shadow-[0_8px_40px_-12px_rgba(0,0,0,0.1)] dark:hover:shadow-[0_8px_40px_-12px_rgba(0,0,0,0.3)]"
                                     : "shadow-[0_20px_50px_-12px_rgba(59,130,246,0.4)] hover:shadow-[0_25px_60px_-12px_rgba(59,130,246,0.5)]",
                                 cardClassName
@@ -173,7 +179,9 @@ export function PricingCards({
                             
                             <div className={cn(
                                 "p-10 flex flex-col h-full font-sans rounded-2xl",
-                                !tier.highlight ? "bg-slate-900/90 backdrop-blur-sm" : ""
+                                !tier.highlight ? "bg-slate-900/90 backdrop-blur-sm" : "",
+                                // Add extra padding for second package to ensure border visibility
+                                index === 1 ? "mb-2" : ""
                             )}>
                                 <div className="space-y-4">
                                     <h3 className={cn(
@@ -252,31 +260,11 @@ export function PricingCards({
 
                                 {tier.cta && (
                                     <div className="mt-8">
-                                        <Button
-                                            className={cn(
-                                                "w-full h-12 group relative font-bold rounded-xl",
-                                                tier.highlight
-                                                    ? "btn-primary text-white"
-                                                    : "btn-primary text-white",
-                                                "transition-all duration-300"
-                                            )}
+                                        <PricingGradientButton
                                             onClick={tier.cta.onClick}
-                                            asChild={Boolean(tier.cta.href)}
                                         >
-                                            {tier.cta.href ? (
-                                                <a href={tier.cta.href}>
-                                                    <span className="relative z-10 flex items-center justify-center gap-2 font-medium tracking-wide">
-                                                        {tier.cta.text}
-                                                        <ArrowRightIcon className="w-4 h-4 transition-transform group-hover:translate-x-1" />
-                                                    </span>
-                                                </a>
-                                            ) : (
-                                                <span className="relative z-10 flex items-center justify-center gap-2 font-medium tracking-wide">
-                                                    {tier.cta.text}
-                                                    <ArrowRightIcon className="w-4 h-4 transition-transform group-hover:translate-x-1" />
-                                                </span>
-                                            )}
-                                        </Button>
+                                            {tier.cta.text}
+                                        </PricingGradientButton>
                                     </div>
                                 )}
                             </div>
