@@ -3,6 +3,7 @@ import './globals.css';
 import { ScrollProgressBar } from '@/components/ScrollProgressBar';
 import { ContactPopupProvider } from '@/contexts/ContactPopupContext';
 import { ContactPopupManager } from '@/components/ContactPopupManager';
+import { SpeedInsights } from '@vercel/speed-insights/next';
 
 export const metadata: Metadata = {
   title: 'Profilo Autorevole | Trasforma il tuo LinkedIn in uno strumento di business',
@@ -41,6 +42,8 @@ export default function RootLayout({
           {children}
           <ContactPopupManager />
         </ContactPopupProvider>
+        {/* Vercel Speed Insights - monitors performance metrics */}
+        <SpeedInsights />
       </body>
     </html>
   );
