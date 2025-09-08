@@ -102,23 +102,8 @@ export function PricingCards({
             <div className={cn("w-full max-w-5xl mx-auto px-4", containerClassName)} {...props}>
                 <div className={cn("grid grid-cols-1 md:grid-cols-2 gap-8 pt-4", className)}>
                     {tiers.map((tier, index) => (
-                        <motion.div
+                        <div
                             key={tier.name}
-                            initial={{ opacity: 0, y: 60, scale: 0.8 }}
-                            whileInView={{ opacity: 1, y: 0, scale: 1 }}
-                            transition={{ 
-                                duration: 0.8, 
-                                delay: index * 0.2,
-                                type: "spring",
-                                stiffness: 100,
-                                damping: 10
-                            }}
-                            viewport={{ once: true }}
-                            whileHover={{ 
-                                y: -8,
-                                scale: 1.02,
-                                transition: { type: "spring", stiffness: 400, damping: 10 }
-                            }}
                             className={cn(
                                 "relative group cursor-pointer",
                                 "rounded-2xl transition-all duration-500",
@@ -139,42 +124,11 @@ export function PricingCards({
                         >
                             {/* Badge "Più Popolare" solo per il pacchetto Base */}
                             {!tier.highlight && (
-                                <motion.div 
-                                    className="absolute -top-3 left-6 z-10"
-                                    initial={{ opacity: 0, scale: 0 }}
-                                    whileInView={{ opacity: 1, scale: 1 }}
-                                    transition={{ 
-                                        duration: 0.6, 
-                                        delay: 0.4,
-                                        type: "spring",
-                                        stiffness: 200
-                                    }}
-                                    viewport={{ once: true }}
-                                >
-                                    <motion.div 
-                                        className="bg-white text-slate-900 px-4 py-2 rounded-full text-sm font-bold shadow-lg relative overflow-hidden"
-                                        animate={{ 
-                                            scale: [1, 1.05, 1],
-                                        }}
-                                        transition={{
-                                            duration: 2,
-                                            repeat: Infinity,
-                                            ease: "easeInOut"
-                                        }}
-                                    >
-                                        <motion.div
-                                            className="absolute inset-0 bg-gradient-to-r from-transparent via-white/30 to-transparent"
-                                            animate={{ x: [-100, 200] }}
-                                            transition={{
-                                                duration: 2,
-                                                repeat: Infinity,
-                                                ease: "linear",
-                                                delay: 1
-                                            }}
-                                        />
+                                <div className="absolute -top-3 left-6 z-10">
+                                    <div className="bg-white text-slate-900 px-4 py-2 rounded-full text-sm font-bold shadow-lg relative overflow-hidden">
                                         <span className="relative z-10">Più Popolare</span>
-                                    </motion.div>
-                                </motion.div>
+                                    </div>
+                                </div>
                             )}
                             
                             <div className={cn(
@@ -194,15 +148,9 @@ export function PricingCards({
                                     </h3>
                                     <div className="flex items-baseline gap-2">
                                         {tier.pricePrefix && (
-                                            <motion.span 
-                                                className="text-2xl font-bold text-white"
-                                                initial={{ opacity: 0, x: -20 }}
-                                                whileInView={{ opacity: 1, x: 0 }}
-                                                transition={{ duration: 0.6, delay: index * 0.2 + 0.3 }}
-                                                viewport={{ once: true }}
-                                            >
+                                            <span className="text-2xl font-bold text-white">
                                                 {tier.pricePrefix}
-                                            </motion.span>
+                                            </span>
                                         )}
                                         <AnimatedPrice 
                                             price={tier.price} 
@@ -268,7 +216,7 @@ export function PricingCards({
                                     </div>
                                 )}
                             </div>
-                        </motion.div>
+                        </div>
                     ))}
                 </div>
             </div>
