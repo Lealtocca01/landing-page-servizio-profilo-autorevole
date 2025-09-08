@@ -1,6 +1,5 @@
 'use client';
 
-import { motion } from 'framer-motion';
 import Image from 'next/image';
 import { Shield, ArrowRight } from 'lucide-react';
 import { BGPattern } from '@/components/ui/bg-pattern';
@@ -31,13 +30,7 @@ export function NoContracts() {
         <div className="grid lg:grid-cols-2 gap-16 items-center">
           
           {/* Left Side - Immagine (solo desktop) */}
-          <motion.div
-            className="relative flex justify-center lg:justify-start hidden lg:block"
-            initial={{ opacity: 0, x: -50 }}
-            whileInView={{ opacity: 1, x: 0 }}
-            transition={{ duration: 0.8 }}
-            viewport={{ once: true }}
-          >
+          <div className="relative flex justify-center lg:justify-start hidden lg:block">
             <div className="relative max-w-xl mx-auto">
               <Image 
                 src="/images/Cell.png" 
@@ -50,16 +43,10 @@ export function NoContracts() {
                 }}
               />
             </div>
-          </motion.div>
+          </div>
 
           {/* Right Side - Content */}
-          <motion.div
-            className="space-y-8 text-center lg:text-left"
-            initial={{ opacity: 0, x: 50 }}
-            whileInView={{ opacity: 1, x: 0 }}
-            transition={{ duration: 0.8, delay: 0.2 }}
-            viewport={{ once: true }}
-          >
+          <div className="space-y-8 text-center lg:text-left">
             {/* Main headline */}
             <div>
               <h2 className="text-2xl md:text-3xl text-gray-300 mb-4 leading-relaxed -mt-10">
@@ -103,7 +90,7 @@ export function NoContracts() {
                 <span>Candidati ora per Profilo Autorevole</span>
               </GradientButton>
             </div>
-          </motion.div>
+          </div>
         </div>
       </div>
     </section>

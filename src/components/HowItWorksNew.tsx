@@ -5,8 +5,6 @@
 
 import { motion } from "framer-motion"
 import Image from "next/image"
-import { Tilt } from '@/components/ui/tilt'
-import { Spotlight } from '@/components/ui/spotlight'
 import { GlassIcons } from '@/components/ui/glass-icons'
 import GradientButton from '@/components/ui/GradientButton'
 import { User, BarChart3, Calendar, Palette, Send, TrendingUp } from 'lucide-react'
@@ -181,42 +179,14 @@ export function HowItWorksNew() {
             ))}
           </div>
 
-          {/* Colonna destra - Componente Tilt con Spotlight */}
+          {/* Colonna destra - Immagine statica ottimizzata */}
           <div className="relative -mt-8">
-            <motion.div
-              initial={{ opacity: 0, scale: 0.8 }}
-              whileInView={{ opacity: 1, scale: 1 }}
-              transition={{ duration: 0.8 }}
-              viewport={{ once: true }}
-              className="relative"
-            >
+            <div className="relative">
               {/* Background decorativo con glow luminoso intenso */}
               <div className="absolute inset-0 bg-gradient-to-br from-blue-50 to-purple-50 rounded-3xl rotate-3 shadow-[0_0_80px_rgba(59,130,246,0.6),0_0_120px_rgba(59,130,246,0.4),0_0_160px_rgba(59,130,246,0.2)]" />
               
-              {/* Container principale con Tilt */}
-              <Tilt
-                rotationFactor={8}
-                isRevese
-                style={{
-                  transformOrigin: 'center center',
-                }}
-                springOptions={{
-                  stiffness: 26.7,
-                  damping: 4.1,
-                  mass: 0.2,
-                }}
-                className='group relative rounded-3xl bg-white shadow-2xl border border-gray-100 overflow-hidden'
-              >
-                <Spotlight
-                  className='z-10 from-blue-400/50 via-blue-300/20 to-purple-400/10 blur-2xl'
-                  size={300}
-                  springOptions={{
-                    stiffness: 26.7,
-                    damping: 4.1,
-                    mass: 0.2,
-                  }}
-                />
-                
+              {/* Container principale statico */}
+              <div className='group relative rounded-3xl bg-white shadow-2xl border border-gray-100 overflow-hidden'>
                 {/* Contenuto della card - Immagine reale */}
                 <div className="relative z-20 p-0">
                   <Image 
@@ -227,8 +197,8 @@ export function HowItWorksNew() {
                     className="w-full h-full object-cover rounded-3xl"
                   />
                 </div>
-              </Tilt>
-            </motion.div>
+              </div>
+            </div>
           </div>
         </div>
         
@@ -313,7 +283,7 @@ export function HowItWorksNew() {
                           className="!grid-cols-1 !gap-0 !py-0 scale-75"
                         />
                       </div>
-                      <div className="bg-gradient-to-br from-blue-700 to-blue-900 rounded-lg shadow-[0_8px_25px_rgba(0,0,0,0.15),0_4px_10px_rgba(0,0,0,0.1),inset_0_1px_0_rgba(255,255,255,0.2)] px-8 py-5 hover:shadow-[0_12px_35px_rgba(59,130,246,0.4),0_6px_15px_rgba(0,0,0,0.2),inset_0_1px_0_rgba(255,255,255,0.3)] transition-all duration-300">
+                      <div className="bg-gradient-to-br from-blue-700 to-blue-900 rounded-lg shadow-[0_8px_25px_rgba(0,0,0,0.15),0_4px_10px_rgba(0,0,0,0.1),inset_0_1px_0_rgba(255,255,255,0.2)] px-8 py-5">
                         <h3 className="text-xl font-black text-white mb-3">{step.title}</h3>
                         <p className="text-sm text-gray-100 leading-relaxed">{step.description}</p>
                       </div>
@@ -360,7 +330,7 @@ export function HowItWorksNew() {
                           className="!grid-cols-1 !gap-0 !py-0 scale-75"
                         />
                       </div>
-                      <div className="bg-gradient-to-br from-blue-700 to-blue-900 rounded-lg shadow-[0_8px_25px_rgba(0,0,0,0.15),0_4px_10px_rgba(0,0,0,0.1),inset_0_1px_0_rgba(255,255,255,0.2)] px-8 py-5 hover:shadow-[0_12px_35px_rgba(59,130,246,0.4),0_6px_15px_rgba(0,0,0,0.2),inset_0_1px_0_rgba(255,255,255,0.3)] transition-all duration-300">
+                      <div className="bg-gradient-to-br from-blue-700 to-blue-900 rounded-lg shadow-[0_8px_25px_rgba(0,0,0,0.15),0_4px_10px_rgba(0,0,0,0.1),inset_0_1px_0_rgba(255,255,255,0.2)] px-8 py-5">
                         <h3 className="text-xl font-black text-white mb-3">{step.title}</h3>
                         <p className="text-sm text-gray-100 leading-relaxed">{step.description}</p>
                       </div>

@@ -1,6 +1,5 @@
 'use client';
 
-import { motion } from 'framer-motion';
 import { PricingCards } from '@/components/ui/pricing-cards';
 import { useContactPopup } from '@/contexts/ContactPopupContext';
 
@@ -59,29 +58,17 @@ export function FinalCTA() {
       </div>
 
       <div className="container-custom relative z-10">
-        <motion.div
-          className="text-center mb-16"
-          initial={{ opacity: 0, y: 30 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8 }}
-          viewport={{ once: true }}
-        >
+        <div className="text-center mb-16">
           <h2 className="text-5xl md:text-6xl font-black text-white mb-6 leading-tight">
             Ma quanto <span className="text-gradient">costa</span> tutto questo?
           </h2>
           <p className="text-xl md:text-2xl text-gray-300 max-w-3xl mx-auto leading-relaxed">
           Quanto ti costerà costruire la tua presenza digitale e per farti scegliere dai tuoi clienti?
           </p>
-        </motion.div>
+        </div>
 
         {/* Sezione Pricing Cards */}
-        <motion.div
-          initial={{ opacity: 0, y: 40 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8, delay: 0.1 }}
-          viewport={{ once: true }}
-          className="mb-16 lg:mb-8 -mt-8 lg:-mt-16"
-        >
+        <div className="mb-16 lg:mb-8 -mt-8 lg:-mt-16">
           <PricingCards 
             tiers={pricingTiers}
             sectionClassName="py-0 px-0 bg-transparent"
@@ -89,7 +76,7 @@ export function FinalCTA() {
             className="gap-6 lg:gap-8"
             cardClassName="backdrop-blur-sm shadow-xl"
           />
-        </motion.div>
+        </div>
 
 
 

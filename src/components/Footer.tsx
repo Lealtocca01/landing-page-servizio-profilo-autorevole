@@ -1,6 +1,5 @@
 'use client';
 
-import { motion } from 'framer-motion';
 import { Linkedin, Mail, Phone, MapPin, ExternalLink } from 'lucide-react';
 import GradientButton from '@/components/ui/GradientButton';
 
@@ -32,13 +31,7 @@ export function Footer() {
         <div className="max-w-4xl mx-auto">
           {/* Brand Section */}
           <div>
-            <motion.div
-              className="mb-4 md:mb-6 text-center"
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.6 }}
-              viewport={{ once: true }}
-            >
+            <div className="mb-4 md:mb-6 text-center">
               <div className="flex items-center justify-center space-x-3 mb-3 md:mb-4">
                 <span className="font-bold text-xl md:text-2xl text-white">
                   Profilo <span className="text-gradient">Autorevole</span>
@@ -68,30 +61,22 @@ export function Footer() {
               {/* Social Links */}
               <div className="flex justify-center space-x-3">
                 {socialLinks.map((social, index) => (
-                  <motion.button
+                  <button
                     key={index}
                     className="w-8 h-8 md:w-10 md:h-10 bg-gray-800/50 rounded-full flex items-center justify-center text-gray-400 hover:text-white hover:bg-blue-500/20 transition-all duration-300"
-                    whileHover={{ scale: 1.1 }}
-                    whileTap={{ scale: 0.95 }}
                     onClick={() => scrollToSection(social.href)}
                     aria-label={social.label}
                   >
                     <div className="scale-75 md:scale-100">{social.icon}</div>
-                  </motion.button>
+                  </button>
                 ))}
               </div>
-            </motion.div>
+            </div>
           </div>
         </div>
 
         {/* Bottom Section */}
-        <motion.div
-          className="border-t border-gray-800 mt-8 md:mt-12 pt-6 md:pt-8"
-          initial={{ opacity: 0 }}
-          whileInView={{ opacity: 1 }}
-          transition={{ duration: 0.6, delay: 0.4 }}
-          viewport={{ once: true }}
-        >
+        <div className="border-t border-gray-800 mt-8 md:mt-12 pt-6 md:pt-8">
           <div className="flex flex-col md:flex-row items-center justify-between space-y-4 md:space-y-0">
             <div className="text-gray-400 text-sm">
               © {currentYear} Profilo Autorevole. Tutti i diritti riservati.
@@ -120,7 +105,7 @@ export function Footer() {
           </div>
 
 
-        </motion.div>
+        </div>
       </div>
     </footer>
   );

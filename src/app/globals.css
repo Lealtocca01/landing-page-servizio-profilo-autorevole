@@ -79,6 +79,20 @@
     @apply border-border outline-ring/50;
   }
   
+  /* Ottimizzazioni performance per rendering */
+  * {
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    text-rendering: optimizeLegibility;
+  }
+  
+  /* Ottimizzazioni per animazioni GPU-accelerated */
+  .gpu-accelerated {
+    transform: translateZ(0);
+    backface-visibility: hidden;
+    perspective: 1000px;
+  }
+  
   html {
     overflow-x: hidden !important;
     overflow-y: auto !important;
@@ -245,6 +259,35 @@
   background: linear-gradient(90deg, #0ea5e9, #3b82f6, #8b5cf6);
   z-index: 1000;
   transform-origin: 0%;
+}
+
+/* Ottimizzazioni performance per immagini */
+.image-optimized {
+  will-change: transform, opacity;
+  transform: translateZ(0);
+  backface-visibility: hidden;
+}
+
+/* Ottimizzazioni per transizioni fluide */
+.smooth-transition {
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  will-change: transform, opacity;
+}
+
+/* Ottimizzazioni per lazy loading */
+.lazy-load {
+  opacity: 0;
+  transition: opacity 0.3s ease-in-out;
+}
+
+.lazy-load.loaded {
+  opacity: 1;
+}
+
+/* Ottimizzazioni per scroll performance */
+.scroll-optimized {
+  contain: layout style paint;
+  will-change: transform;
 }
 
 @media (max-width: 768px) {

@@ -1,6 +1,5 @@
 'use client';
 
-import { motion } from 'framer-motion';
 import Image from 'next/image';
 import { Crown } from 'lucide-react';
 import GradientButton from '@/components/ui/GradientButton';
@@ -40,13 +39,7 @@ export function ComparisonTable() {
     <section id="prezzi" className="section-padding" style={{ background: '#040124' }}>
       {/* Immagine - visibile solo su mobile */}
       <div className="mb-12 block lg:hidden">
-        <motion.div
-          className="relative flex justify-center"
-          initial={{ opacity: 0, y: 30 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8 }}
-          viewport={{ once: true }}
-        >
+        <div className="relative flex justify-center">
           <div className="relative max-w-sm mx-auto">
             <Image 
               src="/images/Cell.png" 
@@ -59,17 +52,11 @@ export function ComparisonTable() {
               }}
             />
           </div>
-        </motion.div>
+        </div>
       </div>
       
       <div className="container-custom">
-        <motion.div
-          className="text-center mb-20"
-          initial={{ opacity: 0, y: 30 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8 }}
-          viewport={{ once: true }}
-        >
+        <div className="text-center mb-20">
           <div className="mb-6">
             <p className="text-2xl md:text-3xl text-gray-300 mb-4 italic">
               Ancora non sei convinto?
@@ -81,18 +68,14 @@ export function ComparisonTable() {
           <p className="text-xl text-gray-300 max-w-3xl mx-auto">
             Scopri perché Profilo Autorevole è la scelta migliore per il tuo business. Confronto trasparente e onesto.
           </p>
-        </motion.div>
+        </div>
 
         {/* Modern Cards Layout */}
         <div className="space-y-8">
           {features.map((item, index) => (
-            <motion.div
+            <div
               key={index}
               className="relative"
-              initial={{ opacity: 0, y: 60 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.6, delay: index * 0.15 }}
-              viewport={{ once: true }}
             >
               {/* Feature Title */}
               <div className="mb-6">
@@ -103,11 +86,7 @@ export function ComparisonTable() {
               {/* Comparison Cards */}
               <div className="grid md:grid-cols-3 gap-6">
                 {/* Profilo Autorevole - Winner Card */}
-                <motion.div
-                  className="relative group"
-                  whileHover={{ y: -8, scale: 1.02 }}
-                  transition={{ type: "spring", stiffness: 300, damping: 20 }}
-                >
+                <div className="relative group">
                   <div className="absolute inset-0 bg-gradient-to-br from-blue-500/20 via-cyan-500/20 to-green-500/20 rounded-2xl blur-xl group-hover:blur-2xl transition-all duration-300"></div>
                   <div className="relative backdrop-blur-sm bg-slate-900/80 border border-blue-500/30 rounded-2xl p-6 h-full">
                     <div className="flex items-center mb-4">
@@ -119,14 +98,10 @@ export function ComparisonTable() {
                     </div>
                     <p className="text-blue-200 leading-relaxed">{item.profiloAutorevole}</p>
                   </div>
-                </motion.div>
+                </div>
 
                 {/* Agenzia Tradizionale */}
-                <motion.div
-                  className="relative group"
-                  whileHover={{ y: -4, scale: 1.01 }}
-                  transition={{ type: "spring", stiffness: 300, damping: 20 }}
-                >
+                <div className="relative group">
                   <div className="backdrop-blur-sm bg-slate-800/60 border border-slate-600/30 rounded-2xl p-6 h-full">
                     <div className="flex items-center mb-4">
                       <div className="w-6 h-6 bg-orange-500/20 rounded-full mr-3 flex items-center justify-center">
@@ -136,14 +111,10 @@ export function ComparisonTable() {
                     </div>
                     <p className="text-slate-400 leading-relaxed">{item.competitors}</p>
                   </div>
-                </motion.div>
+                </div>
 
                 {/* Freelancer */}
-                <motion.div
-                  className="relative group"
-                  whileHover={{ y: -4, scale: 1.01 }}
-                  transition={{ type: "spring", stiffness: 300, damping: 20 }}
-                >
+                <div className="relative group">
                   <div className="backdrop-blur-sm bg-slate-800/40 border border-slate-700/30 rounded-2xl p-6 h-full">
                     <div className="flex items-center mb-4">
                       <div className="w-6 h-6 bg-red-500/20 rounded-full mr-3 flex items-center justify-center">
@@ -153,25 +124,19 @@ export function ComparisonTable() {
                     </div>
                     <p className="text-slate-500 leading-relaxed">{item.freelancer}</p>
                   </div>
-                </motion.div>
+                </div>
               </div>
-            </motion.div>
+            </div>
           ))}
         </div>
 
-        <motion.div
-          className="text-center mt-16"
-          initial={{ opacity: 0, y: 30 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8, delay: 0.8 }}
-          viewport={{ once: true }}
-        >
+        <div className="text-center mt-16">
           <div className="flex justify-center lg:justify-start">
             <GradientButton onClick={openPopup}>
               <span>Candidati ora per Profilo Autorevole</span>
             </GradientButton>
           </div>
-        </motion.div>
+        </div>
       </div>
     </section>
   );
