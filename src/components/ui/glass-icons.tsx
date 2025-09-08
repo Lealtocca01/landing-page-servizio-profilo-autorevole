@@ -4,7 +4,7 @@ import React, { JSX } from "react";
 export interface GlassIconsItem {
   icon: React.ReactElement;
   color: string;
-  label: string;
+  label?: string;
   customClass?: string;
 }
 
@@ -42,7 +42,7 @@ export const GlassIcons = ({ items, className }: GlassIconsProps): JSX.Element =
         <button
           key={index}
           type="button"
-          aria-label={item.label}
+          aria-label={item.label || "Icon"}
           className={`relative bg-transparent outline-none w-[4.5em] h-[4.5em] [perspective:24em] [transform-style:preserve-3d] [-webkit-tap-highlight-color:transparent] group ${
             item.customClass || ""
           }`}
@@ -72,9 +72,11 @@ export const GlassIcons = ({ items, className }: GlassIconsProps): JSX.Element =
           </span>
 
           {/* Label */}
-          <span className="absolute top-full left-0 right-0 text-center whitespace-nowrap leading-[2] text-base opacity-0 transition-[opacity,transform] duration-300 ease-[cubic-bezier(0.83,0,0.17,1)] translate-y-0 group-hover:opacity-100 group-hover:[transform:translateY(20%)]">
-            {item.label}
-          </span>
+          {item.label && (
+            <span className="absolute top-full left-0 right-0 text-center whitespace-nowrap leading-[2] text-base opacity-0 transition-[opacity,transform] duration-300 ease-[cubic-bezier(0.83,0,0.17,1)] translate-y-0 group-hover:opacity-100 group-hover:[transform:translateY(20%)]">
+              {item.label}
+            </span>
+          )}
         </button>
       ))}
     </div>
