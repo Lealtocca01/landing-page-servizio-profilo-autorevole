@@ -99,23 +99,8 @@ export function ContactPopup({ isOpen, onClose, sorgente = "popup" }: ContactPop
       const result = await response.json()
 
       if (result.ok) {
-        // Successo - mostra messaggio e chiudi il popup dopo 2 secondi
-        setSuccessMessage(result.message)
-        setTimeout(() => {
-          onClose()
-          // Reset del form
-          setFormData({
-            nome: "",
-            cognome: "",
-            email: "",
-            telefono: "",
-            azienda: "",
-            settore: "",
-            sorgente: sorgente,
-            privacyAccepted: false
-          })
-          setSuccessMessage("")
-        }, 2000)
+        // Successo - reindirizza alla pagina di successo
+        window.location.href = '/success'
       } else {
         // Errore - mostra errori di validazione o altri errori
         if (result.errors) {
