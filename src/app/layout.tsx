@@ -4,6 +4,7 @@ import { ScrollProgressBar } from '@/components/ScrollProgressBar';
 import { ContactPopupProvider } from '@/contexts/ContactPopupContext';
 import { ContactPopupManager } from '@/components/ContactPopupManager';
 import { SpeedInsights } from '@vercel/speed-insights/next';
+import { IubendaScript, CookieBanner } from '@/components/IubendaScript';
 
 export const metadata: Metadata = {
   title: 'Profilo Autorevole | Trasforma il tuo LinkedIn in uno strumento di business',
@@ -36,14 +37,48 @@ export default function RootLayout({
 }) {
   return (
     <html lang="it" className="scroll-smooth">
+      <head>
+        {/* Iubenda Privacy Controls and Cookie Solution */}
+        <script 
+          type="text/javascript" 
+          src="https://embeds.iubenda.com/widgets/f73f43b3-1ba0-44a8-9370-a851706f44fd.js"
+          async
+        />
+      </head>
       <body className="antialiased">
         <ContactPopupProvider>
           <ScrollProgressBar />
           {children}
           <ContactPopupManager />
+          <CookieBanner />
         </ContactPopupProvider>
         {/* Vercel Speed Insights - monitors performance metrics */}
         <SpeedInsights />
+        {/* Iubenda Cookie and Privacy Management */}
+        <IubendaScript />
+        
+        {/* Script Iubenda per Privacy Policy e Cookie Policy */}
+        <script
+          type="text/javascript"
+          dangerouslySetInnerHTML={{
+            __html: `
+              (function (w,d) {
+                var loader = function () {
+                  var s = d.createElement("script"), tag = d.getElementsByTagName("script")[0]; 
+                  s.src="https://cdn.iubenda.com/iubenda.js"; 
+                  tag.parentNode.insertBefore(s,tag);
+                }; 
+                if(w.addEventListener){
+                  w.addEventListener("load", loader, false);
+                }else if(w.attachEvent){
+                  w.attachEvent("onload", loader);
+                }else{
+                  w.onload = loader;
+                }
+              })(window, document);
+            `
+          }}
+        />
       </body>
     </html>
   );

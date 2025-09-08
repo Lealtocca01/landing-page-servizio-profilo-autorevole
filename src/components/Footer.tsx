@@ -6,13 +6,28 @@ import GradientButton from '@/components/ui/GradientButton';
 export function Footer() {
   const currentYear = new Date().getFullYear();
 
-
+  // ID Iubenda - ID specifico del tuo account
+  const IUBENDA_SITE_ID = process.env.NEXT_PUBLIC_IUBENDA_SITE_ID || '76483844';
 
   const socialLinks = [
     { icon: <Linkedin size={20} />, href: "https://linkedin.com/company/profilo-autorevole", label: "LinkedIn" },
     { icon: <Mail size={20} />, href: "mailto:info@profiloautorevole.it", label: "Email" },
     { icon: <Phone size={20} />, href: "tel:+393442517856", label: "Telefono" }
   ];
+
+  // Funzione per aprire i link Iubenda (solo per Termini & Condizioni)
+  const handleIubendaLink = (type: 'terms') => {
+    const baseUrl = 'https://www.iubenda.com';
+    let url = '';
+    
+    switch (type) {
+      case 'terms':
+        url = `${baseUrl}/terms-and-conditions/${IUBENDA_SITE_ID}`;
+        break;
+    }
+    
+    window.open(url, '_blank');
+  };
 
   const scrollToSection = (href: string) => {
     if (href.startsWith('#')) {
@@ -83,24 +98,32 @@ export function Footer() {
             </div>
             
             <div className="flex items-center space-x-6 text-sm">
-              <button 
+              {/* Privacy Policy con link Iubenda ufficiale */}
+              <a 
+                href="https://www.iubenda.com/privacy-policy/76483844" 
                 className="text-gray-400 hover:text-white transition-colors duration-200"
-                onClick={() => scrollToSection('#privacy')}
+                title="Privacy Policy"
+                target="_blank"
+                rel="noopener noreferrer"
               >
                 Privacy Policy
-              </button>
+              </a>
               <button 
                 className="text-gray-400 hover:text-white transition-colors duration-200"
-                onClick={() => scrollToSection('#terms')}
+                onClick={() => handleIubendaLink('terms')}
               >
                 Termini & Condizioni
               </button>
-              <button 
+              {/* Cookie Policy con link Iubenda ufficiale */}
+              <a 
+                href="https://www.iubenda.com/privacy-policy/76483844/cookie-policy" 
                 className="text-gray-400 hover:text-white transition-colors duration-200"
-                onClick={() => scrollToSection('#cookies')}
+                title="Cookie Policy"
+                target="_blank"
+                rel="noopener noreferrer"
               >
                 Cookie Policy
-              </button>
+              </a>
             </div>
           </div>
 
