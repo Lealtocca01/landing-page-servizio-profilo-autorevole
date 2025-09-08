@@ -61,7 +61,7 @@ export function Footer() {
               <div className="space-y-2 md:space-y-3 mb-4 md:mb-6">
                 <div className="flex items-center justify-center space-x-3 text-gray-300 text-sm">
                   <Mail size={14} className="text-blue-400" />
-                  <span>info@profiloautorevole.it</span>
+                  <span>a.cattolico@profiloautorevole.com</span>
                 </div>
                 <div className="flex items-center justify-center space-x-3 text-gray-300 text-sm">
                   <Phone size={14} className="text-green-400" />
