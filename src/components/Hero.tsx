@@ -17,18 +17,18 @@ export function Hero() {
   const stickyContent = [
     {
       title: "Fare da soli",
-      subtitle: "Non hai tempo e competenze = INUTILE"
+      subtitle: "Non hai tempo né competenze = INUTILE"
     },
     {
       title: "Delegare",
-      subtitle: "Magari a qualche agenzia che ha scoperto Linkedln ieri e infatti ti fa firmare un bel contrattone vincolante"
+      subtitle: "Magari a qualche agenzia che ha scoperto Linkedln ieri... e infatti ti rifila subito un bel contrattone vincolante"
     },
     {
       title: "Ignorare LinkedIn",
-      subtitle: "L'errore più grande nel 2025"
+      subtitle: "E far sì che i tuoi potenziali clienti continuino a scegliere i tuoi competitor."
     },
     {
-      title: "Esiste però un alternativa",
+      title: "Esiste però un'alternativa",
       subtitle: "Valida"
     }
   ];
@@ -50,7 +50,7 @@ export function Hero() {
               {/* Seconda frase con effetto typing */}
               <div className="text-5xl sm:text-6xl md:text-6xl lg:text-5xl xl:text-6xl 2xl:text-7xl text-white">
                 <TextType 
-                  text={["Nel 2025 non puoi non essere su LinkedIn!"]}
+                  text={["Se nel 2025 non sei su LinkedIn, stai perdendo soldi."]}
                   as="span"
                   typingSpeed={40}
                   deletingSpeed={30}
@@ -109,7 +109,7 @@ export function Hero() {
              <span className="text-white">Sei già in </span><span className="text-gradient">ritardo!</span>
              </h2>
             <p className="text-xl sm:text-2xl md:text-2xl lg:text-xl xl:text-2xl text-gray-300 max-w-3xl mx-0 md:mx-auto">
-            Quanti potenziali clienti hai già <span className="font-bold text-white">perso</span>, solo perché qualcun&apos;altro sembrava <span className="font-bold text-white">&ldquo;più professionale&rdquo;</span> e <span className="font-bold text-white">&ldquo;più affidabile&rdquo;</span>?
+            Quanti potenziali clienti hai già <span className="font-bold text-white">perso</span>, solo perché qualcun altro sembrava <span className="font-bold text-white">&ldquo;più professionale&rdquo;</span> e <span className="font-bold text-white">&ldquo;più affidabile&rdquo;</span>?
             </p>
           </div>
 
@@ -118,14 +118,14 @@ export function Hero() {
             <div className="lg:w-1/2">
               <div className="text-left mb-8 lg:mb-0">
                   <h3 className="text-2xl sm:text-3xl md:text-3xl lg:text-2xl font-black text-white mb-6">
-                  La verità è che senza una presenza curata, la tua attività verrà percepita <span className="text-red-400">di basso livello</span>.
+                  La verità è che senza una presenza curata su Linkedln, la tua attività verrà percepita <span className="text-red-400">di basso livello</span>.
                   </h3>
                   <div className="space-y-5 mb-8">
                     {[
                       { text: "Ogni minuto che passi senza una strategia LinkedIn mirata è un'opportunità persa.", color: "bg-red-400" },
-                      { text: "Perchè chi cerca un professionista come te ti giudica e ti sceglie da come ti presenti online. E se il tuo LinkedIn è fermo o vuoto non possono ne conoscerti ne fidarsi di te!", color: "bg-red-400" },
+                      { text: "Perchè chi cerca un professionista come te ti giudica e ti sceglie da come ti presenti online. E se il tuo LinkedIn è fermo o vuoto non possono né conoscerti né fidarsi di te!", color: "bg-red-400" },
                       { text: "Di conseguenza, andranno dai tuoi concorrenti, anche se tu sei più capace di loro..", color: "bg-red-400" },
-                      { text: "L'unico modo che hai per essere percepito come dovresti e non restare tagliato fuori è digitalizzare la tua presenza con Linkedln.", color: "bg-green-400" }
+                      { text: "L'unico modo che hai per essere percepito come dovresti, e non restare tagliato fuori, è digitalizzare la tua presenza con Linkedln.", color: "bg-green-400" }
                     ].map((item, index) => (
                       <div 
                         key={index}
@@ -196,7 +196,7 @@ export function Hero() {
               Nessuno smanettone o dipendente improvvisato <span className="border-b-4 border-white">può farlo nel modo corretto</span>
             </h2>
             <p className="text-xl sm:text-2xl md:text-2xl lg:text-xl text-gray-300 max-w-3xl mx-auto mb-8 lg:mb-12">
-              E sai perché? Bisogna avere una strategia mirata e soprattutto costanza.
+            E sai perché? Perché serve una strategia mirata e, soprattutto, costanza.
             </p>
           </div>
 

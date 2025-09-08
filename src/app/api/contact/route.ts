@@ -10,6 +10,7 @@ const contactSchema = z.object({
   azienda: z.string().optional(),
   settore: z.string().min(1, 'Il settore è obbligatorio'),
   sorgente: z.string().optional(),
+  privacyAccepted: z.boolean().refine(val => val === true, 'Devi accettare la Privacy Policy per continuare'),
 });
 
 // Type for the validated data

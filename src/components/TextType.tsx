@@ -83,6 +83,13 @@ const TextType: React.FC<TextTypeProps> = ({
       result = result.replace(regex, `<span class="text-gradient">${word}</span>`);
     });
     
+    // Apply underline to "perdendo soldi"
+    const underlineWords = ['perdendo soldi'];
+    underlineWords.forEach(phrase => {
+      const regex = new RegExp(phrase.replace(/[.*+?^${}()|[\]\\]/g, '\\$&'), 'g');
+      result = result.replace(regex, `<span class="underline decoration-2 decoration-white underline-offset-4">${phrase}</span>`);
+    });
+    
     return result;
   };
 

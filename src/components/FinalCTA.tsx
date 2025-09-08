@@ -23,7 +23,7 @@ export function FinalCTA() {
         { name: "Monitoraggio e ottimizzazione continua", included: true },
       ],
       cta: {
-        text: "Inizia con il Base",
+        text: "Candidati",
         onClick: openPopup
       }
     },
@@ -42,7 +42,7 @@ export function FinalCTA() {
         { name: "Monitoraggio e ottimizzazione continua + report mensile", included: true },
       ],
       cta: {
-        text: "Scegli Premium",
+        text: "Candidati",
         onClick: openPopup
       }
     },

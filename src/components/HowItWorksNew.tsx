@@ -50,19 +50,19 @@ export function HowItWorksNew() {
   const steps = [
     {
       title: "Analisi e Ottimizzazione Profilo",
-      description: "Il tuo profilo LinkedIn è la base di tutto: lo analizziamo, lo ottimizziamo e lo settiamo per comunicare professionalità e autorevolezza già dal primo sguardo.",
+      description: "Il tuo profilo LinkedIn è la base di tutto: lo analizziamo, lo ottimizziamo e lo settiamo per comunicare professionalità e autorevolezza fin dal primo sguardo.",
       color: "blue",
       lucideIcon: User
     },
     {
       title: "Studio Mercato e Competitor",
-      description: "Studiamo il tuo settore e i tuoi competitor per capire come posizionarti in modo chiaro e distinguerti agli occhi dei potenziali clienti.",
+      description: "Studiamo il tuo settore e i tuoi competitor per capire come posizionarti in modo chiaro e distinguerti agli occhi dei tuoi potenziali clienti.",
       color: "purple",
       lucideIcon: BarChart3
     },
     {
       title: "Strategia e Piano Editoriale",
-      description: "Creiamo per te una strategia su misura, con un calendario di pubblicazione costante che ti mantiene visibile e ti fa percepire come punto di riferimento.",
+      description: "Creiamo per te una strategia su misura, con un calendario di pubblicazione costante che ti mantiene visibile e ti fa percepire come punto di riferimento nel tuo settore.",
       color: "green",
       lucideIcon: Calendar
     },
@@ -90,7 +90,6 @@ export function HowItWorksNew() {
   const glassIconsItems = steps.map((step, index) => ({
     icon: <step.lucideIcon className="w-6 h-6 text-white" />,
     color: step.color,
-    label: `Step ${index + 1}`,
   }))
 
 
@@ -142,12 +141,13 @@ export function HowItWorksNew() {
           viewport={{ once: true }}
           className="mb-1"
         >
-          <h3 className="text-2xl md:text-3xl font-bold text-white mb-0 relative">
+          <h3 className="text-2xl md:text-3xl font-bold text-white mb-4 relative">
             Perché affidarti a noi?
             <div className="absolute bottom-0 left-0 w-72 h-0.5 bg-white rounded-full"></div>
           </h3>
           <p className="text-lg text-gray-300 max-w-2xl leading-relaxed mb-1">
-            Abbiamo trasformato decine di profili professionali e aziendali!
+          Perché con te faremo esattamente ciò che abbiamo già realizzato<br />
+          per centinaia di professionisti!
           </p>
         </motion.div>
 
@@ -215,7 +215,7 @@ export function HowItWorksNew() {
         <div className="text-center mb-16">
           <h1 className="text-4xl md:text-5xl font-black mb-4 text-white">Ma come procederemo nel pratico?</h1>
           <p className="text-xl md:text-2xl text-gray-300">
-            Un processo in 6 step strutturato e progressivo per il tuo successo
+            Ecco cosa fara Profilo Autorevole per te:
           </p>
         </div>
 

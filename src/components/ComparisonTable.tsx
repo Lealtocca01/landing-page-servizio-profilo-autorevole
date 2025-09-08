@@ -11,25 +11,25 @@ export function ComparisonTable() {
   const features = [
     {
       feature: "Cosa Offre",
-      profiloAutorevole: "Solo LinkedIn, con un metodo testato per trasformare il profilo in un asset di autorevolezza e clienti",
-      competitors: "Tanti canali seguiti in modo superficiale, senza focus su LinkedIn",
-      freelancer: "Gestione \"alla buona\" del profilo, senza strategia né costanza"
+      profiloAutorevole: "Specializzati nel costruire la tua presenza su Linkedln, con un metodo testato per trasformare il profilo in un vero asset digitale",
+      competitors: "Tanti canali seguiti in modo superficiale, senza focus e conoscenza di LinkedIn",
+      freelancer: "Gestione \"alla buona\" del profilo, nei ritagli di tempo, senza strategia né costanza"
     },
     {
       feature: "Quanto Costa",
       profiloAutorevole: "250€/mese – tutto incluso, senza costi nascosti",
       competitors: "Migliaia di euro al mese per servizi generici",
-      freelancer: "Apparentemente poco, ma sprechi tempo, soldi e opportunità"
+      freelancer: "Apparentemente poco, ma danni alla tua immagine"
     },
     {
       feature: "Chi c'è Dietro",
       profiloAutorevole: "Specialisti LinkedIn: competenza verticale e focus totale",
       competitors: "Agenzie generaliste che fanno \"un po' di tutto\"",
-      freelancer: "Un improvvisato senza esperienza reale di posizionamento"
+      freelancer: "Un improvvisato senza esperienza che fa esperimenti con la tua immagine"
     },
     {
       feature: "Risultati Ottenuti",
-      profiloAutorevole: "Crescita costante di visibilità, autorevolezza e nuove opportunità",
+      profiloAutorevole: "Crescita costante di visibilità, autorevolezza e nuove opportunità con oltre 100 professionisti",
       competitors: "Risultati discontinui e poco misurabili",
       freelancer: "Nessuna crescita reale, il profilo resta invisibile"
     }
@@ -65,9 +65,6 @@ export function ComparisonTable() {
               Ecco perché <span className="text-gradient">Profilo Autorevole</span> è la scelta migliore per te.
             </h2>
           </div>
-          <p className="text-xl text-gray-300 max-w-3xl mx-auto">
-            Scopri perché Profilo Autorevole è la scelta migliore per il tuo business. Confronto trasparente e onesto.
-          </p>
         </div>
 
         {/* Modern Cards Layout */}

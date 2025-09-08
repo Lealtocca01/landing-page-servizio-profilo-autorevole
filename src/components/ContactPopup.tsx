@@ -19,6 +19,7 @@ interface FormData {
   azienda: string // Rinominiamo attivita in azienda per essere coerenti con l'API
   settore: string
   sorgente?: string
+  privacyAccepted: boolean // Campo per la checkbox GDPR
 }
 
 // Interfaccia per gli errori di validazione
@@ -34,7 +35,8 @@ export function ContactPopup({ isOpen, onClose, sorgente = "popup" }: ContactPop
     telefono: "",
     azienda: "",
     settore: "",
-    sorgente: sorgente
+    sorgente: sorgente,
+    privacyAccepted: false // Inizializza la checkbox GDPR come non selezionata
   })
 
   // Stati per gestire il caricamento e gli errori
@@ -43,10 +45,12 @@ export function ContactPopup({ isOpen, onClose, sorgente = "popup" }: ContactPop
   const [successMessage, setSuccessMessage] = useState("")
 
   const handleInputChange = (e: React.ChangeEvent<HTMLInputElement | HTMLSelectElement>) => {
-    const { name, value } = e.target
+    const { name, value, type } = e.target
+    const checked = (e.target as HTMLInputElement).checked
+    
     setFormData(prev => ({
       ...prev,
-      [name]: value
+      [name]: type === 'checkbox' ? checked : value
     }))
     
     // Rimuovi l'errore per questo campo quando l'utente inizia a digitare
@@ -64,6 +68,13 @@ export function ContactPopup({ isOpen, onClose, sorgente = "popup" }: ContactPop
     setErrors({})
     setSuccessMessage("")
 
+    // Validazione lato client per la checkbox GDPR
+    if (!formData.privacyAccepted) {
+      setErrors({ privacyAccepted: ["Devi accettare la Privacy Policy per continuare"] })
+      setIsLoading(false)
+      return
+    }
+
     try {
       // Prepara i dati per l'API (rimuoviamo il campo sorgente se vuoto)
       const apiData = {
@@ -73,7 +84,8 @@ export function ContactPopup({ isOpen, onClose, sorgente = "popup" }: ContactPop
         telefono: formData.telefono || undefined, // Invia undefined se vuoto
         azienda: formData.azienda || undefined,
         settore: formData.settore,
-        sorgente: formData.sorgente || undefined
+        sorgente: formData.sorgente || undefined,
+        privacyAccepted: formData.privacyAccepted // Invia sempre il campo privacy per la validazione
       }
 
       const response = await fetch('/api/contact', {
@@ -99,7 +111,8 @@ export function ContactPopup({ isOpen, onClose, sorgente = "popup" }: ContactPop
             telefono: "",
             azienda: "",
             settore: "",
-            sorgente: sorgente
+            sorgente: sorgente,
+            privacyAccepted: false
           })
           setSuccessMessage("")
         }, 2000)
@@ -278,6 +291,36 @@ export function ContactPopup({ isOpen, onClose, sorgente = "popup" }: ContactPop
                   </select>
                   {errors.settore && (
                     <p className="mt-1 text-sm text-red-400">{errors.settore[0]}</p>
+                  )}
+                </div>
+
+                {/* Checkbox GDPR */}
+                <div className="space-y-2">
+                  <label className="flex items-start space-x-3 cursor-pointer">
+                    <input
+                      type="checkbox"
+                      name="privacyAccepted"
+                      checked={formData.privacyAccepted}
+                      onChange={handleInputChange}
+                      className={`mt-1 w-4 h-4 text-blue-600 bg-gray-800 border-2 rounded focus:ring-blue-500 focus:ring-2 ${
+                        errors.privacyAccepted ? 'border-red-500' : 'border-gray-600'
+                      }`}
+                      required
+                    />
+                    <span className="text-sm text-gray-300 leading-relaxed">
+                      Ho letto e accetto la{' '}
+                      <a
+                        href="https://www.iubenda.com/privacy-policy/76483844"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="text-blue-400 hover:text-blue-300 underline underline-offset-2"
+                      >
+                        Privacy Policy
+                      </a>
+                    </span>
+                  </label>
+                  {errors.privacyAccepted && (
+                    <p className="text-sm text-red-400">{errors.privacyAccepted[0]}</p>
                   )}
                 </div>
 
