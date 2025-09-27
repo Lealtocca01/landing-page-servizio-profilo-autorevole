@@ -63,7 +63,7 @@ export function HowItWorksNew() {
 
 
   return (
-    <div id="come-funziona" className="min-h-screen" style={{ background: '#111936' }}>
+    <div className="min-h-screen" style={{ background: '#111936' }}>
 
 
       {/* Nuova sezione Benefici */}
@@ -145,7 +145,7 @@ export function HowItWorksNew() {
           </p>
           
           {/* Headline principale */}
-          <h2 className="text-4xl md:text-5xl lg:text-6xl font-bold text-white mb-6 leading-tight">
+          <h2 id="come-funziona" className="text-4xl md:text-5xl lg:text-6xl font-bold text-white mb-6 leading-tight">
             Come funziona nel <span style={{ color: '#D3F20F' }}>pratico</span>?
           </h2>
           

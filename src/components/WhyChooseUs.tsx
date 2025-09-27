@@ -17,14 +17,13 @@ export function WhyChooseUs() {
       <div className="max-w-7xl mx-auto px-6 relative z-10">
         {/* Sezione "6 motivi per cui Profilo Autorevole è migliore" */}
         <motion.div
-          id="perche-noi"
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6 }}
           viewport={{ once: true }}
           className="mb-16 scroll-mt-24"
         >
-          <h3 className="text-3xl md:text-4xl font-bold text-white mb-4 text-left md:text-center">
+          <h3 id="perche-noi" className="text-3xl md:text-4xl font-bold text-white mb-4 text-left md:text-center">
             6 motivi per cui <span style={{ color: '#D3F20F' }}>Profilo Autorevole</span> è migliore
           </h3>
           <p className="text-lg max-w-3xl md:mx-auto text-left md:text-center leading-relaxed mb-12" style={{ color: '#C9D1D9' }}>

@@ -299,3 +299,14 @@
     @apply px-4;
   }
 }
+
+/* Scroll padding per navigazione smooth */
+html {
+  scroll-padding-top: 100px; /* Offset per navbar fissa */
+}
+
+@media (max-width: 768px) {
+  html {
+    scroll-padding-top: 80px; /* Offset ridotto per mobile */
+  }
+}
