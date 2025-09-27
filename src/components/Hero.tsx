@@ -52,7 +52,7 @@ export function Hero() {
 
             {/* Subheadline aggiunta */}
             <div className="text-[17px] sm:text-2xl md:text-2xl lg:text-xl xl:text-2xl mb-6 lg:mb-8 leading-relaxed max-w-4xl italic" style={{ color: '#C9D1D9' }}>
-              <span style={{ fontWeight: '300' }}>L'80% dei lead B2B sui social proviene da </span><span className="text-white font-bold">LinkedIn</span>.
+              <span style={{ fontWeight: '300' }}>L&apos;80% dei lead B2B sui social proviene da </span><span className="text-white font-bold">LinkedIn</span>.
             </div>
 
             <div className="text-[21px] sm:text-3xl md:text-3xl lg:text-2xl xl:text-3xl mb-6 lg:mb-8 leading-snug lg:leading-loose max-w-4xl" style={{ color: '#C9D1D9' }}>
