@@ -108,6 +108,7 @@ export function HowItWorksNew() {
               </div>
             </div>
 
+
             {/* Right side - Image */}
             <div className="relative">
               <div 

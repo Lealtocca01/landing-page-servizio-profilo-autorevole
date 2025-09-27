@@ -19,8 +19,10 @@ export function ContactPopupProvider({ children }: { children: ReactNode }) {
 
   const openPopup = (type: FormType = 'consultation') => {
     console.log('openPopup called with type:', type);
+    console.log('Current isOpen state:', isOpen);
     setFormType(type)
     setIsOpen(true)
+    console.log('After setState - isOpen should be true');
   }
   const closePopup = () => setIsOpen(false)
 

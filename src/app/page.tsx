@@ -15,9 +15,9 @@ export default function Home() {
       <Navbar />
       <Hero />
       <HowItWorksNew />
-      <FreeConsultation />
       <FinalCTA />
       <NoContracts />
+      <FreeConsultation />
       <WhyChooseUs />
       <Footer />
     </main>

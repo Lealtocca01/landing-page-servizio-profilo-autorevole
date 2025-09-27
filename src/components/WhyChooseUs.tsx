@@ -107,17 +107,30 @@ export function WhyChooseUs() {
           ))}
         </div>
         
-        {/* CTA Button sotto la sezione */}
-        <div className="mt-20 mb-20 flex justify-center lg:justify-start relative z-50">
-          <div className="relative z-50">
-            <GradientButton onClick={() => {
-              console.log('WhyChooseUs button clicked - opening consultation popup');
+        {/* CTA Button sotto la sezione - CENTRATO MOBILE, SINISTRA DESKTOP */}
+        <div className="mt-24 mb-24 flex justify-center lg:justify-start px-4 sm:px-0">
+          <button
+            onClick={() => {
+              console.log('CONSULTATION BUTTON CLICKED!');
               openPopup('consultation');
-            }}>
-              <span>Richiedi ora la tua consulenza gratuita</span>
-            </GradientButton>
-          </div>
+            }}
+            className="inline-flex items-center justify-center gap-3 px-6 py-4 sm:px-6 sm:py-3 md:px-8 md:py-4 text-base sm:text-base md:text-lg font-semibold rounded-xl relative overflow-hidden w-full sm:w-auto min-w-[280px] h-14"
+            style={{ 
+              background: 'linear-gradient(135deg, #D3F20F 0%, #A8D83A 100%)',
+              color: '#0B1020',
+              boxShadow: '0 4px 14px 0 rgba(211, 242, 15, 0.2)',
+              cursor: 'pointer',
+              zIndex: 99999,
+              position: 'relative',
+              fontSize: '1.1em'
+            }}
+          >
+            <span className="relative z-10 flex items-center justify-center w-full whitespace-nowrap">
+              Richiedi ora la tua consulenza gratuita
+            </span>
+          </button>
         </div>
+
       </div>
     </section>
   )

@@ -97,24 +97,21 @@ export function FreeConsultation() {
             </div>
           </div>
 
-          {/* CTA Button */}
-          <div className="text-left md:text-center">
+          {/* CTA Button - CENTRATO MOBILE, SINISTRA DESKTOP */}
+          <div className="text-center lg:text-left px-4 sm:px-0">
             <button
               onClick={() => openPopup('consultation')}
-              className="inline-flex items-center gap-3 px-8 py-4 text-lg font-bold rounded-2xl relative overflow-hidden"
+              className="inline-flex items-center justify-center gap-3 px-6 py-4 text-base font-semibold rounded-lg relative overflow-hidden w-full sm:w-auto min-w-[280px] h-14"
               style={{ 
                 background: 'linear-gradient(135deg, #D3F20F 0%, #A8D83A 100%)',
                 color: '#0B1020',
-                boxShadow: '0 8px 25px rgba(211,242,15,0.3)'
+                boxShadow: '0 4px 14px 0 rgba(211, 242, 15, 0.2)',
+                fontSize: '1.1em'
               }}
             >
-              <span className="relative z-10 flex items-center justify-center">
-                Prenota la tua consulenza gratuita
+              <span className="relative z-10 flex items-center justify-center w-full whitespace-nowrap">
+                Richiedi ora la tua consulenza gratuita
               </span>
-              <div 
-                className="absolute inset-0 bg-gradient-to-r from-transparent via-white to-transparent opacity-0"
-                style={{ transform: 'translateX(-100%)' }}
-              ></div>
             </button>
           </div>
         </div>

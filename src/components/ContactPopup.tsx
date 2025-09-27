@@ -327,7 +327,7 @@ export function ContactPopup({ isOpen, onClose, sorgente = "popup" }: ContactPop
                 <button
                   type="submit"
                   disabled={isLoading}
-                  className={`w-full font-bold py-4 px-6 rounded-lg text-lg ${
+                  className={`w-full font-bold py-4 px-6 rounded-lg text-lg whitespace-nowrap ${
                     isLoading
                       ? 'bg-gray-600 cursor-not-allowed text-gray-300'
                       : ''

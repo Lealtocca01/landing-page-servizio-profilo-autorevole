@@ -346,7 +346,7 @@ export function PackagePopup({ isOpen, onClose }: PackagePopupProps) {
                 <button
                   type="submit"
                   disabled={isLoading}
-                  className={`w-full font-bold py-4 px-6 rounded-lg text-lg ${
+                  className={`w-full font-bold py-4 px-6 rounded-lg text-lg whitespace-nowrap ${
                     isLoading
                       ? 'bg-gray-600 cursor-not-allowed text-gray-300'
                       : ''
@@ -357,7 +357,7 @@ export function PackagePopup({ isOpen, onClose }: PackagePopupProps) {
                     boxShadow: '0 8px 25px rgba(211,242,15,0.3)'
                   } : {}}
                 >
-                  {isLoading ? 'Invio in corso...' : 'Richiedi Maggiori Informazioni'}
+                  {isLoading ? 'Invio in corso...' : 'Richiedi informazioni'}
                 </button>
               </form>
             </div>

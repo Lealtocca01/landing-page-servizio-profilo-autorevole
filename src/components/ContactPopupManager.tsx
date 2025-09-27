@@ -7,6 +7,8 @@ import { PackagePopup } from './PackagePopup'
 export function ContactPopupManager() {
   const { isOpen, formType, closePopup } = useContactPopup()
 
+  console.log('ContactPopupManager render - isOpen:', isOpen, 'formType:', formType);
+
   // Mostra il popup appropriato in base al tipo di form
   if (formType === 'package') {
     return <PackagePopup isOpen={isOpen} onClose={closePopup} />
