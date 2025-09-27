@@ -130,7 +130,7 @@ export function Hero() {
                     <div className="flex items-start space-x-4">
                       <div className="w-1 h-5 rounded-full flex-shrink-0 mt-1.5 bg-transparent" />
                       <p className="text-lg sm:text-xl md:text-xl lg:text-lg xl:text-xl" style={{ color: '#D3F20F' }}>
-                        C'è un problema però...
+                        C&apos;è un problema però...
                       </p>
                     </div>
                   </div>
