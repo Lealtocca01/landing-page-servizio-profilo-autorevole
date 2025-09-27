@@ -9,11 +9,11 @@ export function FinalCTA() {
   // Definizione dei pricing tiers
   const pricingTiers = [
     {
-      name: "PROFESSIONAL",
-      price: 250,
-      pricePrefix: "Solo",
-      interval: "/mese",
-      description: "Tutto questo a meno della metà del costo di un dipendente PART-TIME al mese",
+      name: "Professional",
+      price: null, // Nessun prezzo mostrato
+      pricePrefix: "",
+      interval: "",
+      description: "",
       features: [
         { name: "3 post a settimana (12 al mese)", included: true },
         { name: "Strategia e piano editoriale personalizzato", included: true },
@@ -21,59 +21,50 @@ export function FinalCTA() {
         { name: "Pubblicazione costante", included: true },
         { name: "Gestione engagement (commenti, interazioni)", included: true },
         { name: "Monitoraggio e ottimizzazione continua", included: true },
+        { name: "2 call a settimana direttamente con il tuo consulente di riferimento per qualsiasi domande o dubbi", included: true },
       ],
+      bottomNote: "Tutto questo a meno di un terzo del costo di un dipendente PART-TIME al mese",
       cta: {
-        text: "Candidati",
-        onClick: openPopup
-      }
-    },
-    {
-      name: "EXECUTIVE",
-      price: 490,
-      interval: "/mese",
-      description: "Perfetto per chi vuole accelerare la crescita e trasformare LinkedIn in un vero canale di acquisizione clienti.",
-      highlight: true,
-      features: [
-        { name: "1 post al giorno (24 al mese)", included: true },
-        { name: "Tutto quello incluso nel Pacchetto Base", included: true },
-        { name: "Maggiore visibilità settimanale", included: true },
-        { name: "Presenza costante e autorevole", included: true },
-        { name: "Più opportunità di interazione e crescita", included: true },
-        { name: "Monitoraggio e ottimizzazione continua + report mensile", included: true },
-      ],
-      cta: {
-        text: "Candidati",
-        onClick: openPopup
-      }
+        text: "Richiedi Maggiori Informazioni",
+        onClick: () => openPopup('package') // Apri il popup per il pacchetto
+      },
+      isPopular: true // Aggiungo il flag per "Più Popolare"
     },
   ];
 
   return (
-    <section id="cta" className="pt-16 md:pt-24 lg:pt-32 pb-6 md:pb-3 lg:pb-1 relative overflow-hidden" style={{ background: '#040124' }}>
-      {/* Background effects */}
+    <section id="cta" className="pt-12 md:pt-16 lg:pt-20 pb-4 md:pb-2 lg:pb-1 relative overflow-hidden" style={{ background: '#E2E8F0' }}>
+      {/* Background effects - rimossi per design più pulito */}
       <div className="absolute inset-0">
-        <div className="absolute top-20 left-10 w-96 h-96 bg-blue-500 rounded-full mix-blend-multiply filter blur-xl opacity-10 animate-float" />
-        <div className="absolute bottom-20 right-10 w-96 h-96 bg-green-500 rounded-full mix-blend-multiply filter blur-xl opacity-10 animate-float" style={{ animationDelay: '3s' }} />
-        <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-96 h-96 bg-yellow-500 rounded-full mix-blend-multiply filter blur-xl opacity-10 animate-float" style={{ animationDelay: '1.5s' }} />
+        {/* Background subtle pattern */}
+        <div className="absolute inset-0 opacity-5" style={{ background: 'radial-gradient(circle at 20% 80%, #D3F20F 0%, transparent 50%), radial-gradient(circle at 80% 20%, #D3F20F 0%, transparent 50%)' }} />
       </div>
 
       <div className="container-custom relative z-10">
-        <div className="text-center mb-16">
-          <h2 className="text-5xl md:text-6xl font-black text-white mb-6 leading-tight">
-            Ma quanto <span className="text-gradient">costa</span> tutto questo?
-          </h2>
-          <p className="text-xl md:text-2xl text-gray-300 max-w-3xl mx-auto leading-relaxed">
-          Quanto ti costerà costruire la tua presenza digitale e per farti scegliere dai tuoi clienti?
+        <div className="text-left md:text-center mb-12">
+          <h2 className="text-[2.75rem] md:text-[3.5rem] lg:text-[4.25rem] font-black mb-6 leading-[1.0] md:leading-[0.9] tracking-tight" style={{ color: '#1A2246' }}>
+              Uno dei servizi più richiesti di{' '}
+              <span 
+                style={{ 
+                  color: '#1A2246',
+                  textShadow: '0 0 20px rgba(26,34,70,0.3)'
+                }}
+              >
+                Profilo Autorevole
+              </span>
+            </h2>
+          <p className="text-xl md:text-2xl max-w-4xl md:mx-auto leading-relaxed font-medium" style={{ color: '#64748B' }}>
+            Quanto ti costerà costruire la tua presenza digitale e per farti scegliere dai tuoi clienti?
           </p>
         </div>
 
         {/* Sezione Pricing Cards */}
-        <div className="mb-16 lg:mb-8 -mt-8 lg:-mt-16">
+        <div className="mb-8 lg:mb-4 -mt-4 lg:-mt-8">
           <PricingCards 
             tiers={pricingTiers}
             sectionClassName="py-0 px-0 bg-transparent"
-            containerClassName="px-0"
-            className="gap-6 lg:gap-8"
+            containerClassName="px-0 w-full lg:max-w-xl mx-auto"
+            className="gap-4 lg:gap-6"
             cardClassName="backdrop-blur-sm shadow-xl"
           />
         </div>

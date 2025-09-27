@@ -38,7 +38,7 @@ export function NavBar({ items, className }: NavBarProps) {
         className,
       )}
     >
-      <div className="flex items-center gap-3 bg-background/5 border border-border backdrop-blur-lg py-1.5 px-1.5 rounded-full shadow-lg">
+      <div className="flex items-center gap-3 py-1.5 px-1.5 rounded-full shadow-lg" style={{ background: '#1A2246', border: '1px solid #334155' }}>
         {items.map((item) => {
           const Icon = item.icon;
           const isActive = activeTab === item.name;
@@ -50,27 +50,24 @@ export function NavBar({ items, className }: NavBarProps) {
               onClick={() => setActiveTab(item.name)}
               className={cn(
                 "relative cursor-pointer text-sm font-semibold px-6 py-2.5 rounded-full transition-all duration-300 group",
-                "text-white/80 hover:text-white hover:scale-105",
-                isActive && "text-white",
+                "hover:scale-105",
+                isActive ? "text-white" : "text-white/80 hover:text-white",
               )}
             >
-              {/* Glow effect */}
-              <span
-                aria-hidden
-                className="pointer-events-none absolute -inset-3 rounded-full bg-white/30 blur-xl opacity-0 group-hover:opacity-100 transition-all duration-300 z-0"
-              />
               
               {/* Underline effect */}
               <span
                 aria-hidden
-                className="pointer-events-none absolute -bottom-1 left-1/2 -translate-x-1/2 h-0.5 w-0 bg-white rounded-full opacity-0 transition-all duration-300 group-hover:w-12 group-hover:opacity-100"
+                className="pointer-events-none absolute -bottom-1 left-1/2 -translate-x-1/2 h-0.5 w-0 rounded-full opacity-0 transition-all duration-300 group-hover:w-12 group-hover:opacity-100"
+                style={{ background: '#D3F20F' }}
               />
               
               {/* Active underline */}
               {isActive && (
                 <span
                   aria-hidden
-                  className="pointer-events-none absolute -bottom-1 left-1/2 -translate-x-1/2 h-0.5 w-12 bg-white rounded-full opacity-100"
+                  className="pointer-events-none absolute -bottom-1 left-1/2 -translate-x-1/2 h-0.5 w-12 rounded-full opacity-100"
+                  style={{ background: '#D3F20F' }}
                 />
               )}
               
@@ -81,7 +78,8 @@ export function NavBar({ items, className }: NavBarProps) {
               {isActive && (
                 <motion.div
                   layoutId="lamp"
-                  className="absolute inset-0 w-full bg-white/10 rounded-full -z-10"
+                  className="absolute inset-0 w-full rounded-full -z-10"
+                  style={{ background: '#D3F20F', opacity: 0.2 }}
                   initial={false}
                   transition={{
                     type: "spring",
@@ -103,7 +101,7 @@ export function Navbar() {
   const items: NavItem[] = [
     { name: "Home", url: "#hero", icon: Home },
     { name: "Come funziona", url: "#come-funziona", icon: Info },
-    { name: "Perché noi?", url: "#prezzi", icon: ThumbsUp }, // Links to ComparisonTable section
+    { name: "Perché noi?", url: "#perche-noi", icon: ThumbsUp },
   ];
 
   return <NavBar items={items} />;

@@ -21,6 +21,7 @@ const gradientMapping: Record<string, string> = {
   indigo: "linear-gradient(hsl(253, 90%, 50%), hsl(238, 90%, 50%))",
   orange: "linear-gradient(hsl(43, 90%, 50%), hsl(28, 90%, 50%))",
   green: "linear-gradient(hsl(123, 90%, 40%), hsl(108, 90%, 40%))",
+  lime: "linear-gradient(#D3F20F, #B8E600)", // Gradiente lime per consistenza
 };
 
 // Component definition

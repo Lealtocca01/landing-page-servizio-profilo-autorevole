@@ -3,7 +3,7 @@
 import * as React from "react";
 import { Button } from "@/components/ui/button";
 import { cn } from "@/lib/utils";
-import { CheckIcon, ArrowRightIcon } from "@radix-ui/react-icons";
+import { CheckIcon } from "@radix-ui/react-icons";
 import { motion, useInView } from "framer-motion";
 import { useRef, useEffect, useState } from "react";
 import PricingGradientButton from "@/components/ui/PricingGradientButton";
@@ -62,12 +62,14 @@ export interface PricingFeature {
 
 export interface PricingTier {
     name: string;
-    price: number;
+    price: number | null;
     pricePrefix?: string;
     interval?: string;
     description: string;
     features: PricingFeature[];
     highlight?: boolean;
+    isPopular?: boolean;
+    bottomNote?: string; // testo mostrato sopra al CTA
     cta?: {
         text: string;
         href?: string;
@@ -94,125 +96,160 @@ export function PricingCards({
         <section
             className={cn(
                 "text-foreground",
-                "pt-4 pb-8 sm:py-24 md:py-16 lg:py-8 px-4",
+                "pt-4 pb-8 sm:py-12 md:py-8 lg:py-6 px-4",
                 "fade-bottom",
                 sectionClassName
             )}
         >
-            <div className={cn("w-full max-w-5xl mx-auto px-4", containerClassName)} {...props}>
-                <div className={cn("grid grid-cols-1 md:grid-cols-2 gap-8 pt-4", className)}>
+            <div className={cn("w-full mx-auto px-4", containerClassName)} {...props}>
+                <div className={cn("grid grid-cols-1 gap-4 lg:gap-8 pt-2", className)}>
                     {tiers.map((tier, index) => (
                         <div
                             key={tier.name}
                             className={cn(
                                 "relative group cursor-pointer",
-                                "rounded-2xl transition-all duration-500",
-                                // Special styling for second package (index 1) with platinum border
-                                index === 1 
-                                    ? "glass border-2 border-[#E5E4E2] shadow-[0_0_0_2px_rgba(229,228,226,0.4)]"
-                                    : tier.highlight
-                                        ? "glass border-[1px] border-[#E5E4E2]"
-                                        : "relative bg-gradient-to-r from-blue-500 via-cyan-500 to-green-500 p-[2px] scale-105 -translate-y-4 z-20",
-                                tier.highlight && index !== 1 ? "hover:border-[#E5E4E2] dark:hover:border-[#E5E4E2]" : "",
-                                // Enhanced hover for second package
-                                index === 1 ? "hover:border-[#E5E4E2] hover:shadow-[0_0_0_3px_rgba(229,228,226,0.6)]" : "",
-                                tier.highlight && index !== 1
-                                    ? "hover:shadow-[0_8px_40px_-12px_rgba(0,0,0,0.1)] dark:hover:shadow-[0_8px_40px_-12px_rgba(0,0,0,0.3)]"
-                                    : "shadow-[0_20px_50px_-12px_rgba(59,130,246,0.4)] hover:shadow-[0_25px_60px_-12px_rgba(59,130,246,0.5)]",
+                                "transition-all duration-500 ease-out",
+                                "hover:scale-[1.02] hover:shadow-2xl",
                                 cardClassName
                             )}
+                            style={{ borderRadius: '20px' }}
                         >
-                            {/* Badge "Più Popolare" solo per il pacchetto Base */}
-                            {!tier.highlight && (
-                                <div className="absolute -top-3 left-6 z-10">
-                                    <div className="bg-white text-slate-900 px-4 py-2 rounded-full text-sm font-bold shadow-lg relative overflow-hidden">
-                                        <span className="relative z-10">Più Popolare</span>
-                                    </div>
+                            {/* Tag "Più Popolare" */}
+                            {tier.isPopular && (
+                                <div 
+                                    className="absolute -top-3 -left-3 z-10 px-4 py-1 rounded-full text-sm font-bold"
+                                    style={{ 
+                                        background: '#0B1020',
+                                        color: '#FFFFFF',
+                                        border: '2px solid #D3F20F'
+                                    }}
+                                >
+                                    Molto richiesto
                                 </div>
                             )}
                             
-                            <div className={cn(
-                                "p-10 flex flex-col h-full font-sans rounded-2xl",
-                                !tier.highlight ? "bg-slate-900/90 backdrop-blur-sm" : "",
-                                // Add extra padding for second package to ensure border visibility
-                                index === 1 ? "mb-2" : ""
-                            )}>
-                                <div className="space-y-4">
-                                    <h3 className={cn(
-                                        "text-lg uppercase tracking-wider font-black",
-                                        tier.highlight
-                                            ? "text-white"
-                                            : "text-white"
-                                    )}>
+                            <div 
+                                className={cn(
+                                    "h-full font-sans transition-all duration-500 relative overflow-hidden",
+                                    "hover:shadow-[0_20px_40px_rgba(0,0,0,0.1)]"
+                                )} 
+                                style={{ 
+                                    background: 'linear-gradient(135deg, #1A2246 0%, #2D3748 100%)',
+                                    borderRadius: '20px',
+                                    border: '2px solid #D3F20F',
+                                    boxShadow: '0 4px 20px rgba(211,242,15,0.2)'
+                                }}
+                            >
+                                {/* Header pulito e ordinato */}
+                                <div className="p-8">
+                                    {/* Titolo */}
+                                    <h3 
+                                        className="text-3xl md:text-4xl font-bold mb-6 text-left md:text-center"
+                                        style={{ color: '#FFFFFF' }}
+                                    >
                                         {tier.name}
                                     </h3>
-                                    <div className="flex items-baseline gap-2">
-                                        {tier.pricePrefix && (
-                                            <span className="text-2xl font-bold text-white">
-                                                {tier.pricePrefix}
+                                    
+                                    {/* Prezzo - solo se presente */}
+                                    {tier.price !== null && (
+                                        <div className="flex items-baseline mb-6">
+                                            <span 
+                                                className="text-5xl font-bold"
+                                                style={{ color: '#D3F20F' }}
+                                            >
+                                                {tier.pricePrefix}{tier.price}
                                             </span>
-                                        )}
-                                        <AnimatedPrice 
-                                            price={tier.price} 
-                                            highlight={tier.highlight}
-                                            delay={(index * 0.2 + 0.5) * 1000} // delay in ms per il contatore
-                                        />
-                                        <span className={cn(
-                                            "text-sm",
-                                            tier.highlight
-                                                ? "text-gray-300"
-                                                : "text-gray-300"
-                                        )}>
-                                            {tier.interval || "one-time"}
-                                        </span>
-                                    </div>
-                                    <p className={cn(
-                                        tier.description.includes("PART-TIME") ? "text-base md:text-lg pb-6 border-b" : "text-sm pb-6 border-b",
-                                        tier.description.includes("PART-TIME") 
-                                            ? "text-white border-gray-700"
-                                            : tier.highlight
-                                                ? "text-gray-300 border-gray-700"
-                                                : "text-gray-300 border-gray-700"
-                                    )}>
-                                        {tier.description}
-                                    </p>
-                                </div>
-
-                                <div className="mt-8 space-y-4 flex-grow">
-                                    {tier.features.map((feature) => (
-                                        <div
-                                            key={feature.name}
-                                            className="flex items-center gap-3"
-                                        >
-                                            <div className={cn(
-                                                "flex-shrink-0 w-5 h-5 rounded-full flex items-center justify-center",
-                                                feature.included
-                                                    ? tier.highlight
-                                                        ? "text-green-400"
-                                                        : "text-green-400"
-                                                    : "text-gray-400"
-                                            )}>
-                                                <CheckIcon className="w-3.5 h-3.5" />
-                                            </div>
-                                            <span className={cn(
-                                                "text-sm",
-                                                tier.highlight
-                                                    ? "text-gray-300"
-                                                    : "text-gray-300"
-                                            )}>
-                                                {feature.name}
+                                            <span 
+                                                className="text-lg ml-2"
+                                                style={{ color: '#FFFFFF' }}
+                                            >
+                                                {tier.interval}
                                             </span>
                                         </div>
-                                    ))}
+                                    )}
+                                    
+                                    {/* Descrizione */}
+                                    <p 
+                                        className="text-base leading-relaxed mb-6"
+                                        style={{ color: '#FFFFFF' }}
+                                    >
+                                        {tier.description}
+                                    </p>
+                                    
+                                    {/* Separatore */}
+                                    <div 
+                                        className="w-full h-px mb-6"
+                                        style={{ background: '#4A5568' }}
+                                    ></div>
                                 </div>
 
+                                {/* Features pulite e ordinate */}
+                                {tier.features.length > 0 && (
+                                    <div className="px-8 pb-8 flex-grow">
+                                        <div className="space-y-4">
+                                            {tier.features.map((feature, featureIndex) => (
+                                                <div
+                                                    key={feature.name}
+                                                    className="flex items-start gap-4"
+                                                >
+                                                    <div 
+                                                        className="flex-shrink-0 w-5 h-5 rounded-full flex items-center justify-center mt-0.5"
+                                                        style={{ 
+                                                            background: '#D3F20F',
+                                                            color: '#0B1020'
+                                                        }}
+                                                    >
+                                                        <CheckIcon className="w-3 h-3" />
+                                                    </div>
+                                                    <span 
+                                                        className="text-base leading-relaxed"
+                                                        style={{ color: '#FFFFFF' }}
+                                                    >
+                                                        {feature.name}
+                                                    </span>
+                                                </div>
+                                            ))}
+                                        </div>
+                                    </div>
+                                )}
+
+                                {/* Nota in fondo sopra il CTA */}
+                                {tier.bottomNote && (
+                                    <div className="px-8 pb-4">
+                                        <div 
+                                            className="w-full h-px mb-4"
+                                            style={{ background: '#6B7280' }}
+                                        ></div>
+                                        <p className="text-base md:text-lg font-semibold leading-relaxed" style={{ color: '#E2E8F0' }}>
+                                            {tier.bottomNote}
+                                        </p>
+                                    </div>
+                                )}
+
+                                {/* CTA Button elegante */}
                                 {tier.cta && (
-                                    <div className="mt-8">
-                                        <PricingGradientButton
-                                            onClick={tier.cta.onClick}
+                                    <div className="px-8 pb-8">
+                                        <button
+                                            type="button"
+                                            onClick={(e) => {
+                                                e.preventDefault();
+                                                e.stopPropagation();
+                                                if (tier.cta?.onClick) {
+                                                    tier.cta.onClick();
+                                                }
+                                            }}
+                                            className="w-full py-4 md:py-4 text-sm md:text-lg font-bold transition-all duration-300 hover:scale-[1.02] hover:shadow-lg group relative overflow-hidden px-6 md:px-4"
+                                            style={{ 
+                                                background: 'linear-gradient(135deg, #D3F20F 0%, #A8D83A 100%)',
+                                                color: '#0B1020',
+                                                borderRadius: '12px',
+                                                boxShadow: '0 8px 25px rgba(211,242,15,0.3)'
+                                            }}
                                         >
-                                            {tier.cta.text}
-                                        </PricingGradientButton>
+                                            <span className="relative z-10 flex items-center justify-center">
+                                                {tier.cta.text}
+                                            </span>
+                                        </button>
                                     </div>
                                 )}
                             </div>

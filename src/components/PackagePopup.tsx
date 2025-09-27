@@ -4,22 +4,22 @@ import { motion, AnimatePresence } from "framer-motion"
 import { X } from "lucide-react"
 import { useState } from "react"
 
-interface ContactPopupProps {
+interface PackagePopupProps {
   isOpen: boolean
   onClose: () => void
-  sorgente?: string // Aggiungiamo il campo sorgente per tracciare da dove proviene la richiesta
 }
 
-// Interfaccia per i dati del form
-interface FormData {
+// Interfaccia per i dati del form pacchetto
+interface PackageFormData {
   nome: string
   cognome: string
   email: string
   telefono: string
-  azienda: string // Rinominiamo attivita in azienda per essere coerenti con l'API
+  azienda: string
   settore: string
-  sorgente?: string
-  privacyAccepted: boolean // Campo per la checkbox GDPR
+  messaggio: string
+  privacyAccepted: boolean
+  packageType: string
 }
 
 // Interfaccia per gli errori di validazione
@@ -27,16 +27,17 @@ interface ValidationErrors {
   [key: string]: string[]
 }
 
-export function ContactPopup({ isOpen, onClose, sorgente = "popup" }: ContactPopupProps) {
-  const [formData, setFormData] = useState<FormData>({
+export function PackagePopup({ isOpen, onClose }: PackagePopupProps) {
+  const [formData, setFormData] = useState<PackageFormData>({
     nome: "",
     cognome: "",
     email: "",
     telefono: "",
     azienda: "",
     settore: "",
-    sorgente: sorgente,
-    privacyAccepted: false // Inizializza la checkbox GDPR come non selezionata
+    messaggio: "",
+    privacyAccepted: false,
+    packageType: "Professional"
   })
 
   // Stati per gestire il caricamento e gli errori
@@ -44,7 +45,7 @@ export function ContactPopup({ isOpen, onClose, sorgente = "popup" }: ContactPop
   const [errors, setErrors] = useState<ValidationErrors>({})
   const [successMessage, setSuccessMessage] = useState("")
 
-  const handleInputChange = (e: React.ChangeEvent<HTMLInputElement | HTMLSelectElement>) => {
+  const handleInputChange = (e: React.ChangeEvent<HTMLInputElement | HTMLSelectElement | HTMLTextAreaElement>) => {
     const { name, value, type } = e.target
     const checked = (e.target as HTMLInputElement).checked
     
@@ -76,19 +77,20 @@ export function ContactPopup({ isOpen, onClose, sorgente = "popup" }: ContactPop
     }
 
     try {
-      // Prepara i dati per l'API (rimuoviamo il campo sorgente se vuoto)
+      // Prepara i dati per l'API
       const apiData = {
         nome: formData.nome,
         cognome: formData.cognome,
         email: formData.email,
-        telefono: formData.telefono || undefined, // Invia undefined se vuoto
+        telefono: formData.telefono || undefined,
         azienda: formData.azienda || undefined,
         settore: formData.settore,
-        sorgente: formData.sorgente || undefined,
-        privacyAccepted: formData.privacyAccepted // Invia sempre il campo privacy per la validazione
+        messaggio: formData.messaggio || undefined,
+        privacyAccepted: formData.privacyAccepted,
+        packageType: formData.packageType
       }
 
-      const response = await fetch('/api/contact', {
+      const response = await fetch('/api/package', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
@@ -142,7 +144,7 @@ export function ContactPopup({ isOpen, onClose, sorgente = "popup" }: ContactPop
               {/* Header */}
               <div className="flex justify-between items-center p-6 border-b border-gray-700">
                 <h2 className="text-xl font-bold text-white">
-                  Inserisci i tuoi dati, un mio consulente ti ricontatterà.
+                  Inserisci i tuoi dati, un consulente ti ricontatterà.
                 </h2>
                 <button
                   onClick={onClose}
@@ -279,6 +281,23 @@ export function ContactPopup({ isOpen, onClose, sorgente = "popup" }: ContactPop
                   )}
                 </div>
 
+                {/* Messaggio aggiuntivo */}
+                <div>
+                  <textarea
+                    name="messaggio"
+                    placeholder="Hai domande specifiche sul pacchetto? (opzionale)"
+                    value={formData.messaggio}
+                    onChange={handleInputChange}
+                    rows={3}
+                    className={`w-full px-4 py-3 bg-gray-800 border rounded-lg text-white placeholder-gray-400 focus:outline-none focus:ring-1 transition-colors resize-none ${
+                      errors.messaggio ? 'border-red-500 focus:border-red-500 focus:ring-red-500' : 'border-gray-600 focus:border-blue-500 focus:ring-blue-500'
+                    }`}
+                  />
+                  {errors.messaggio && (
+                    <p className="mt-1 text-sm text-red-400">{errors.messaggio[0]}</p>
+                  )}
+                </div>
+
                 {/* Checkbox GDPR */}
                 <div className="space-y-2">
                   <label className="flex items-start space-x-3 cursor-pointer">
@@ -338,7 +357,7 @@ export function ContactPopup({ isOpen, onClose, sorgente = "popup" }: ContactPop
                     boxShadow: '0 8px 25px rgba(211,242,15,0.3)'
                   } : {}}
                 >
-                  {isLoading ? 'Invio in corso...' : 'Richiedi ora la tua consulenza gratuita'}
+                  {isLoading ? 'Invio in corso...' : 'Richiedi Maggiori Informazioni'}
                 </button>
               </form>
             </div>

@@ -13,38 +13,6 @@ import { useContactPopup } from '@/contexts/ContactPopupContext'
 export function HowItWorksNew() {
   const { openPopup } = useContactPopup()
 
-  const benefits = [
-    {
-      title: "Posizionamento Chiaro",
-      description: "Il tuo profilo diventa il biglietto da visita digitale che ti distingue nel tuo settore.",
-      icon: "🎯",
-      color: "from-blue-500 to-cyan-500"
-    },
-    {
-      title: "Reputazione Solida",
-      description: "Costruiamo autorevolezza e credibilità con contenuti professionali e strategici.",
-      icon: "🏛️",
-      color: "from-blue-500 to-slate-500"
-    },
-    {
-      title: "Massima Visibilità",
-      description: "Ti rendiamo visibile ai decision maker e potenziali clienti giusti, non a chiunque.",
-      icon: "🔍",
-      color: "from-green-500 to-emerald-500"
-    },
-    {
-      title: "Autorità nel Settore",
-      description: "Ti posizioniamo come riferimento credibile e influente nella tua nicchia.",
-      icon: "📢",
-      color: "from-indigo-500 to-sky-500"
-    },
-    {
-      title: "Nuove Opportunità",
-      description: "Apri le porte a clienti, collaborazioni e partnership di valore grazie a LinkedIn.",
-      icon: "💼",
-      color: "from-orange-500 to-red-500"
-    }
-  ];
   
 
   const steps = [
@@ -86,140 +54,112 @@ export function HowItWorksNew() {
     },
   ]
 
-  // Creo gli items per il GlassIcons component
+  // Creo gli items per il GlassIcons component con colore lime consistente
   const glassIconsItems = steps.map((step, index) => ({
     icon: <step.lucideIcon className="w-6 h-6 text-white" />,
-    color: step.color,
+    color: 'lime', // Colore consistente lime per tutti gli step
   }))
 
 
 
   return (
-    <div id="come-funziona" className="min-h-screen" style={{ background: '#040124' }}>
+    <div id="come-funziona" className="min-h-screen" style={{ background: '#111936' }}>
 
 
       {/* Nuova sezione Benefici */}
       <div className="max-w-7xl mx-auto px-6 py-20">
-        {/* Titolo principale centrato */}
+        {/* Titolo principale con immagine */}
         <motion.div
           initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6 }}
           viewport={{ once: true }}
-          className="text-left mb-16 space-y-6"
+          className="mb-16"
         >
-          <h2 className="text-3xl md:text-4xl lg:text-5xl font-black text-white leading-tight">
-            {/* Layout mobile con distribuzione su più righe */}
-            <div className="block md:hidden space-y-2">
-              <div><span className="text-3xl font-normal">Affidati a</span> <span className="text-gradient text-3xl font-normal">Profilo Autorevole</span><span className="text-3xl font-normal">,</span></div>
-              <div>l&apos;unica agenzia <span className="text-gradient">davvero specializzata</span></div>
-              <div><span className="text-3xl font-normal">nel costruire la tua presenza</span></div>
-              <div><span className="text-3xl font-normal">su LinkedIn.</span></div>
-            </div>
-            {/* Layout desktop normale */}
-            <div className="hidden md:block">
-              Affidati a <span className="text-gradient">Profilo Autorevole</span>, l&apos;unica agenzia <span className="text-gradient">davvero specializzata</span> nel costruire la tua presenza su LinkedIn.
-            </div>
-          </h2>
-                        <p className="text-xl md:text-2xl text-gray-300 leading-relaxed max-w-4xl text-left">
-                <span className="font-bold">Hai capito bene:</span> mentre le altre agenzie fanno &quot;un po&apos; di tutto&quot;, noi ci concentriamo su una sola cosa e la facciamo meglio di chiunque altro.
+          <div className="grid lg:grid-cols-2 gap-8 lg:gap-12 items-center">
+            {/* Left side - Text content */}
+            <div className="text-left lg:text-left space-y-6">
+              <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-white leading-tight">
+                {/* Layout mobile con distribuzione su più righe */}
+                <div className="block md:hidden space-y-2">
+                  <div><span className="text-3xl font-normal">Affidati a Profilo Autorevole,</span></div>
+                  <div>l&apos;unica agenzia <span style={{ color: '#D3F20F' }}>davvero specializzata</span></div>
+                  <div><span className="text-3xl font-normal">nel costruire la tua presenza</span></div>
+                  <div><span className="text-3xl font-normal">su LinkedIn.</span></div>
+                </div>
+                {/* Layout desktop normale */}
+                <div className="hidden md:block">
+                  Affidati a Profilo Autorevole, l&apos;unica agenzia <span style={{ color: '#D3F20F' }}>davvero specializzata</span> nel costruire la tua presenza su LinkedIn.
+                </div>
+              </h2>
+              <p className="text-xl md:text-2xl leading-relaxed" style={{ color: '#C9D1D9' }}>
+                <span className="font-bold">Hai capito bene:</span> mentre le altre agenzie fanno &quot;un po&apos; di tutto&quot;, noi ci concentriamo su una sola cosa e la facciamo meglio di chiunque altro.<br /><br />
+                <em>Portandoti online in soli 7 giorni.</em>
               </p>
               
-              {/* CTA Button aggiuntivo */}
-              <div className="mt-8 flex justify-center lg:justify-start">
+              {/* CTA Button */}
+              <div className="mt-8 flex justify-start">
                 <GradientButton onClick={openPopup}>
-                  <span>Candidati ora per Profilo Autorevole</span>
+                  <span>Richiedi ora la tua consulenza gratuita</span>
                 </GradientButton>
               </div>
-        </motion.div>
+            </div>
 
-        {/* Sezione "Perché affidarti a noi?" allineata a sinistra */}
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.6 }}
-          viewport={{ once: true }}
-          className="mb-1"
-        >
-          <h3 className="text-2xl md:text-3xl font-bold text-white mb-4 relative">
-            Perché affidarti a noi?
-            <div className="absolute bottom-0 left-0 w-72 h-0.5 bg-white rounded-full"></div>
-          </h3>
-          <p className="text-lg text-gray-300 max-w-2xl leading-relaxed mb-1">
-          Perché con te faremo esattamente ciò che abbiamo già realizzato<br />
-          per centinaia di professionisti!
-          </p>
-        </motion.div>
-
-        <div className="grid lg:grid-cols-2 gap-16 items-center">
-          {/* Colonna sinistra - Bullet list dei benefici */}
-          <div className="space-y-3">
-            {benefits.map((benefit, index) => (
-              <motion.div
-                key={index}
-                initial={{ opacity: 0, x: -20 }}
-                whileInView={{ opacity: 1, x: 0 }}
-                transition={{ duration: 0.4 }}
-                viewport={{ once: true }}
-                className="flex items-start gap-4"
-              >
-                {/* Bullet point colorato */}
-                <div className="w-3 h-3 rounded-full mt-3 flex-shrink-0 bg-green-400" />
-                
-                {/* Contenuto del beneficio */}
-                <div className="flex-1">
-                  <h3 className="text-lg font-black mb-1 text-white">
-                    {benefit.title}
-                  </h3>
-                  <p className="text-sm text-gray-300">
-                    {benefit.description}
-                  </p>
-                </div>
-              </motion.div>
-            ))}
-          </div>
-
-          {/* Colonna destra - Immagine statica ottimizzata */}
-          <div className="relative -mt-8">
+            {/* Right side - Image */}
             <div className="relative">
-              {/* Background decorativo con glow luminoso intenso */}
-              <div className="absolute inset-0 bg-gradient-to-br from-blue-50 to-purple-50 rounded-3xl rotate-3 shadow-[0_0_80px_rgba(59,130,246,0.6),0_0_120px_rgba(59,130,246,0.4),0_0_160px_rgba(59,130,246,0.2)]" />
-              
-              {/* Container principale statico */}
-              <div className='group relative rounded-3xl bg-white shadow-2xl border border-gray-100 overflow-hidden'>
-                {/* Contenuto della card - Immagine reale */}
-                <div className="relative z-20 p-0">
-                  <Image 
-                    src="/images/linkedin-devices.jpg" 
-                    alt="Laptop e smartphone che mostrano profili LinkedIn con icone neon fluttuanti"
-                    width={800}
-                    height={600}
-                    className="w-full h-full object-cover rounded-3xl"
-                  />
+              <div 
+                className="rounded-2xl overflow-hidden shadow-2xl"
+                style={{ 
+                  background: '#111936'
+                }}
+              >
+                {/* Immagine di sfondo */}
+                <div 
+                  className="w-full h-96 lg:h-[28rem] bg-cover bg-center lg:bg-contain"
+                  style={{
+                    backgroundImage: 'url("/images/7gg.png")',
+                    backgroundRepeat: 'no-repeat',
+                    backgroundPosition: 'center'
+                  }}
+                >
                 </div>
               </div>
             </div>
           </div>
-        </div>
-        
-        {/* CTA Button sotto la toggle list */}
-        <div className="mt-16 mb-16 flex justify-center lg:justify-start">
-          <GradientButton onClick={openPopup}>
-            <span>Candidati ora per Profilo Autorevole</span>
-          </GradientButton>
-        </div>
+        </motion.div>
+
       </div>
+
+      {/* Sezione How It Works - Titolo principale */}
+      <motion.div
+        initial={{ opacity: 0, y: 30 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        transition={{ duration: 0.6 }}
+        viewport={{ once: true }}
+        className="max-w-6xl mx-auto px-6 pt-4 pb-16"
+      >
+        <div className="text-left md:text-center mb-16">
+          {/* Preheadline */}
+          <p className="text-lg font-semibold mb-4" style={{ color: '#C9D1D9' }}>
+            Ma ora ti starai chiedendo..
+          </p>
+          
+          {/* Headline principale */}
+          <h2 className="text-4xl md:text-5xl lg:text-6xl font-bold text-white mb-6 leading-tight">
+            Come funziona nel <span style={{ color: '#D3F20F' }}>pratico</span>?
+          </h2>
+          
+          {/* Subheadline */}
+          <p className="text-xl md:text-2xl leading-relaxed max-w-4xl mx-auto" style={{ color: '#C9D1D9' }}>
+            Ecco cosa farà Profilo Autorevole per te:
+          </p>
+        </div>
+      </motion.div>
 
       {/* Demo content */}
       <div className="max-w-6xl mx-auto px-6 pt-4 pb-12">
-        <div className="text-center mb-16">
-          <h1 className="text-4xl md:text-5xl font-black mb-4 text-white">Ma come procederemo nel pratico?</h1>
-          <p className="text-xl md:text-2xl text-gray-300">
-            Ecco cosa fara Profilo Autorevole per te:
-          </p>
-        </div>
 
-        <div className="space-y-12">
+        <div className="space-y-8">
           <div className="relative max-w-4xl mx-auto">
             {/* Progress bar centrale fissa - Desktop */}
             <div 
@@ -229,14 +169,14 @@ export function HowItWorksNew() {
                 top: '1.5rem',
                 transform: 'translateX(-50%)',
                 width: '2px',
-                height: `${steps.length * 12 + 21.5}rem`
+                height: `${(steps.length + 3) * 9 + 12}rem`
               }}
             >
               {/* Barra grigia di background */}
               <div className="absolute inset-0 bg-gray-300 rounded-full"></div>
               
-              {/* Barra bianca fissa (sempre al 100%) */}
-              <div className="absolute inset-x-0 top-0 bg-white rounded-full h-full"></div>
+              {/* Barra lime fissa (sempre al 100%) */}
+              <div className="absolute inset-x-0 top-0 rounded-full h-full" style={{ background: '#D3F20F' }}></div>
             </div>
 
             {/* Progress bar centrale fissa - Mobile */}
@@ -247,20 +187,20 @@ export function HowItWorksNew() {
                 top: '1.5rem',
                 transform: 'translateX(-50%)',
                 width: '2px',
-                height: `${steps.length * 12 + 70}rem`
+                height: `${(steps.length + 3) * 11 + 55}rem`
               }}
             >
               {/* Barra grigia di background */}
               <div className="absolute inset-0 bg-gray-300 rounded-full"></div>
               
-              {/* Barra bianca fissa (sempre al 100%) */}
-              <div className="absolute inset-x-0 top-0 bg-white rounded-full h-full"></div>
+              {/* Barra lime fissa (sempre al 100%) */}
+              <div className="absolute inset-x-0 top-0 rounded-full h-full" style={{ background: '#D3F20F' }}></div>
             </div>
 
             {steps.map((step, i) => (
               <motion.div
                 key={i}
-                className="flex items-center relative mb-12 last:mb-0"
+                className="flex items-center relative mb-8 last:mb-0"
                 initial={{ opacity: 0 }}
                 whileInView={{ opacity: 1 }}
                 transition={{ duration: 0.6 }}
@@ -283,21 +223,35 @@ export function HowItWorksNew() {
                           className="!grid-cols-1 !gap-0 !py-0 scale-75"
                         />
                       </div>
-                      <div className="bg-gradient-to-br from-blue-700 to-blue-900 rounded-lg shadow-[0_8px_25px_rgba(0,0,0,0.15),0_4px_10px_rgba(0,0,0,0.1),inset_0_1px_0_rgba(255,255,255,0.2)] px-8 py-5">
-                        <h3 className="text-xl font-black text-white mb-3">{step.title}</h3>
-                        <p className="text-sm text-gray-100 leading-relaxed">{step.description}</p>
+                      {/* Step box con nuovo design */}
+                      <div 
+                        className="rounded-lg px-6 py-6 transition-all duration-300 group hover:shadow-[0_0_20px_rgba(211,242,15,0.3)]"
+                        style={{ 
+                          background: '#1A2246',
+                          border: '1px solid #D3F20F'
+                        }}
+                      >
+                        <h3 className="text-2xl font-bold text-white mb-3">{step.title}</h3>
+                        <p className="text-sm leading-relaxed" style={{ color: '#C9D1D9' }}>{step.description}</p>
                       </div>
                     </motion.div>
-                    {/* Numero a destra della card */}
+                    {/* Numero badge circolare lime */}
                     <motion.div 
-                      className="text-6xl font-black text-white flex-shrink-0 select-none drop-shadow-[0_0_15px_rgba(255,255,255,0.4)] filter" 
-                      style={{textShadow: '0 4px 8px rgba(0,0,0,0.5), 0 0 20px rgba(255,255,255,0.3), 0 0 35px rgba(255,255,255,0.15)'}}
+                      className="flex-shrink-0 select-none"
                       initial={{ opacity: 0, x: 100 }}
                       whileInView={{ opacity: 1, x: 0 }}
                       transition={{ duration: 0.6, delay: 0.4 }}
                       viewport={{ once: true }}
                     >
-                      {i + 1}
+                      <div 
+                        className="w-12 h-12 rounded-full flex items-center justify-center font-bold text-lg"
+                        style={{ 
+                          background: '#D3F20F',
+                          color: '#0B1020'
+                        }}
+                      >
+                        {i + 1}
+                      </div>
                     </motion.div>
                   </div>
                 )}
@@ -305,16 +259,23 @@ export function HowItWorksNew() {
                 {/* Card a destra per numeri dispari */}
                 {i % 2 === 1 && (
                   <div className="w-full flex justify-end items-center gap-6">
-                    {/* Numero a sinistra della card */}
+                    {/* Numero badge circolare lime */}
                     <motion.div 
-                      className="text-6xl font-black text-white flex-shrink-0 select-none drop-shadow-[0_0_15px_rgba(255,255,255,0.4)] filter" 
-                      style={{textShadow: '0 4px 8px rgba(0,0,0,0.5), 0 0 20px rgba(255,255,255,0.3), 0 0 35px rgba(255,255,255,0.15)'}}
+                      className="flex-shrink-0 select-none"
                       initial={{ opacity: 0, x: -100 }}
                       whileInView={{ opacity: 1, x: 0 }}
                       transition={{ duration: 0.6, delay: 0.2 }}
                       viewport={{ once: true }}
                     >
-                      {i + 1}
+                      <div 
+                        className="w-12 h-12 rounded-full flex items-center justify-center font-bold text-lg"
+                        style={{ 
+                          background: '#D3F20F',
+                          color: '#0B1020'
+                        }}
+                      >
+                        {i + 1}
+                      </div>
                     </motion.div>
                     <motion.div 
                       className="w-7/12"
@@ -330,9 +291,16 @@ export function HowItWorksNew() {
                           className="!grid-cols-1 !gap-0 !py-0 scale-75"
                         />
                       </div>
-                      <div className="bg-gradient-to-br from-blue-700 to-blue-900 rounded-lg shadow-[0_8px_25px_rgba(0,0,0,0.15),0_4px_10px_rgba(0,0,0,0.1),inset_0_1px_0_rgba(255,255,255,0.2)] px-8 py-5">
-                        <h3 className="text-xl font-black text-white mb-3">{step.title}</h3>
-                        <p className="text-sm text-gray-100 leading-relaxed">{step.description}</p>
+                      {/* Step box con nuovo design */}
+                      <div 
+                        className="rounded-lg px-6 py-6 transition-all duration-300 group hover:shadow-[0_0_20px_rgba(211,242,15,0.3)]"
+                        style={{ 
+                          background: '#1A2246',
+                          border: '1px solid #D3F20F'
+                        }}
+                      >
+                        <h3 className="text-2xl font-bold text-white mb-3">{step.title}</h3>
+                        <p className="text-sm leading-relaxed" style={{ color: '#C9D1D9' }}>{step.description}</p>
                       </div>
                     </motion.div>
                   </div>

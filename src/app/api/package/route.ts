@@ -1,20 +1,21 @@
 import { NextRequest, NextResponse } from 'next/server';
 import { z } from 'zod';
 
-// Define the validation schema using Zod
-const contactSchema = z.object({
+// Define the validation schema for package requests
+const packageSchema = z.object({
   nome: z.string().min(2, 'Il nome deve essere di almeno 2 caratteri'),
   cognome: z.string().min(2, 'Il cognome deve essere di almeno 2 caratteri'),
   email: z.string().email('Email non valida'),
   telefono: z.string().optional(),
   azienda: z.string().optional(),
   settore: z.string().min(1, 'Il settore è obbligatorio'),
-  sorgente: z.string().optional(),
+  messaggio: z.string().optional(),
   privacyAccepted: z.boolean().refine(val => val === true, 'Devi accettare la Privacy Policy per continuare'),
+  packageType: z.string().default('Professional'), // Tipo di pacchetto richiesto
 });
 
 // Type for the validated data
-type ContactData = z.infer<typeof contactSchema>;
+type PackageData = z.infer<typeof packageSchema>;
 
 // Interface for validation errors
 interface ValidationErrors {
@@ -34,7 +35,7 @@ export async function POST(request: NextRequest): Promise<NextResponse<ApiRespon
     const body = await request.json();
     
     // Validate the data using Zod schema
-    const validationResult = contactSchema.safeParse(body);
+    const validationResult = packageSchema.safeParse(body);
     
     // If validation fails, return 400 with errors
     if (!validationResult.success) {
@@ -59,13 +60,13 @@ export async function POST(request: NextRequest): Promise<NextResponse<ApiRespon
     }
     
     // Get the validated data
-    const contactData: ContactData = validationResult.data;
+    const packageData: PackageData = validationResult.data;
     
-    // Get the webhook URL from environment variables
-    const webhookUrl = process.env.N8N_WEBHOOK_URL;
+    // Get the webhook URL from environment variables (different from consultation)
+    const webhookUrl = process.env.N8N_PACKAGE_WEBHOOK_URL || process.env.N8N_WEBHOOK_URL;
     
     if (!webhookUrl) {
-      console.error('N8N_WEBHOOK_URL environment variable is not set');
+      console.error('N8N_PACKAGE_WEBHOOK_URL environment variable is not set');
       return NextResponse.json(
         {
           ok: false,
@@ -90,13 +91,14 @@ export async function POST(request: NextRequest): Promise<NextResponse<ApiRespon
         );
       }
       
-      // Aggiungi il tipo di richiesta per il tracking nel CRM
+      // Add package-specific data
       const webhookData = {
-        ...contactData,
-        tipoRichiesta: 'consulenza_gratuita',
+        ...packageData,
+        tipoRichiesta: 'informazioni_pacchetto',
+        requestType: 'package_inquiry',
         timestamp: new Date().toISOString(),
       };
-
+      
       const webhookResponse = await fetch(webhookUrl, {
         method: 'POST',
         headers: {
@@ -133,7 +135,7 @@ export async function POST(request: NextRequest): Promise<NextResponse<ApiRespon
     // Return success response
     return NextResponse.json({
       ok: true,
-      message: 'Grazie, un consulente ti contatterà a breve',
+      message: 'Grazie per la tua richiesta! Ti contatteremo presto con maggiori dettagli sul pacchetto.',
     });
     
   } catch (error) {
