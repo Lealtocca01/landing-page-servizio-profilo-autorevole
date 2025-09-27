@@ -74,28 +74,20 @@ export function NoContracts() {
             {/* Section 2 */}
             <div>
               <h4 className="text-2xl md:text-3xl font-bold text-white mb-4">
-                Dov&apos;è l&apos;inghippo allora? <span className="font-normal">Non tutti riusciranno ad accedere a</span>{' '}
-                <span style={{ color: '#D3F20F' }}>Profilo Autorevole</span>.
+                Dov&apos;è l&apos;inghippo allora? <span className="font-thin text-2xl"><span style={{ color: '#D3F20F' }}>Non accettiamo</span> tutte le attività, in quanto non tutte sono adatte a questo tipo di percorso.</span>
               </h4>
             </div>
 
             {/* Section 3 */}
             <div>
-              <h4 className="text-2xl md:text-3xl font-bold text-white mb-4">
-                Accettiamo solo <span style={{ color: '#D3F20F' }}>10 attività</span> al mese.
+              <h4 className="text-2xl md:text-3xl font-normal text-white mb-4">
+                <span className="font-bold">Prima di iniziare, dovrai fare un <span style={{ color: '#D3F20F' }}>colloquio</span> con noi:</span> <span className="text-xl font-thin">serve a capire se questo percorso può davvero fare al caso tuo.</span>
               </h4>
-              <p className="text-lg mb-4" style={{ color: '#C9D1D9' }}>
-                Il motivo? È molto semplice.
-              </p>
-              <p className="text-lg leading-relaxed mb-6" style={{ color: '#C9D1D9' }}>
-              Vogliamo garantire la massima qualità a chi ci sceglie.
-              Preferiamo seguire pochi clienti, ma farlo bene.
-              </p>
 
             </div>
 
             {/* CTA Button */}
-            <div className="flex justify-start">
+            <div className="flex justify-center lg:justify-start">
               <GradientButton onClick={() => openPopup('consultation')}>
                 <span>Richiedi ora la tua consulenza gratuita</span>
               </GradientButton>

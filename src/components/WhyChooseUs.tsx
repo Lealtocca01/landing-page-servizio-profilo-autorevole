@@ -36,39 +36,39 @@ export function WhyChooseUs() {
           {[
             {
               number: "01",
-              title: "Contatto diretto costante",
-              description: "A differenza di chi parla con te solo quando c'è da pagare e poi sparisce, noi ci teniamo in contatto costante con te ben 2 volte a settimana per monitorare i tuoi progressi e ottimizzare la strategia.",
-              icon: "📞"
+              title: "Specializzati su LinkedIn",
+              description: "Non facciamo \"un po' di tutto\": viviamo e respiriamo LinkedIn, ed è per questo che sappiamo come farlo funzionare davvero.",
+              icon: "🎯"
             },
             {
               number: "02", 
-              title: "Spiegazioni precise e dettagliate",
-              description: "Non ci limitiamo a darti una visione generale del percorso, ogni singolo post e strategia viene sviscerato al massimo per garantirti risultati concreti.",
-              icon: "📋"
+              title: "Contatto diretto e costante",
+              description: "Non ti lasciamo mai solo: ci sentiamo regolarmente per guidarti, aggiornarti e adattare la strategia alle tue esigenze.",
+              icon: "📞"
             },
             {
               number: "03",
-              title: "Tutto in 1",
-              description: "Con Profilo Autorevole non devi preoccuparti di controllare 10 fogli o file diversi, hai tutto quello che ti serve in un unico posto per gestire la tua presenza LinkedIn.",
-              icon: "📁"
-            },
-            {
-              number: "04",
-              title: "Monitoraggio e controllo dei progressi",
-              description: "I competitor spesso si dimenticano di verificare i progressi. Noi sappiamo che per ottenere risultati non basta guardare solo la situazione di partenza, quindi monitoriamo costantemente i tuoi risultati.",
+              title: "Monitoraggio e ottimizzazione continua",
+              description: "Non ci limitiamo a pubblicare. Analizziamo ogni risultato e ottimizziamo in tempo reale per far crescere le performance.",
               icon: "📊"
             },
             {
+              number: "04",
+              title: "Nessun vincolo",
+              description: "Puoi interrompere quando vuoi. Crediamo nel valore del risultato, non nei contratti rigidi.",
+              icon: "🔓"
+            },
+            {
               number: "05",
-              title: "Flessibilità temporale",
-              description: "I nostri programmi di gestione LinkedIn sono studiati per essere flessibili e permetterti di ottenere risultati anche se lavori tanto o sei molto impegnato in settimana.",
-              icon: "⏰"
+              title: "Supporto a 360°",
+              description: "Non solo contenuti: ti forniamo anche script e approcci concreti per contattare i lead e trasformarli in clienti.",
+              icon: "🔄"
             },
             {
               number: "06",
-              title: "Niente rischi",
-              description: "Con i classici competitor, una volta pagato, i tuoi soldi sono andati e hai tu tutto il rischio. Invece con la nostra garanzia sei sicuro che otterrai risultati nei primi mesi, altrimenti ti rimborsiamo.",
-              icon: "🛡️"
+              title: "Selezione iniziale",
+              description: "Non tutte le attività sono adatte. Prima di partire facciamo una call di valutazione: se il percorso non ha senso per te, saremo i primi a dirtelo.",
+              icon: "✅"
             }
           ].map((reason, index) => (
             <motion.div

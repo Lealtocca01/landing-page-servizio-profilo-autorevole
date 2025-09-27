@@ -71,31 +71,6 @@ export function FreeConsultation() {
             </div>
           </div>
 
-          {/* Why we do it section */}
-          <div className="mb-12">
-            <div 
-              className="p-8 rounded-2xl"
-              style={{ 
-                background: 'linear-gradient(135deg, #F8FAFC 0%, #F1F5F9 100%)',
-                border: '1px solid #E2E8F0'
-              }}
-            >
-              <div>
-                <h4 
-                  className="text-xl font-bold mb-4" 
-                  style={{ color: '#0B1020' }}
-                >
-                  Perché lo facciamo?
-                </h4>
-                <p 
-                  className="text-base leading-relaxed" 
-                  style={{ color: '#475569' }}
-                >
-                  In cambio della consulenza ti chiediamo soltanto un <strong>feedback sincero</strong>: se ti siamo stati utili e ti abbiamo aiutato, potremo utilizzare la tua testimonianza per dimostrare concretamente il nostro valore ad altri professionisti come te.
-                </p>
-              </div>
-            </div>
-          </div>
 
           {/* CTA Button - CENTRATO MOBILE, SINISTRA DESKTOP */}
           <div className="text-center lg:text-left px-4 sm:px-0">
