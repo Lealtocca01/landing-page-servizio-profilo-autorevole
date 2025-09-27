@@ -346,10 +346,10 @@ export function PackagePopup({ isOpen, onClose }: PackagePopupProps) {
                 <button
                   type="submit"
                   disabled={isLoading}
-                  className={`w-full font-bold py-4 px-6 rounded-lg transition-all duration-300 text-lg ${
+                  className={`w-full font-bold py-4 px-6 rounded-lg text-lg ${
                     isLoading
                       ? 'bg-gray-600 cursor-not-allowed text-gray-300'
-                      : 'hover:scale-[1.02] hover:shadow-lg'
+                      : ''
                   }`}
                   style={!isLoading ? {
                     background: 'linear-gradient(135deg, #D3F20F 0%, #A8D83A 100%)',

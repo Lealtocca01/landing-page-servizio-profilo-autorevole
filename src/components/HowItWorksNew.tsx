@@ -99,7 +99,10 @@ export function HowItWorksNew() {
               
               {/* CTA Button */}
               <div className="mt-8 flex justify-start">
-                <GradientButton onClick={openPopup}>
+                <GradientButton onClick={() => {
+                  console.log('Button clicked - opening consultation popup');
+                  openPopup('consultation');
+                }}>
                   <span>Richiedi ora la tua consulenza gratuita</span>
                 </GradientButton>
               </div>
@@ -225,7 +228,7 @@ export function HowItWorksNew() {
                       </div>
                       {/* Step box con nuovo design */}
                       <div 
-                        className="rounded-lg px-6 py-6 transition-all duration-300 group hover:shadow-[0_0_20px_rgba(211,242,15,0.3)]"
+                        className="rounded-lg px-6 py-6"
                         style={{ 
                           background: '#1A2246',
                           border: '1px solid #D3F20F'
@@ -293,7 +296,7 @@ export function HowItWorksNew() {
                       </div>
                       {/* Step box con nuovo design */}
                       <div 
-                        className="rounded-lg px-6 py-6 transition-all duration-300 group hover:shadow-[0_0_20px_rgba(211,242,15,0.3)]"
+                        className="rounded-lg px-6 py-6"
                         style={{ 
                           background: '#1A2246',
                           border: '1px solid #D3F20F'

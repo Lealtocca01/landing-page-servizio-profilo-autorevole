@@ -62,7 +62,7 @@ export function Hero() {
 
              {/* CTA Button - Hidden on mobile, shown on desktop after subtitle */}
              <div className="hidden lg:flex justify-start mt-16 -ml-2">
-               <GradientButton onClick={openPopup}>
+               <GradientButton onClick={() => openPopup('consultation')}>
                  <span>Richiedi ora la tua consulenza gratuita</span>
                </GradientButton>
              </div>
@@ -78,7 +78,7 @@ export function Hero() {
 
         {/* CTA Button - Mobile only, positioned after image */}
         <div className="flex lg:hidden justify-center mt-8">
-          <GradientButton onClick={openPopup}>
+          <GradientButton onClick={() => openPopup('consultation')}>
             <span>Richiedi ora la tua consulenza gratuita</span>
           </GradientButton>
         </div>

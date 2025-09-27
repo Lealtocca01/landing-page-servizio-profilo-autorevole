@@ -18,6 +18,7 @@ export function ContactPopupProvider({ children }: { children: ReactNode }) {
   const [formType, setFormType] = useState<FormType>('consultation')
 
   const openPopup = (type: FormType = 'consultation') => {
+    console.log('openPopup called with type:', type);
     setFormType(type)
     setIsOpen(true)
   }

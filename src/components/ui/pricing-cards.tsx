@@ -109,7 +109,6 @@ export function PricingCards({
                             className={cn(
                                 "relative group cursor-pointer",
                                 "transition-all duration-500 ease-out",
-                                "hover:scale-[1.02] hover:shadow-2xl",
                                 cardClassName
                             )}
                             style={{ borderRadius: '20px' }}
@@ -130,8 +129,7 @@ export function PricingCards({
                             
                             <div 
                                 className={cn(
-                                    "h-full font-sans transition-all duration-500 relative overflow-hidden",
-                                    "hover:shadow-[0_20px_40px_rgba(0,0,0,0.1)]"
+                                    "h-full font-sans transition-all duration-500 relative overflow-hidden"
                                 )} 
                                 style={{ 
                                     background: 'linear-gradient(135deg, #1A2246 0%, #2D3748 100%)',
@@ -228,25 +226,28 @@ export function PricingCards({
 
                                 {/* CTA Button elegante */}
                                 {tier.cta && (
-                                    <div className="px-8 pb-8">
+                                    <div className="px-8 pb-8 pt-6 relative z-20">
                                         <button
                                             type="button"
                                             onClick={(e) => {
+                                                console.log('Package button clicked - opening package popup');
                                                 e.preventDefault();
                                                 e.stopPropagation();
                                                 if (tier.cta?.onClick) {
                                                     tier.cta.onClick();
                                                 }
                                             }}
-                                            className="w-full py-4 md:py-4 text-sm md:text-lg font-bold transition-all duration-300 hover:scale-[1.02] hover:shadow-lg group relative overflow-hidden px-6 md:px-4"
+                                            className="w-full py-6 md:py-6 text-sm md:text-lg font-bold relative px-8 md:px-8 z-50 cursor-pointer"
                                             style={{ 
                                                 background: 'linear-gradient(135deg, #D3F20F 0%, #A8D83A 100%)',
                                                 color: '#0B1020',
                                                 borderRadius: '12px',
-                                                boxShadow: '0 8px 25px rgba(211,242,15,0.3)'
+                                                boxShadow: '0 8px 25px rgba(211,242,15,0.3)',
+                                                border: 'none',
+                                                outline: 'none'
                                             }}
                                         >
-                                            <span className="relative z-10 flex items-center justify-center">
+                                            <span className="relative z-50 flex items-center justify-center pointer-events-none">
                                                 {tier.cta.text}
                                             </span>
                                         </button>

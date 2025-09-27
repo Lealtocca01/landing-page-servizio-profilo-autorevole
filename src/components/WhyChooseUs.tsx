@@ -77,7 +77,7 @@ export function WhyChooseUs() {
               whileInView={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.5, delay: index * 0.1 }}
               viewport={{ once: true }}
-              className="relative rounded-2xl p-8 transition-all duration-300 group hover:shadow-[0_0_30px_rgba(211,242,15,0.2)]"
+              className="relative rounded-2xl p-8"
               style={{ 
                 background: '#0B1020',
                 border: '1px solid rgba(255,255,255,0.1)'
@@ -108,10 +108,15 @@ export function WhyChooseUs() {
         </div>
         
         {/* CTA Button sotto la sezione */}
-        <div className="mt-16 mb-16 flex justify-center lg:justify-start">
-          <GradientButton onClick={openPopup}>
-            <span>Richiedi ora la tua consulenza gratuita</span>
-          </GradientButton>
+        <div className="mt-20 mb-20 flex justify-center lg:justify-start relative z-50">
+          <div className="relative z-50">
+            <GradientButton onClick={() => {
+              console.log('WhyChooseUs button clicked - opening consultation popup');
+              openPopup('consultation');
+            }}>
+              <span>Richiedi ora la tua consulenza gratuita</span>
+            </GradientButton>
+          </div>
         </div>
       </div>
     </section>

@@ -96,7 +96,7 @@ export function NoContracts() {
 
             {/* CTA Button */}
             <div className="flex justify-start">
-              <GradientButton onClick={openPopup}>
+              <GradientButton onClick={() => openPopup('consultation')}>
                 <span>Richiedi ora la tua consulenza gratuita</span>
               </GradientButton>
             </div>

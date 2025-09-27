@@ -11,8 +11,9 @@ interface GradientButtonProps {
 const GradientButton: React.FC<GradientButtonProps> = ({ children, onClick, className, fullWidth = false }) => {
   return (
     <motion.button 
-      className={`relative group ${fullWidth ? 'w-full' : ''} ${className || ''}`}
+      className={`relative group ${fullWidth ? 'w-full' : ''} ${className || ''} cursor-pointer z-50`}
       onClick={onClick}
+      style={{ zIndex: 50 }}
       initial={{ 
         scale: 1,
         filter: 'drop-shadow(0 0 0 rgba(96,165,250,0))'
@@ -33,7 +34,7 @@ const GradientButton: React.FC<GradientButtonProps> = ({ children, onClick, clas
         style={{ background: '#D3F20F' }}
       >
         <div 
-          className={`relative px-6 py-3 md:px-8 md:py-4 md:text-lg font-semibold rounded-lg transition-all duration-300 group-hover:shadow-lg ${fullWidth ? 'w-full' : ''}`}
+          className={`relative px-6 py-3 md:px-8 md:py-4 md:text-lg font-semibold rounded-lg ${fullWidth ? 'w-full' : ''}`}
           style={{ 
             fontSize: '1.1em',
             background: '#D3F20F',
