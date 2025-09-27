@@ -100,7 +100,7 @@ export function FreeConsultation() {
           {/* CTA Button */}
           <div className="text-left md:text-center">
             <button
-              onClick={openPopup}
+              onClick={() => openPopup('consultation')}
               className="inline-flex items-center gap-3 px-8 py-4 text-lg font-bold rounded-2xl transition-all duration-300 hover:scale-[1.05] hover:shadow-[0_15px_35px_rgba(211,242,15,0.4)] group relative overflow-hidden"
               style={{ 
                 background: 'linear-gradient(135deg, #D3F20F 0%, #A8D83A 100%)',
