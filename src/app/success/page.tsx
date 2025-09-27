@@ -3,24 +3,13 @@
 import { motion } from 'framer-motion';
 import { CheckCircle, ArrowLeft } from 'lucide-react';
 import Link from 'next/link';
-import NextImage from 'next/image';
 
 export default function SuccessPage() {
   return (
-    <div className="min-h-screen bg-gray-900 relative overflow-hidden">
-      {/* Background Image with Overlay */}
+    <div className="min-h-screen relative overflow-hidden" style={{ background: '#0B1020' }}>
+      {/* Background effects - coerenti con il brand */}
       <div className="absolute inset-0">
-        <NextImage
-          src="https://images.unsplash.com/photo-1522202176988-66273c2fd55f?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80"
-          alt="Team professionale al lavoro - Profilo Autorevole"
-          fill
-          className="object-cover opacity-20"
-          priority
-          quality={85}
-          sizes="100vw"
-        />
-        {/* Overlay for better text readability */}
-        <div className="absolute inset-0 bg-black/60" />
+        <div className="absolute inset-0 opacity-5" style={{ background: 'radial-gradient(circle at 20% 80%, #D3F20F 0%, transparent 50%), radial-gradient(circle at 80% 20%, #D3F20F 0%, transparent 50%)' }} />
       </div>
 
       {/* Content */}
@@ -43,8 +32,14 @@ export default function SuccessPage() {
             }}
             className="mb-8 flex justify-center"
           >
-            <div className="w-24 h-24 bg-green-500 rounded-full flex items-center justify-center shadow-2xl">
-              <CheckCircle className="w-12 h-12 text-white" />
+            <div 
+              className="w-24 h-24 rounded-full flex items-center justify-center shadow-2xl"
+              style={{ 
+                background: 'linear-gradient(135deg, #D3F20F 0%, #A8D83A 100%)',
+                boxShadow: '0 8px 25px rgba(211, 242, 15, 0.3)'
+              }}
+            >
+              <CheckCircle className="w-12 h-12" style={{ color: '#0B1020' }} />
             </div>
           </motion.div>
 
@@ -53,9 +48,10 @@ export default function SuccessPage() {
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6, delay: 0.4 }}
-            className="text-5xl md:text-6xl font-black text-white mb-6"
+            className="text-5xl md:text-6xl font-black mb-6"
+            style={{ color: '#FFFFFF' }}
           >
-            Fatto!
+            <span style={{ color: '#D3F20F' }}>Perfetto!</span>
           </motion.h1>
 
           <motion.div
@@ -64,10 +60,10 @@ export default function SuccessPage() {
             transition={{ duration: 0.6, delay: 0.6 }}
             className="space-y-4 mb-8"
           >
-            <p className="text-xl md:text-2xl text-white leading-relaxed">
+            <p className="text-xl md:text-2xl leading-relaxed" style={{ color: '#FFFFFF' }}>
               Un mio consulente ti contatterà al numero che ci hai fornito.
             </p>
-            <p className="text-lg text-gray-300 leading-relaxed">
+            <p className="text-lg leading-relaxed" style={{ color: '#C9D1D9' }}>
               La chiamata arriverà da un numero italiano. Tieni il telefono sott&apos;occhio e assicurati di rispondere 😉
             </p>
           </motion.div>
@@ -80,7 +76,12 @@ export default function SuccessPage() {
           >
             <Link
               href="/"
-              className="inline-flex items-center gap-3 bg-green-500 hover:bg-green-600 text-white font-bold py-4 px-8 rounded-lg text-lg transition-colors duration-200 shadow-xl hover:shadow-2xl"
+              className="inline-flex items-center gap-3 font-bold py-4 px-8 rounded-lg text-lg transition-all duration-200 shadow-xl hover:shadow-2xl"
+              style={{ 
+                background: 'linear-gradient(135deg, #D3F20F 0%, #A8D83A 100%)',
+                color: '#0B1020',
+                boxShadow: '0 4px 14px 0 rgba(211, 242, 15, 0.2)'
+              }}
             >
               <ArrowLeft className="w-5 h-5" />
               Torna alla Home
@@ -92,12 +93,16 @@ export default function SuccessPage() {
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             transition={{ duration: 0.6, delay: 1.0 }}
-            className="mt-12 p-6 bg-white/10 backdrop-blur-sm rounded-lg border border-white/20"
+            className="mt-12 p-6 rounded-lg border"
+            style={{ 
+              background: 'rgba(211, 242, 15, 0.05)',
+              border: '1px solid rgba(211, 242, 15, 0.2)'
+            }}
           >
-            <h3 className="text-lg font-semibold text-white mb-2">
+            <h3 className="text-lg font-semibold mb-2" style={{ color: '#FFFFFF' }}>
               Cosa succede ora?
             </h3>
-            <div className="text-sm text-gray-300 space-y-2">
+            <div className="text-sm space-y-2" style={{ color: '#C9D1D9' }}>
               <p>• Riceverai una chiamata entro 24 ore</p>
               <p>• Analizzeremo insieme le tue esigenze</p>
               <p>• Ti proporremo la strategia migliore per il tuo LinkedIn</p>
