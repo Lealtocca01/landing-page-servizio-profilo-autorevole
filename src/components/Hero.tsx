@@ -46,7 +46,7 @@ export function Hero() {
               </span>
               {/* Seconda frase - ora statica senza effetto typing */}
                <span className="text-[44px] sm:text-6xl md:text-6xl lg:text-5xl xl:text-6xl 2xl:text-7xl text-white font-bold">
-                Se nel 2025 non sei su LinkedIn, stai <span style={{ color: '#D3F20F' }}>perdendo soldi</span>.
+                Se nel 2025 non sei presente su LinkedIn, stai <span style={{ color: '#D3F20F' }}>perdendo soldi</span>.
               </span>
             </h1>
 
