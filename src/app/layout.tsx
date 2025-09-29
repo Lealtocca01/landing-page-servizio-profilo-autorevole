@@ -21,7 +21,7 @@ export const metadata: Metadata = {
     siteName: 'Profilo Autorevole',
     images: [
       {
-        url: '/images/Screenshot 2025-09-29 alle 10.43.16.png',
+        url: 'https://profilo-autorevole.vercel.app/images/Screenshot%202025-09-29%20alle%2010.43.16.png',
         width: 1200,
         height: 630,
         alt: 'Profilo Autorevole - Costruisci la tua presenza su LinkedIn al miglior rapporto qualità prezzo',
@@ -32,7 +32,7 @@ export const metadata: Metadata = {
     card: 'summary_large_image',
     title: 'Profilo Autorevole | Costruisci la tua presenza su LinkedIn al miglior rapporto qualità prezzo',
     description: 'Sei un professionista nel tuo settore? Se nel 2025 non sei su LinkedIn stai perdendo soldi. Con Profilo Autorevole costruisci la tua presenza online e diventi la scelta giusta per più clienti, in soli 7 giorni.',
-    images: ['/images/Screenshot 2025-09-29 alle 10.43.16.png']
+    images: ['https://profilo-autorevole.vercel.app/images/Screenshot%202025-09-29%20alle%2010.43.16.png']
   },
   robots: 'index, follow'
 };
