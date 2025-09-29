@@ -38,7 +38,7 @@ export function Hero() {
       <div className="container-custom relative z-10 px-8 lg:px-8">
         <div className="flex flex-col lg:grid lg:grid-cols-2 gap-8 lg:gap-12 items-center lg:items-start min-h-[70vh] lg:min-h-[80vh]">
           {/* Left Side - Text Content */}
-          <div className="text-left w-full">
+          <div className="text-left w-full mt-12 sm:mt-0">
             <h1 className="text-5xl sm:text-6xl md:text-6xl lg:text-5xl xl:text-6xl 2xl:text-7xl font-bold text-white mb-4 lg:mb-6 leading-none sm:leading-tight lg:leading-tight">
               {/* Prima frase - ora più piccola e senza bold */}
               <span className="text-2xl sm:text-3xl md:text-3xl lg:text-2xl xl:text-3xl 2xl:text-4xl font-normal block mb-2">
