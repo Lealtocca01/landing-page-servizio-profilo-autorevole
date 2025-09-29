@@ -33,7 +33,7 @@ export function Hero() {
   ];
 
   return (
-    <section id="hero" className="relative min-h-screen flex items-center justify-center overflow-hidden pt-20" style={{ background: '#0B1020' }}>
+    <section id="hero" className="relative min-h-screen flex items-center justify-center overflow-hidden pt-20 lg:pt-32" style={{ background: '#0B1020' }}>
 
       <div className="container-custom relative z-10 px-8 lg:px-8">
         <div className="flex flex-col lg:grid lg:grid-cols-2 gap-8 lg:gap-12 items-center lg:items-start min-h-[70vh] lg:min-h-[80vh]">
