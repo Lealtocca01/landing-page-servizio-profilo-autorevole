@@ -7,23 +7,32 @@ import { SpeedInsights } from '@vercel/speed-insights/next';
 import { IubendaScript, CookieBanner } from '@/components/IubendaScript';
 
 export const metadata: Metadata = {
-  title: 'Profilo Autorevole | Trasforma il tuo LinkedIn in uno strumento di business',
-  description: 'Nel 2025 non puoi non essere su LinkedIn. Con Profilo Autorevole trasformiamo il tuo LinkedIn nel biglietto da visita che attrae clienti. Servizio professionale per consulenti e imprenditori.',
+  title: 'Profilo Autorevole | Costruisci la tua presenza su LinkedIn al miglior rapporto qualità prezzo',
+  description: 'Sei un professionista nel tuo settore? Se nel 2025 non sei su LinkedIn stai perdendo soldi. Con Profilo Autorevole costruisci la tua presenza online e diventi la scelta giusta per più clienti, in soli 7 giorni.',
   keywords: 'LinkedIn, profilo professionale, personal branding, consulenti, imprenditori, networking, business',
   authors: [{ name: 'Profilo Autorevole' }],
   creator: 'Profilo Autorevole',
   publisher: 'Profilo Autorevole',
   openGraph: {
-    title: 'Profilo Autorevole | LinkedIn che converte',
-    description: 'Trasforma il tuo LinkedIn nel biglietto da visita che attrae clienti. Servizio professionale €250/mese.',
+    title: 'Profilo Autorevole | Costruisci la tua presenza su LinkedIn al miglior rapporto qualità prezzo',
+    description: 'Sei un professionista nel tuo settore? Se nel 2025 non sei su LinkedIn stai perdendo soldi. Con Profilo Autorevole costruisci la tua presenza online e diventi la scelta giusta per più clienti, in soli 7 giorni.',
     type: 'website',
     locale: 'it_IT',
-    siteName: 'Profilo Autorevole'
+    siteName: 'Profilo Autorevole',
+    images: [
+      {
+        url: '/images/Screenshot 2025-09-29 alle 10.43.16.png',
+        width: 1200,
+        height: 630,
+        alt: 'Profilo Autorevole - Costruisci la tua presenza su LinkedIn al miglior rapporto qualità prezzo',
+      }
+    ]
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'Profilo Autorevole | LinkedIn che converte',
-    description: 'Trasforma il tuo LinkedIn nel biglietto da visita che attrae clienti.'
+    title: 'Profilo Autorevole | Costruisci la tua presenza su LinkedIn al miglior rapporto qualità prezzo',
+    description: 'Sei un professionista nel tuo settore? Se nel 2025 non sei su LinkedIn stai perdendo soldi. Con Profilo Autorevole costruisci la tua presenza online e diventi la scelta giusta per più clienti, in soli 7 giorni.',
+    images: ['/images/Screenshot 2025-09-29 alle 10.43.16.png']
   },
   robots: 'index, follow'
 };
