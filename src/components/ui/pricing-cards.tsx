@@ -141,11 +141,11 @@ export function PricingCards({
                                 className={cn(
                                     "font-sans transition-all duration-500 relative overflow-hidden"
                                 )} 
-                                style={{ 
-                                    background: '#000000',
+                                style={{
+                                    background: '#ffffff',
                                     borderRadius: '16px',
                                     border: '1px solid #e3e3e3',
-                                    boxShadow: '0 2px 20px rgba(0,0,0,0.08)',
+                                    boxShadow: '0 2px 20px rgba(0,0,0,0.06)',
                                     marginBottom: tier.name === 'Consulenza Gratuita' ? '20px' : '0px'
                                 }}
                             >
