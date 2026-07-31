@@ -168,8 +168,8 @@ export function NavBar({ items, className }: NavBarProps) {
 export function Navbar() {
   const items: NavItem[] = [
     { name: "Home", url: "#hero", icon: Home },
+    { name: "Perché noi", url: "#perche-noi", icon: ThumbsUp },
     { name: "Come funziona", url: "#come-funziona", icon: Info },
-    { name: "Perché noi?", url: "#perche-noi", icon: ThumbsUp },
   ];
 
   return <NavBar items={items} />;

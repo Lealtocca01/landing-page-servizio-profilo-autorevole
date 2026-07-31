@@ -7,15 +7,15 @@ import { SpeedInsights } from '@vercel/speed-insights/next';
 import { IubendaScript, CookieBanner } from '@/components/IubendaScript';
 
 export const metadata: Metadata = {
-  title: 'Profilo Autorevole | Costruisci la tua presenza su LinkedIn al miglior rapporto qualità prezzo',
-  description: 'Sei un professionista nel tuo settore? Se nel 2025 non sei su LinkedIn stai perdendo soldi. Con Profilo Autorevole costruisci la tua presenza online e diventi la scelta giusta per più clienti, in soli 7 giorni.',
+  title: 'Profilo Autorevole | Il tuo LinkedIn che attrae clienti',
+  description: 'Hai provato a curare il tuo LinkedIn ma i clienti non arrivano? Con Profilo Autorevole costruiamo la tua presenza professionale e ti posizioniamo come il riferimento nel tuo settore, in soli 7 giorni.',
   keywords: 'LinkedIn, profilo professionale, personal branding, consulenti, imprenditori, networking, business',
   authors: [{ name: 'Profilo Autorevole' }],
   creator: 'Profilo Autorevole',
   publisher: 'Profilo Autorevole',
   openGraph: {
-    title: 'Profilo Autorevole | Costruisci la tua presenza su LinkedIn al miglior rapporto qualità prezzo',
-    description: 'Sei un professionista nel tuo settore? Se nel 2025 non sei su LinkedIn stai perdendo soldi. Con Profilo Autorevole costruisci la tua presenza online e diventi la scelta giusta per più clienti, in soli 7 giorni.',
+    title: 'Profilo Autorevole | Il tuo LinkedIn che attrae clienti',
+    description: 'Hai provato a curare il tuo LinkedIn ma i clienti non arrivano? Con Profilo Autorevole costruiamo la tua presenza professionale e ti posizioniamo come il riferimento nel tuo settore, in soli 7 giorni.',
     type: 'website',
     locale: 'it_IT',
     siteName: 'Profilo Autorevole',
@@ -24,14 +24,14 @@ export const metadata: Metadata = {
         url: 'https://profilo-autorevole.vercel.app/images/Screenshot%202025-09-29%20alle%2010.43.16.png',
         width: 1200,
         height: 630,
-        alt: 'Profilo Autorevole - Costruisci la tua presenza su LinkedIn al miglior rapporto qualità prezzo',
+        alt: 'Profilo Autorevole - Il tuo LinkedIn che attrae clienti',
       }
     ]
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'Profilo Autorevole | Costruisci la tua presenza su LinkedIn al miglior rapporto qualità prezzo',
-    description: 'Sei un professionista nel tuo settore? Se nel 2025 non sei su LinkedIn stai perdendo soldi. Con Profilo Autorevole costruisci la tua presenza online e diventi la scelta giusta per più clienti, in soli 7 giorni.',
+    title: 'Profilo Autorevole | Il tuo LinkedIn che attrae clienti',
+    description: 'Hai provato a curare il tuo LinkedIn ma i clienti non arrivano? Con Profilo Autorevole costruiamo la tua presenza professionale e ti posizioniamo come il riferimento nel tuo settore, in soli 7 giorni.',
     images: ['https://profilo-autorevole.vercel.app/images/Screenshot%202025-09-29%20alle%2010.43.16.png']
   },
   robots: 'index, follow'

@@ -11,7 +11,7 @@ export function Footer() {
 
   const socialLinks = [
     { icon: <Linkedin size={20} />, href: "https://linkedin.com/company/profilo-autorevole", label: "LinkedIn" },
-    { icon: <Mail size={20} />, href: "mailto:info@profiloautorevole.it", label: "Email" },
+    { icon: <Mail size={20} />, href: "mailto:a.cattolico@profiloautorevole.com", label: "Email" },
     { icon: <Phone size={20} />, href: "tel:+393442517856", label: "Telefono" }
   ];
 
@@ -53,8 +53,7 @@ export function Footer() {
                 </span>
               </div>
               <p className="leading-relaxed mb-4 md:mb-6 text-sm md:text-base" style={{ color: '#C9D1D9' }}>
-                Trasformiamo il tuo LinkedIn nel biglietto da visita che attrae clienti. 
-                Oltre 500 professionisti hanno già scelto la nostra expertise per dominare LinkedIn.
+                Costruiamo la tua presenza su LinkedIn perché i tuoi potenziali clienti ti trovino, ti scelgano e ti contattino.
               </p>
               
               {/* Contact Info */}

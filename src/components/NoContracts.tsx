@@ -1,8 +1,6 @@
 'use client';
 
-import Image from 'next/image';
-import { Shield, ArrowRight } from 'lucide-react';
-import { BGPattern } from '@/components/ui/bg-pattern';
+import { motion } from 'framer-motion';
 import GradientButton from '@/components/ui/GradientButton';
 import { useContactPopup } from '@/contexts/ContactPopupContext';
 
@@ -10,89 +8,69 @@ export function NoContracts() {
   const { openPopup } = useContactPopup();
 
   return (
-    <section className="pt-24 pb-20 md:pt-20 md:pb-16 lg:pt-24 lg:pb-20 relative overflow-hidden" style={{ background: '#111936' }}>
-      {/* Background effects */}
-      <div className="absolute inset-0">
-        <div className="absolute top-20 left-10 w-96 h-96 bg-blue-500 rounded-full mix-blend-multiply filter blur-xl opacity-10 animate-float" />
-        <div className="absolute bottom-20 right-10 w-96 h-96 bg-cyan-500 rounded-full mix-blend-multiply filter blur-xl opacity-10 animate-float" style={{ animationDelay: '3s' }} />
-      </div>
-      
-      {/* Background pattern - CSS diretto */}
-      <div 
-        className="absolute inset-0 z-[-5]"
-        style={{
-          backgroundImage: 'radial-gradient(rgba(255, 255, 255, 0.6) 2px, transparent 2px)',
-          backgroundSize: '30px 30px',
-        }}
-      />
+    <section
+      className="py-16 lg:py-24 relative overflow-hidden"
+      style={{ background: '#111936' }}
+    >
+      <div className="max-w-7xl mx-auto px-6 relative z-10">
+        <div className="max-w-3xl">
+          {/* Scarico del rischio */}
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6 }}
+            viewport={{ once: true }}
+          >
+            <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-white mb-6 leading-tight">
+              Nessun vincolo. Interrompi{' '}
+              <span style={{ color: '#D3F20F' }}>quando vuoi</span>.
+            </h2>
+            <p
+              className="text-lg md:text-xl leading-relaxed mb-8"
+              style={{ color: '#C9D1D9' }}
+            >
+              Niente contratti vincolanti, niente penali, niente obblighi. Se i
+              risultati non ti convincono, smetti. Crediamo nel valore di quello
+              che facciamo, non nei vincoli contrattuali.
+            </p>
+          </motion.div>
 
-      <div className="container-custom relative z-10">
-        <div className="grid lg:grid-cols-2 gap-16 items-center">
-          
-          {/* Left Side - Immagine (solo desktop) */}
-          <div className="relative flex justify-center lg:justify-start hidden lg:block">
-            <div className="relative max-w-xl mx-auto">
-              <Image 
-                src="/images/tel.png" 
-                alt="Smartphone con analytics di performance e crescita business"
-                width={300}
-                height={450}
-                className="w-full h-auto object-contain"
-              />
-            </div>
-          </div>
+          {/* Selezione — reason why */}
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6, delay: 0.2 }}
+            viewport={{ once: true }}
+            className="rounded-xl p-6 sm:p-8 mb-10"
+            style={{
+              background: '#0B1020',
+              border: '1px solid rgba(255,255,255,0.08)',
+            }}
+          >
+            <h3 className="text-xl font-bold text-white mb-3">
+              C&apos;è un però.
+            </h3>
+            <p
+              className="text-base leading-relaxed mb-4"
+              style={{ color: '#C9D1D9' }}
+            >
+              Non accettiamo tutte le attività. Prima di iniziare facciamo una
+              call di valutazione: se il percorso non ha senso per il tuo caso,
+              saremo i primi a dirtelo.
+            </p>
+            <p
+              className="text-base leading-relaxed"
+              style={{ color: '#C9D1D9' }}
+            >
+              Lavoriamo solo con professionisti per cui LinkedIn può fare davvero
+              la differenza. Se sei tra questi, i risultati arrivano.
+            </p>
+          </motion.div>
 
-          {/* Right Side - Content */}
-          <div className="space-y-8 text-left">
-            {/* Main headline */}
-            <div>
-              <h2 className="text-2xl md:text-3xl mb-4 leading-relaxed -mt-10" style={{ color: '#C9D1D9' }}>
-                Dovrai sottostare a Vincoli Contrattuali? No.
-              </h2>
-              <h3 className="text-4xl md:text-5xl font-bold text-white mb-6 leading-tight">
-                Avrai la possibilità di{' '}
-                <span style={{ color: '#D3F20F' }}>rescindere</span> quando vuoi.
-              </h3>
-              <p className="text-lg leading-relaxed" style={{ color: '#C9D1D9' }}>
-                Niente obblighi, niente vincoli o impegni.
-              </p>
-              
-              {/* Immagine solo mobile */}
-              <div className="flex justify-center lg:hidden">
-                <div className="relative max-w-sm mx-auto">
-                  <Image 
-                    src="/images/tel.png" 
-                    alt="Smartphone con analytics di performance e crescita business"
-                    width={300}
-                    height={450}
-                    className="w-full h-auto object-contain"
-                  />
-                </div>
-              </div>
-            </div>
-
-            {/* Section 2 */}
-            <div>
-              <h4 className="text-2xl md:text-3xl font-bold text-white mb-4">
-                Dov&apos;è l&apos;inghippo allora? <span className="font-thin text-2xl"><span style={{ color: '#D3F20F' }}>Non accettiamo</span> tutte le attività, in quanto non tutte sono adatte a questo tipo di percorso.</span>
-              </h4>
-            </div>
-
-            {/* Section 3 */}
-            <div>
-              <h4 className="text-2xl md:text-3xl font-normal text-white mb-4">
-                <span className="font-bold">Prima di iniziare, dovrai fare un <span style={{ color: '#D3F20F' }}>colloquio</span> con noi:</span> <span className="text-xl font-thin">serve a capire se questo percorso può davvero fare al caso tuo.</span>
-              </h4>
-
-            </div>
-
-            {/* CTA Button */}
-            <div className="flex justify-center lg:justify-start">
-              <GradientButton onClick={() => openPopup('consultation')}>
-                <span>Richiedi ora la tua consulenza gratuita</span>
-              </GradientButton>
-            </div>
-          </div>
+          {/* CTA */}
+          <GradientButton onClick={() => openPopup('consultation')}>
+            <span>Prenota la call di valutazione</span>
+          </GradientButton>
         </div>
       </div>
     </section>
