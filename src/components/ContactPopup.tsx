@@ -138,7 +138,7 @@ export function ContactPopup({ isOpen, onClose, sorgente = "popup" }: ContactPop
             transition={{ duration: 0.3, ease: "easeOut" }}
             className="fixed inset-0 z-50 flex items-center justify-center p-4"
           >
-            <div className="bg-gray-900 rounded-2xl shadow-2xl max-w-md w-full max-h-[90vh] overflow-y-auto">
+            <div className="bg-gray-900 rounded shadow-2xl max-w-md w-full max-h-[90vh] overflow-y-auto">
               {/* Header */}
               <div className="flex justify-between items-center p-6 border-b border-gray-700">
                 <h2 className="text-xl font-bold text-white">
@@ -333,9 +333,9 @@ export function ContactPopup({ isOpen, onClose, sorgente = "popup" }: ContactPop
                       : ''
                   }`}
                   style={!isLoading ? {
-                    background: 'linear-gradient(135deg, #D3F20F 0%, #A8D83A 100%)',
-                    color: '#0B1020',
-                    boxShadow: '0 8px 25px rgba(211,242,15,0.3)'
+                    background: 'linear-gradient(135deg, #FFFFFF 0%, #E0E0E0 100%)',
+                    color: '#0A0A0A',
+                    boxShadow: '0 8px 25px rgba(255,255,255,0.3)'
                   } : {}}
                 >
                   {isLoading ? 'Invio in corso...' : 'Richiedi ora la tua consulenza gratuita'}

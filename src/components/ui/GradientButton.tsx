@@ -20,7 +20,7 @@ const GradientButton: React.FC<GradientButtonProps> = ({ children, onClick, clas
       }}
       whileHover={{ 
         scale: 1.05,
-        filter: 'drop-shadow(0 0 20px rgba(211,242,15,0.6)) drop-shadow(0 0 40px rgba(211,242,15,0.4))'
+        filter: 'drop-shadow(0 0 20px rgba(255,255,255,0.6)) drop-shadow(0 0 40px rgba(255,255,255,0.4))'
       }}
       whileTap={{ scale: 0.98 }}
       transition={{ 
@@ -30,21 +30,21 @@ const GradientButton: React.FC<GradientButtonProps> = ({ children, onClick, clas
       }}
     >
       <div 
-        className={`relative p-[2.5px] rounded-xl ${fullWidth ? 'w-full' : ''}`}
-        style={{ background: '#D3F20F' }}
+        className={`relative p-[2.5px] rounded ${fullWidth ? 'w-full' : ''}`}
+        style={{ background: '#FFFFFF' }}
       >
         <div 
           className={`relative px-6 py-3 md:px-8 md:py-4 md:text-lg font-semibold rounded-lg ${fullWidth ? 'w-full' : ''}`}
           style={{ 
             fontSize: '1.1em',
-            background: '#D3F20F',
-            color: '#0B1020',
-            boxShadow: '0 4px 14px 0 rgba(211, 242, 15, 0.2)'
+            background: '#FFFFFF',
+            color: '#0A0A0A',
+            boxShadow: '0 4px 14px 0 rgba(255, 255, 255, 0.2)'
           }}
         >
           <span
             style={{
-              color: '#0B1020',
+              color: '#0A0A0A',
               fontWeight: '600'
             }}
           >

@@ -27,7 +27,7 @@ const PricingGradientButton: React.FC<PricingGradientButtonProps> = ({
 
   return (
     <motion.button
-      className={`relative w-full h-12 rounded-xl font-bold text-white overflow-hidden group ${className}`}
+      className={`relative w-full h-12 rounded font-bold text-white overflow-hidden group ${className}`}
       onClick={handleClick}
       whileHover={{ 
         scale: 1.08,
@@ -40,9 +40,9 @@ const PricingGradientButton: React.FC<PricingGradientButtonProps> = ({
         damping: 25
       }}
       style={{
-        background: '#D3F20F',
-        border: '2px solid #D3F20F',
-        boxShadow: '0 4px 14px 0 rgba(211, 242, 15, 0.3)'
+        background: '#FFFFFF',
+        border: '2px solid #FFFFFF',
+        boxShadow: '0 4px 14px 0 rgba(255, 255, 255, 0.3)'
       }}
     >
       {/* Effetto glossy superiore */}
@@ -58,7 +58,7 @@ const PricingGradientButton: React.FC<PricingGradientButtonProps> = ({
         <span 
           className="font-bold tracking-wide drop-shadow-sm pointer-events-none"
           style={{
-            color: '#0B1020'
+            color: '#0A0A0A'
           }}
         >
           {children}
@@ -67,9 +67,9 @@ const PricingGradientButton: React.FC<PricingGradientButtonProps> = ({
       
       {/* Effetto hover glass */}
       <motion.div
-        className="absolute inset-0 rounded-xl opacity-0 pointer-events-none"
+        className="absolute inset-0 rounded opacity-0 pointer-events-none"
         style={{
-          background: 'rgba(211, 242, 15, 0.2)',
+          background: 'rgba(255, 255, 255, 0.2)',
           backdropFilter: 'blur(10px)'
         }}
         initial={{ opacity: 0 }}

@@ -1,5 +1,13 @@
 import type { Metadata } from 'next';
+import { Inter, Cormorant_Garamond } from 'next/font/google';
 import './globals.css';
+
+const inter = Inter({ subsets: ['latin'], variable: '--font-inter' });
+const cormorant = Cormorant_Garamond({
+  subsets: ['latin'],
+  weight: ['300', '400', '500', '600', '700'],
+  variable: '--font-cormorant',
+});
 import { ScrollProgressBar } from '@/components/ScrollProgressBar';
 import { ContactPopupProvider } from '@/contexts/ContactPopupContext';
 import { ContactPopupManager } from '@/components/ContactPopupManager';
@@ -54,7 +62,7 @@ export default function RootLayout({
           async
         />
       </head>
-      <body className="antialiased">
+      <body className={`${inter.variable} ${cormorant.variable} antialiased`}>
         <ContactPopupProvider>
           <ScrollProgressBar />
           {children}

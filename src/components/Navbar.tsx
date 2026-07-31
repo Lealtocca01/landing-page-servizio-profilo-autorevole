@@ -40,32 +40,32 @@ export function NavBar({ items, className }: NavBarProps) {
     <>
       {/* Mobile Navbar */}
       {isMobile ? (
-        <div className="fixed top-0 left-0 right-0 z-50 p-4" style={{ background: '#0B1020' }}>
+        <div className="fixed top-0 left-0 right-0 z-50 p-4" style={{ background: '#0A0A0A' }}>
           <div className="flex items-center justify-between">
             {/* Logo */}
             <div className="flex items-center gap-2">
-              <div className="w-8 h-8 rounded-lg flex items-center justify-center" style={{ background: '#D3F20F' }}>
+              <div className="w-8 h-8 rounded-lg flex items-center justify-center" style={{ background: '#FFFFFF' }}>
                 <div className="w-4 h-4 flex flex-col justify-between">
-                  <div className="w-full h-0.5 rounded" style={{ background: '#0B1020' }}></div>
-                  <div className="w-full h-0.5 rounded" style={{ background: '#0B1020' }}></div>
-                  <div className="w-full h-0.5 rounded" style={{ background: '#0B1020' }}></div>
+                  <div className="w-full h-0.5 rounded" style={{ background: '#0A0A0A' }}></div>
+                  <div className="w-full h-0.5 rounded" style={{ background: '#0A0A0A' }}></div>
+                  <div className="w-full h-0.5 rounded" style={{ background: '#0A0A0A' }}></div>
                 </div>
               </div>
-              <span className="text-xl font-bold" style={{ color: '#D3F20F' }}>Profilo Autorevole</span>
+              <span className="text-xl font-bold" style={{ color: '#FFFFFF' }}>Profilo Autorevole</span>
             </div>
             
             {/* Hamburger Menu */}
             <button
               onClick={toggleMenu}
               className="p-2 rounded-lg transition-colors"
-              style={{ color: '#D3F20F' }}
+              style={{ color: '#FFFFFF' }}
             >
               {isMenuOpen ? <X size={24} /> : <Menu size={24} />}
             </button>
           </div>
           
           {/* Separator Line */}
-          <div className="w-full h-px mt-4" style={{ background: '#D3F20F' }}></div>
+          <div className="w-full h-px mt-4" style={{ background: '#FFFFFF' }}></div>
           
           {/* Dropdown Menu */}
           <AnimatePresence>
@@ -95,8 +95,8 @@ export function NavBar({ items, className }: NavBarProps) {
                           isActive ? "text-white" : "text-white/80 hover:text-white"
                         )}
                         style={{ 
-                          background: isActive ? 'rgba(211, 242, 15, 0.1)' : 'transparent',
-                          border: isActive ? '1px solid rgba(211, 242, 15, 0.3)' : '1px solid transparent'
+                          background: isActive ? 'rgba(255, 255, 255, 0.1)' : 'transparent',
+                          border: isActive ? '1px solid rgba(255, 255, 255, 0.3)' : '1px solid transparent'
                         }}
                       >
                         <Icon size={20} />
@@ -116,19 +116,19 @@ export function NavBar({ items, className }: NavBarProps) {
             "fixed top-0 left-0 right-0 z-50 p-4",
             className,
           )}
-          style={{ background: '#0B1020' }}
+          style={{ background: '#0A0A0A' }}
         >
           <div className="flex items-center justify-between max-w-7xl mx-auto">
             {/* Logo */}
             <div className="flex items-center gap-3">
-              <div className="w-8 h-8 rounded-lg flex items-center justify-center" style={{ background: '#D3F20F' }}>
+              <div className="w-8 h-8 rounded-lg flex items-center justify-center" style={{ background: '#FFFFFF' }}>
                 <div className="w-4 h-4 flex flex-col justify-between">
-                  <div className="w-full h-0.5 rounded" style={{ background: '#0B1020' }}></div>
-                  <div className="w-full h-0.5 rounded" style={{ background: '#0B1020' }}></div>
-                  <div className="w-full h-0.5 rounded" style={{ background: '#0B1020' }}></div>
+                  <div className="w-full h-0.5 rounded" style={{ background: '#0A0A0A' }}></div>
+                  <div className="w-full h-0.5 rounded" style={{ background: '#0A0A0A' }}></div>
+                  <div className="w-full h-0.5 rounded" style={{ background: '#0A0A0A' }}></div>
                 </div>
               </div>
-              <span className="text-xl font-bold" style={{ color: '#D3F20F' }}>Profilo Autorevole</span>
+              <span className="text-xl font-bold" style={{ color: '#FFFFFF' }}>Profilo Autorevole</span>
               
               {/* Separator */}
               <div className="w-px h-6 bg-white ml-4"></div>
@@ -157,7 +157,7 @@ export function NavBar({ items, className }: NavBarProps) {
           </div>
           
           {/* Separator Line */}
-          <div className="w-full h-px mt-4" style={{ background: '#D3F20F' }}></div>
+          <div className="w-full h-px mt-4" style={{ background: '#FFFFFF' }}></div>
         </div>
       )}
     </>
@@ -168,8 +168,8 @@ export function NavBar({ items, className }: NavBarProps) {
 export function Navbar() {
   const items: NavItem[] = [
     { name: "Home", url: "#hero", icon: Home },
-    { name: "Perché noi", url: "#perche-noi", icon: ThumbsUp },
     { name: "Come funziona", url: "#come-funziona", icon: Info },
+    { name: "Perché noi?", url: "#perche-noi", icon: ThumbsUp },
   ];
 
   return <NavBar items={items} />;

@@ -118,7 +118,7 @@ export function PricingCards({
                                 tier.name === 'Consulenza Gratuita' ? 'scale-95 lg:scale-98 mt-4 lg:mt-6' : ''
                             )}
                             style={{ 
-                                borderRadius: '20px',
+                                borderRadius: '4px',
                                 // Z-index più basso per consulenza gratuita
                                 zIndex: tier.name === 'Consulenza Gratuita' ? 1 : 2
                             }}
@@ -128,9 +128,9 @@ export function PricingCards({
                                 <div 
                                     className="absolute -top-3 -right-3 z-10 px-4 py-1 rounded-full text-sm font-bold"
                                     style={{ 
-                                        background: '#0B1020',
+                                        background: '#0A0A0A',
                                         color: '#FFFFFF',
-                                        border: '2px solid #D3F20F'
+                                        border: '2px solid #FFFFFF'
                                     }}
                                 >
                                     Molto richiesto
@@ -142,10 +142,10 @@ export function PricingCards({
                                     "font-sans transition-all duration-500 relative overflow-hidden"
                                 )} 
                                 style={{ 
-                                    background: 'linear-gradient(135deg, #1A2246 0%, #2D3748 100%)',
-                                    borderRadius: '20px',
-                                    border: '2px solid #D3F20F',
-                                    boxShadow: '0 4px 20px rgba(211,242,15,0.2)',
+                                    background: 'linear-gradient(135deg, #1C1C1C 0%, #2A2A2A 100%)',
+                                    borderRadius: '4px',
+                                    border: '2px solid #FFFFFF',
+                                    boxShadow: '0 4px 20px rgba(255,255,255,0.2)',
                                     marginBottom: tier.name === 'Consulenza Gratuita' ? '20px' : '0px'
                                 }}
                             >
@@ -171,7 +171,7 @@ export function PricingCards({
                                             {tier.name === 'Consulenza Gratuita' && tier.originalPrice && (
                                                 <span 
                                                     className="text-2xl line-through mr-3"
-                                                    style={{ color: '#94A3B8' }}
+                                                    style={{ color: '#888888' }}
                                                 >
                                                     €{tier.originalPrice}
                                                 </span>
@@ -184,8 +184,8 @@ export function PricingCards({
                                                         : 'text-4xl sm:text-5xl'
                                                 )}
                                                 style={{ 
-                                                    color: '#D3F20F',
-                                                    textShadow: tier.name === 'Consulenza Gratuita' ? '0 0 15px rgba(211, 242, 15, 0.7)' : 'none'
+                                                    color: '#FFFFFF',
+                                                    textShadow: tier.name === 'Consulenza Gratuita' ? '0 0 15px rgba(255, 255, 255, 0.7)' : 'none'
                                                 }}
                                             >
                                                 {tier.pricePrefix}{tier.price}
@@ -218,7 +218,7 @@ export function PricingCards({
                                     {/* Separatore */}
                                     <div 
                                         className="w-full h-px mb-3 sm:mb-4"
-                                        style={{ background: '#4A5568' }}
+                                        style={{ background: '#333333' }}
                                     ></div>
                                 </div>
 
@@ -234,8 +234,8 @@ export function PricingCards({
                                                     <div 
                                                         className="flex-shrink-0 w-5 h-5 rounded-full flex items-center justify-center mt-0.5"
                                                         style={{ 
-                                                            background: '#D3F20F',
-                                                            color: '#0B1020'
+                                                            background: '#FFFFFF',
+                                                            color: '#0A0A0A'
                                                         }}
                                                     >
                                                         <CheckIcon className="w-3 h-3" />
@@ -257,9 +257,9 @@ export function PricingCards({
                                     <div className="px-5 sm:px-8 pb-1">
                                         <div 
                                             className="w-full h-px mb-3 sm:mb-4"
-                                            style={{ background: '#6B7280' }}
+                                            style={{ background: '#444444' }}
                                         ></div>
-                                        <p className="text-sm sm:text-base md:text-lg font-semibold italic leading-relaxed" style={{ color: '#E2E8F0' }}>
+                                        <p className="text-sm sm:text-base md:text-lg font-semibold italic leading-relaxed" style={{ color: '#F5F5F5' }}>
                                             {tier.bottomNote}
                                         </p>
                                     </div>
@@ -275,11 +275,11 @@ export function PricingCards({
                                                     tier.cta.onClick();
                                                 }
                                             }}
-                                            className="inline-flex items-center gap-3 px-6 py-4 sm:px-6 sm:py-3 md:px-8 md:py-4 text-base sm:text-base md:text-lg font-semibold rounded-xl relative overflow-hidden w-full"
+                                            className="inline-flex items-center gap-3 px-6 py-4 sm:px-6 sm:py-3 md:px-8 md:py-4 text-base sm:text-base md:text-lg font-semibold rounded relative overflow-hidden w-full"
                                             style={{ 
-                                                background: 'linear-gradient(135deg, #D3F20F 0%, #A8D83A 100%)',
-                                                color: '#0B1020',
-                                                boxShadow: '0 4px 14px 0 rgba(211, 242, 15, 0.2)',
+                                                background: 'linear-gradient(135deg, #FFFFFF 0%, #E0E0E0 100%)',
+                                                color: '#0A0A0A',
+                                                boxShadow: '0 4px 14px 0 rgba(255, 255, 255, 0.2)',
                                                 cursor: 'pointer',
                                                 zIndex: 99999,
                                                 position: 'relative'

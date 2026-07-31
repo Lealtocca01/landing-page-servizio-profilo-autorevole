@@ -1,20 +1,24 @@
 import { Navbar } from '@/components/Navbar';
 import { Hero } from '@/components/Hero';
-import { WhyChooseUs } from '@/components/WhyChooseUs';
+
 import { HowItWorksNew } from '@/components/HowItWorksNew';
+import { FreeConsultation } from '@/components/FreeConsultation';
 import { NoContracts } from '@/components/NoContracts';
+import { WhyChooseUs } from '@/components/WhyChooseUs';
+
 import { FinalCTA } from '@/components/FinalCTA';
 import { Footer } from '@/components/Footer';
 
 export default function Home() {
   return (
-    <main className="min-h-screen" style={{ background: '#0B1020' }}>
+    <main className="min-h-screen" style={{ background: '#0A0A0A' }}>
       <Navbar />
       <Hero />
-      <WhyChooseUs />
       <HowItWorksNew />
-      <NoContracts />
       <FinalCTA />
+      <NoContracts />
+      <FreeConsultation />
+      <WhyChooseUs />
       <Footer />
     </main>
   );

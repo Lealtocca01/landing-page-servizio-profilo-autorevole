@@ -116,9 +116,14 @@
     display: none !important;
   }
   
+  h1, h2 {
+    font-family: var(--font-cormorant), 'Cormorant Garamond', Georgia, serif;
+    letter-spacing: -0.02em;
+  }
+
   body {
     @apply bg-background text-foreground;
-    font-family: 'Inter', system-ui, sans-serif;
+    font-family: var(--font-inter), 'Inter', system-ui, sans-serif;
     overflow-x: hidden !important;
     overflow-y: auto !important;
     width: 100vw !important;

@@ -16,10 +16,10 @@ export function FreeConsultation() {
   ];
 
   return (
-    <section className="py-16 lg:py-24 relative overflow-hidden" style={{ background: '#0B1020' }}>
+    <section className="py-16 lg:py-24 relative overflow-hidden" style={{ background: '#0A0A0A' }}>
       {/* Background effects */}
       <div className="absolute inset-0">
-        <div className="absolute inset-0 opacity-5" style={{ background: 'radial-gradient(circle at 20% 80%, #D3F20F 0%, transparent 50%), radial-gradient(circle at 80% 20%, #D3F20F 0%, transparent 50%)' }} />
+        <div className="absolute inset-0 opacity-5" style={{ background: 'radial-gradient(circle at 20% 80%, #FFFFFF 0%, transparent 50%), radial-gradient(circle at 80% 20%, #FFFFFF 0%, transparent 50%)' }} />
       </div>
 
       <div className="container-custom relative z-10">
@@ -27,15 +27,15 @@ export function FreeConsultation() {
           {/* Header */}
           <div className="text-left md:text-center mb-12">
             <h2 className="text-4xl md:text-5xl font-black mb-6 leading-tight" style={{ color: '#FFFFFF' }}>
-              Vorresti iniziare a <span style={{ color: '#D3F20F' }}>costruire</span> la tua presenza su <span style={{ color: '#FFFFFF' }}>LinkedIn</span>, ma non sai da dove iniziare?
+              Vorresti iniziare a <span style={{ color: '#FFFFFF' }}>costruire</span> la tua presenza su <span style={{ color: '#FFFFFF' }}>LinkedIn</span>, ma non sai da dove iniziare?
             </h2>
-            <p className="text-xl md:text-2xl font-medium italic mb-8" style={{ color: '#94A3B8' }}>
+            <p className="text-xl md:text-2xl font-medium italic mb-8" style={{ color: '#888888' }}>
               Oppure ci stai già provando ma non ottieni risultati?
             </p>
             <h3 className="text-2xl md:text-3xl font-bold mb-6" style={{ color: '#FFFFFF' }}>
-              Prenota ora la tua consulenza <span style={{ color: '#D3F20F' }}>gratuita</span>
+              Prenota ora la tua consulenza <span style={{ color: '#FFFFFF' }}>gratuita</span>
             </h3>
-            <p className="text-lg md:text-xl max-w-3xl md:mx-auto leading-relaxed" style={{ color: '#C9D1D9' }}>
+            <p className="text-lg md:text-xl max-w-3xl md:mx-auto leading-relaxed" style={{ color: '#999999' }}>
               Ti daremo consigli pratici e applicabili fin da subito per capire come posizionarti, costruire una strategia efficace e attrarre clienti su LinkedIn.
             </p>
           </div>
@@ -49,20 +49,20 @@ export function FreeConsultation() {
               {features.map((feature, index) => (
                 <div
                   key={index}
-                  className="flex items-start gap-4 p-0 md:p-6 md:rounded-2xl transition-all duration-300 hover:scale-[1.02] md:bg-[rgba(211,242,15,0.05)] md:border md:border-[rgba(211,242,15,0.2)]"
+                  className="flex items-start gap-4 p-0 md:p-6 md:rounded transition-all duration-300 hover:scale-[1.02] md:bg-[rgba(255,255,255,0.05)] md:border md:border-[rgba(255,255,255,0.2)]"
                 >
                   <div 
                     className="flex-shrink-0 w-6 h-6 rounded-full flex items-center justify-center mt-1"
                     style={{ 
-                      background: '#D3F20F',
-                      color: '#0B1020'
+                      background: '#FFFFFF',
+                      color: '#0A0A0A'
                     }}
                   >
                     <CheckIcon className="w-4 h-4" />
                   </div>
                   <span 
                     className="text-base leading-relaxed font-medium"
-                    style={{ color: '#E2E8F0' }}
+                    style={{ color: '#F5F5F5' }}
                   >
                     {feature}
                   </span>
@@ -78,9 +78,9 @@ export function FreeConsultation() {
               onClick={() => openPopup('consultation')}
               className="inline-flex items-center justify-center gap-3 px-6 py-4 text-base font-semibold rounded-lg relative overflow-hidden w-full sm:w-auto min-w-[280px] h-14"
               style={{ 
-                background: 'linear-gradient(135deg, #D3F20F 0%, #A8D83A 100%)',
-                color: '#0B1020',
-                boxShadow: '0 4px 14px 0 rgba(211, 242, 15, 0.2)',
+                background: 'linear-gradient(135deg, #FFFFFF 0%, #E0E0E0 100%)',
+                color: '#0A0A0A',
+                boxShadow: '0 4px 14px 0 rgba(255, 255, 255, 0.2)',
                 fontSize: '1.1em'
               }}
             >
