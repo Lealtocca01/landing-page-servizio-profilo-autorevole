@@ -54,7 +54,7 @@ export function FreeConsultation() {
                   <div 
                     className="flex-shrink-0 w-6 h-6 rounded-full flex items-center justify-center mt-1"
                     style={{ 
-                      background: '#000000',
+                      background: '#ff3700',
                       color: '#ffffff'
                     }}
                   >

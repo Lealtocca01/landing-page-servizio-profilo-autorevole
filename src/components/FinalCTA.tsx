@@ -64,7 +64,7 @@ export function FinalCTA() {
 
       <div className="container-custom relative z-10">
         <div className="text-left md:text-center mb-12">
-          <h2 className="text-[2.75rem] md:text-[3.5rem] lg:text-[4.25rem] font-black mb-6 leading-[1.0] md:leading-[0.9] tracking-tight" style={{ color: '#ffffff' }}>
+          <h2 className="text-[2.75rem] md:text-[3.5rem] lg:text-[4.25rem] font-black mb-6 leading-[1.0] md:leading-[0.9] tracking-tight" style={{ color: '#000000' }}>
               Quanto costa costruire la tua presenza su LinkedIn?
             </h2>
           <p className="text-xl md:text-2xl max-w-4xl md:mx-auto leading-relaxed font-medium" style={{ color: '#777777' }}>

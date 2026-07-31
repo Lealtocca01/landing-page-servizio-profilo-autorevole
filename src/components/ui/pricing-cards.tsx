@@ -118,7 +118,7 @@ export function PricingCards({
                                 tier.name === 'Consulenza Gratuita' ? 'scale-95 lg:scale-98 mt-4 lg:mt-6' : ''
                             )}
                             style={{ 
-                                borderRadius: '9999px',
+                                borderRadius: '16px',
                                 // Z-index più basso per consulenza gratuita
                                 zIndex: tier.name === 'Consulenza Gratuita' ? 1 : 2
                             }}
@@ -128,8 +128,8 @@ export function PricingCards({
                                 <div 
                                     className="absolute -top-3 -right-3 z-10 px-4 py-1 rounded-full text-sm font-bold"
                                     style={{ 
-                                        background: '#ffffff',
-                                        color: '#000000',
+                                        background: '#000000',
+                                        color: '#ffffff',
                                         border: '1px solid #e3e3e3'
                                     }}
                                 >
@@ -142,8 +142,8 @@ export function PricingCards({
                                     "font-sans transition-all duration-500 relative overflow-hidden"
                                 )} 
                                 style={{ 
-                                    background: 'linear-gradient(135deg, #ffffff 0%, #e3e3e3 100%)',
-                                    borderRadius: '9999px',
+                                    background: '#000000',
+                                    borderRadius: '16px',
                                     border: '1px solid #e3e3e3',
                                     boxShadow: '0 2px 20px rgba(0,0,0,0.08)',
                                     marginBottom: tier.name === 'Consulenza Gratuita' ? '20px' : '0px'
@@ -180,12 +180,12 @@ export function PricingCards({
                                                 className={cn(
                                                     "font-bold",
                                                     tier.name === 'Consulenza Gratuita' 
-                                                        ? 'text-4xl sm:text-4xl animate-pulse' 
+                                                        ? 'text-4xl sm:text-4xl ' 
                                                         : 'text-4xl sm:text-5xl'
                                                 )}
                                                 style={{ 
-                                                    color: '#000000',
-                                                    textShadow: tier.name === 'Consulenza Gratuita' ? '0 0 15px rgba(0, 0, 0, 0.7)' : 'none'
+                                                    color: '#ffffff',
+                                                    textShadow: 'none'
                                                 }}
                                             >
                                                 {tier.pricePrefix}{tier.price}
@@ -234,8 +234,8 @@ export function PricingCards({
                                                     <div 
                                                         className="flex-shrink-0 w-5 h-5 rounded-full flex items-center justify-center mt-0.5"
                                                         style={{ 
-                                                            background: '#000000',
-                                                            color: '#ffffff'
+                                                            background: '#ff3700',
+                                                            color: '#000000'
                                                         }}
                                                     >
                                                         <CheckIcon className="w-3 h-3" />
@@ -259,7 +259,7 @@ export function PricingCards({
                                             className="w-full h-px mb-3 sm:mb-4"
                                             style={{ background: '#999999' }}
                                         ></div>
-                                        <p className="text-sm sm:text-base md:text-lg font-semibold italic leading-relaxed" style={{ color: '#f5f5f5' }}>
+                                        <p className="text-sm sm:text-base md:text-lg font-semibold italic leading-relaxed" style={{ color: '#555555' }}>
                                             {tier.bottomNote}
                                         </p>
                                     </div>

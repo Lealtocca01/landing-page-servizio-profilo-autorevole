@@ -57,7 +57,7 @@ export function HowItWorksNew() {
   // Creo gli items per il GlassIcons component con colore lime consistente
   const glassIconsItems = steps.map((step, index) => ({
     icon: <step.lucideIcon className="w-6 h-6 text-neutral-900" />,
-    color: 'lime', // Colore consistente lime per tutti gli step
+    color: 'black', // Colore consistente lime per tutti gli step
   }))
 
 
@@ -221,7 +221,7 @@ export function HowItWorksNew() {
                       viewport={{ once: true }}
                     >
                       {/* Glass Icon sopra la card, centrata */}
-                      <div className="flex justify-center mb-4">
+                      <div className="flex justify-center mb-4" style={{ display: "none" }}>
                         <GlassIcons 
                           items={[glassIconsItems[i]]} 
                           className="!grid-cols-1 !gap-0 !py-0 scale-75"
@@ -289,7 +289,7 @@ export function HowItWorksNew() {
                       viewport={{ once: true }}
                     >
                       {/* Glass Icon sopra la card, centrata */}
-                      <div className="flex justify-center mb-4">
+                      <div className="flex justify-center mb-4" style={{ display: "none" }}>
                         <GlassIcons 
                           items={[glassIconsItems[i]]} 
                           className="!grid-cols-1 !gap-0 !py-0 scale-75"

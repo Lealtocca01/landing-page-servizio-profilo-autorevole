@@ -115,7 +115,7 @@ export function Hero() {
                       >
                         <div 
                           className={`w-1 h-5 rounded-full flex-shrink-0 mt-1.5 ${
-                            index === 3 ? 'bg-[#ff3700]' : 'bg-white'
+                            index === 3 ? 'bg-[#ff3700]' : 'bg-neutral-300'
                           }`}
                         />
                         <p className="text-base sm:text-lg md:text-lg lg:text-base xl:text-lg leading-relaxed" style={{ color: '#555555' }}>
