@@ -10,7 +10,7 @@ export function NoContracts() {
   const { openPopup } = useContactPopup();
 
   return (
-    <section className="pt-24 pb-20 md:pt-20 md:pb-16 lg:pt-24 lg:pb-20 relative overflow-hidden" style={{ background: '#141414' }}>
+    <section className="pt-24 pb-20 md:pt-20 md:pb-16 lg:pt-24 lg:pb-20 relative overflow-hidden" style={{ background: '#f5f5f5' }}>
       {/* Background effects */}
       <div className="absolute inset-0">
         <div className="absolute top-20 left-10 w-96 h-96 bg-blue-500 rounded-full mix-blend-multiply filter blur-xl opacity-10 animate-float" />
@@ -21,7 +21,7 @@ export function NoContracts() {
       <div 
         className="absolute inset-0 z-[-5]"
         style={{
-          backgroundImage: 'radial-gradient(rgba(255, 255, 255, 0.6) 2px, transparent 2px)',
+          backgroundImage: 'radial-gradient(rgba(0, 0, 0, 0.6) 2px, transparent 2px)',
           backgroundSize: '30px 30px',
         }}
       />
@@ -46,14 +46,14 @@ export function NoContracts() {
           <div className="space-y-8 text-left">
             {/* Main headline */}
             <div>
-              <h2 className="text-2xl md:text-3xl mb-4 leading-relaxed -mt-10" style={{ color: '#999999' }}>
+              <h2 className="text-2xl md:text-3xl mb-4 leading-relaxed -mt-10" style={{ color: '#555555' }}>
                 Dovrai sottostare a Vincoli Contrattuali? No.
               </h2>
-              <h3 className="text-4xl md:text-5xl font-bold text-white mb-6 leading-tight">
+              <h3 className="text-4xl md:text-5xl font-bold text-neutral-900 mb-6 leading-tight">
                 Avrai la possibilità di{' '}
-                <span style={{ color: '#FFFFFF' }}>rescindere</span> quando vuoi.
+                <span style={{ color: '#000000' }}>rescindere</span> quando vuoi.
               </h3>
-              <p className="text-lg leading-relaxed" style={{ color: '#999999' }}>
+              <p className="text-lg leading-relaxed" style={{ color: '#555555' }}>
                 Niente obblighi, niente vincoli o impegni.
               </p>
               
@@ -73,15 +73,15 @@ export function NoContracts() {
 
             {/* Section 2 */}
             <div>
-              <h4 className="text-2xl md:text-3xl font-bold text-white mb-4">
-                Dov&apos;è l&apos;inghippo allora? <span className="font-thin text-2xl"><span style={{ color: '#FFFFFF' }}>Non accettiamo</span> tutte le attività, in quanto non tutte sono adatte a questo tipo di percorso.</span>
+              <h4 className="text-2xl md:text-3xl font-bold text-neutral-900 mb-4">
+                Dov&apos;è l&apos;inghippo allora? <span className="font-thin text-2xl"><span style={{ color: '#000000' }}>Non accettiamo</span> tutte le attività, in quanto non tutte sono adatte a questo tipo di percorso.</span>
               </h4>
             </div>
 
             {/* Section 3 */}
             <div>
-              <h4 className="text-2xl md:text-3xl font-normal text-white mb-4">
-                <span className="font-bold">Prima di iniziare, dovrai fare un <span style={{ color: '#FFFFFF' }}>colloquio</span> con noi:</span> <span className="text-xl font-thin">serve a capire se questo percorso può davvero fare al caso tuo.</span>
+              <h4 className="text-2xl md:text-3xl font-normal text-neutral-900 mb-4">
+                <span className="font-bold">Prima di iniziare, dovrai fare un <span style={{ color: '#000000' }}>colloquio</span> con noi:</span> <span className="text-xl font-thin">serve a capire se questo percorso può davvero fare al caso tuo.</span>
               </h4>
 
             </div>

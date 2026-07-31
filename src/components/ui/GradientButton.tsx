@@ -10,47 +10,30 @@ interface GradientButtonProps {
 
 const GradientButton: React.FC<GradientButtonProps> = ({ children, onClick, className, fullWidth = false }) => {
   return (
-    <motion.button 
+    <motion.button
       className={`relative group ${fullWidth ? 'w-full' : ''} ${className || ''} cursor-pointer z-50`}
       onClick={onClick}
       style={{ zIndex: 50 }}
-      initial={{ 
-        scale: 1,
-        filter: 'drop-shadow(0 0 0 rgba(96,165,250,0))'
-      }}
-      whileHover={{ 
-        scale: 1.05,
-        filter: 'drop-shadow(0 0 20px rgba(255,255,255,0.6)) drop-shadow(0 0 40px rgba(255,255,255,0.4))'
-      }}
+      initial={{ scale: 1 }}
+      whileHover={{ scale: 1.03 }}
       whileTap={{ scale: 0.98 }}
-      transition={{ 
-        duration: 0.3, 
-        ease: "easeOut",
-        filter: { duration: 0.4 }
-      }}
+      transition={{ duration: 0.2, ease: "easeOut" }}
     >
-      <div 
-        className={`relative p-[2.5px] rounded ${fullWidth ? 'w-full' : ''}`}
-        style={{ background: '#FFFFFF' }}
+      <div
+        className={`relative px-8 py-4 md:px-10 md:py-4 font-medium rounded-full flex items-center gap-2 ${fullWidth ? 'w-full justify-center' : ''}`}
+        style={{
+          fontSize: '1em',
+          background: '#000000',
+          color: '#ffffff',
+          letterSpacing: '-0.01em',
+        }}
       >
-        <div 
-          className={`relative px-6 py-3 md:px-8 md:py-4 md:text-lg font-semibold rounded-lg ${fullWidth ? 'w-full' : ''}`}
-          style={{ 
-            fontSize: '1.1em',
-            background: '#FFFFFF',
-            color: '#0A0A0A',
-            boxShadow: '0 4px 14px 0 rgba(255, 255, 255, 0.2)'
-          }}
-        >
-          <span
-            style={{
-              color: '#0A0A0A',
-              fontWeight: '600'
-            }}
-          >
-            {children}
-          </span>
-        </div>
+        <span style={{ color: '#ffffff', fontWeight: '500' }}>
+          {children}
+        </span>
+        <svg width="16" height="16" viewBox="0 0 16 16" fill="none" style={{ marginLeft: '4px' }}>
+          <path d="M3 8H13M13 8L9 4M13 8L9 12" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/>
+        </svg>
       </div>
     </motion.button>
   );

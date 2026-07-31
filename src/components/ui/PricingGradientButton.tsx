@@ -27,7 +27,7 @@ const PricingGradientButton: React.FC<PricingGradientButtonProps> = ({
 
   return (
     <motion.button
-      className={`relative w-full h-12 rounded font-bold text-white overflow-hidden group ${className}`}
+      className={`relative w-full h-12 rounded font-bold text-neutral-900 overflow-hidden group ${className}`}
       onClick={handleClick}
       whileHover={{ 
         scale: 1.08,
@@ -40,16 +40,16 @@ const PricingGradientButton: React.FC<PricingGradientButtonProps> = ({
         damping: 25
       }}
       style={{
-        background: '#FFFFFF',
-        border: '2px solid #FFFFFF',
-        boxShadow: '0 4px 14px 0 rgba(255, 255, 255, 0.3)'
+        background: '#000000',
+        border: '1px solid #e3e3e3',
+        boxShadow: '0 4px 14px 0 rgba(0, 0, 0, 0.3)'
       }}
     >
       {/* Effetto glossy superiore */}
       <div 
         className="absolute top-0 left-0 right-0 h-1/2 opacity-40 pointer-events-none"
         style={{
-          background: 'linear-gradient(180deg, rgba(255, 255, 255, 0.3) 0%, rgba(255, 255, 255, 0.05) 70%, transparent 100%)'
+          background: 'linear-gradient(180deg, rgba(0, 0, 0, 0.3) 0%, rgba(0, 0, 0, 0.05) 70%, transparent 100%)'
         }}
       />
       
@@ -58,7 +58,7 @@ const PricingGradientButton: React.FC<PricingGradientButtonProps> = ({
         <span 
           className="font-bold tracking-wide drop-shadow-sm pointer-events-none"
           style={{
-            color: '#0A0A0A'
+            color: '#ffffff'
           }}
         >
           {children}
@@ -69,7 +69,7 @@ const PricingGradientButton: React.FC<PricingGradientButtonProps> = ({
       <motion.div
         className="absolute inset-0 rounded opacity-0 pointer-events-none"
         style={{
-          background: 'rgba(255, 255, 255, 0.2)',
+          background: 'rgba(0, 0, 0, 0.2)',
           backdropFilter: 'blur(10px)'
         }}
         initial={{ opacity: 0 }}

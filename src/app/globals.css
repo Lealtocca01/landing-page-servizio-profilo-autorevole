@@ -117,13 +117,22 @@
   }
   
   h1, h2 {
-    font-family: var(--font-cormorant), 'Cormorant Garamond', Georgia, serif;
-    letter-spacing: -0.02em;
+    font-family: var(--font-inter), 'Inter', system-ui, sans-serif;
+    letter-spacing: -0.03em;
+    font-weight: 700;
+  }
+
+  .font-display {
+    font-family: var(--font-instrument-serif), 'Instrument Serif', Georgia, serif;
+    font-style: italic;
+    font-weight: 400;
   }
 
   body {
     @apply bg-background text-foreground;
     font-family: var(--font-inter), 'Inter', system-ui, sans-serif;
+    color: #000000;
+    background: #ffffff;
     overflow-x: hidden !important;
     overflow-y: auto !important;
     width: 100vw !important;

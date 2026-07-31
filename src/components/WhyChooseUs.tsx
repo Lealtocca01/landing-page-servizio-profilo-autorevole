@@ -8,7 +8,7 @@ export function WhyChooseUs() {
   const { openPopup } = useContactPopup()
 
   return (
-    <section className="py-16 lg:py-24 relative overflow-hidden" style={{ background: '#141414' }}>
+    <section className="py-16 lg:py-24 relative overflow-hidden" style={{ background: '#f5f5f5' }}>
       {/* Background effects */}
       <div className="absolute inset-0">
         <div className="absolute inset-0 opacity-5" style={{ background: 'radial-gradient(circle at 20% 80%, #FFFFFF 0%, transparent 50%), radial-gradient(circle at 80% 20%, #FFFFFF 0%, transparent 50%)' }} />
@@ -23,10 +23,10 @@ export function WhyChooseUs() {
           viewport={{ once: true }}
           className="mb-16 scroll-mt-24"
         >
-          <h3 id="perche-noi" className="text-3xl md:text-4xl font-bold text-white mb-4 text-left md:text-center">
-            Cosa fa di diverso <span style={{ color: '#FFFFFF' }}>Profilo Autorevole</span> per te
+          <h3 id="perche-noi" className="text-3xl md:text-4xl font-bold text-neutral-900 mb-4 text-left md:text-center">
+            Cosa fa di diverso <span style={{ color: '#000000' }}>Profilo Autorevole</span> per te
           </h3>
-          <p className="text-lg max-w-3xl md:mx-auto text-left md:text-center leading-relaxed mb-12" style={{ color: '#999999' }}>
+          <p className="text-lg max-w-3xl md:mx-auto text-left md:text-center leading-relaxed mb-12" style={{ color: '#555555' }}>
             Ogni punto risponde a un problema che hai già vissuto.
           </p>
         </motion.div>
@@ -79,14 +79,14 @@ export function WhyChooseUs() {
               viewport={{ once: true }}
               className="relative rounded p-8"
               style={{ 
-                background: '#0A0A0A',
-                border: '1px solid rgba(255,255,255,0.1)'
+                background: '#ffffff',
+                border: '1px solid rgba(0,0,0,0.1)'
               }}
             >
               {/* Numero grande semi-trasparente dietro il testo */}
               <div 
                 className="absolute top-4 right-4 text-8xl font-black opacity-[0.08] select-none"
-                style={{ color: '#FFFFFF' }}
+                style={{ color: '#000000' }}
               >
                 {reason.number}
               </div>
@@ -94,12 +94,12 @@ export function WhyChooseUs() {
               {/* Contenuto principale */}
               <div className="relative z-10">
                 {/* Titolo bianco italic */}
-                <h3 className="text-[26px] font-bold italic mb-4 leading-tight text-white">
+                <h3 className="text-[26px] font-bold italic mb-4 leading-tight text-neutral-900">
                   {reason.title}
                 </h3>
                 
                 {/* Descrizione grigia */}
-                <p className="text-[15px] leading-relaxed" style={{ color: '#999999' }}>
+                <p className="text-[15px] leading-relaxed" style={{ color: '#555555' }}>
                   {reason.description}
                 </p>
               </div>
@@ -116,9 +116,9 @@ export function WhyChooseUs() {
             }}
             className="inline-flex items-center justify-center gap-3 px-6 py-4 sm:px-6 sm:py-3 md:px-8 md:py-4 text-base sm:text-base md:text-lg font-semibold rounded relative overflow-hidden w-full sm:w-auto min-w-[280px] h-14"
             style={{ 
-              background: 'linear-gradient(135deg, #FFFFFF 0%, #E0E0E0 100%)',
-              color: '#0A0A0A',
-              boxShadow: '0 4px 14px 0 rgba(255, 255, 255, 0.2)',
+              background: 'linear-gradient(135deg, #FFFFFF 0%, #e3e3e3 100%)',
+              color: '#ffffff',
+              boxShadow: 'none',
               cursor: 'pointer',
               zIndex: 99999,
               position: 'relative',

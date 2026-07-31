@@ -10,7 +10,7 @@ export default function GlobalError({
   return (
     <html>
       <body>
-        <div className="min-h-screen flex items-center justify-center bg-gray-900 text-white">
+        <div className="min-h-screen flex items-center justify-center bg-gray-900 text-neutral-900">
           <div className="text-center max-w-md mx-auto p-6">
             <h2 className="text-2xl font-bold mb-4 text-red-400">
               Errore critico dell&apos;applicazione
@@ -20,7 +20,7 @@ export default function GlobalError({
             </p>
             <button
               onClick={reset}
-              className="bg-blue-600 hover:bg-blue-700 text-white font-semibold py-2 px-4 rounded-lg transition-colors"
+              className="bg-blue-600 hover:bg-blue-700 text-neutral-900 font-semibold py-2 px-4 rounded-lg transition-colors"
             >
               Riprova
             </button>

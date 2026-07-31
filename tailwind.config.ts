@@ -88,7 +88,7 @@ const config: Config = {
       },
       fontFamily: {
         sans: ['var(--font-inter)', 'Inter', 'system-ui', 'sans-serif'],
-        display: ['var(--font-cormorant)', 'Cormorant Garamond', 'Georgia', 'serif'],
+        display: ['var(--font-instrument-serif)', 'Instrument Serif', 'Georgia', 'serif'],
       },
       animation: {
         'fade-in': 'fadeIn 0.5s ease-in-out',

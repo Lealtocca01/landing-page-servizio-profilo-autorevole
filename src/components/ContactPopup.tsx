@@ -141,12 +141,12 @@ export function ContactPopup({ isOpen, onClose, sorgente = "popup" }: ContactPop
             <div className="bg-gray-900 rounded shadow-2xl max-w-md w-full max-h-[90vh] overflow-y-auto">
               {/* Header */}
               <div className="flex justify-between items-center p-6 border-b border-gray-700">
-                <h2 className="text-xl font-bold text-white">
+                <h2 className="text-xl font-bold text-neutral-900">
                   Inserisci i tuoi dati, un mio consulente ti ricontatterà.
                 </h2>
                 <button
                   onClick={onClose}
-                  className="text-white hover:text-gray-300 transition-colors"
+                  className="text-neutral-900 hover:text-gray-300 transition-colors"
                 >
                   <X className="w-6 h-6" />
                 </button>
@@ -162,7 +162,7 @@ export function ContactPopup({ isOpen, onClose, sorgente = "popup" }: ContactPop
                     placeholder="Il tuo Nome"
                     value={formData.nome}
                     onChange={handleInputChange}
-                    className={`w-full px-4 py-3 bg-gray-800 border rounded-lg text-white placeholder-gray-400 focus:outline-none focus:ring-1 transition-colors ${
+                    className={`w-full px-4 py-3 bg-gray-800 border rounded-lg text-neutral-900 placeholder-gray-400 focus:outline-none focus:ring-1 transition-colors ${
                       errors.nome ? 'border-red-500 focus:border-red-500 focus:ring-red-500' : 'border-gray-600 focus:border-blue-500 focus:ring-blue-500'
                     }`}
                     required
@@ -180,7 +180,7 @@ export function ContactPopup({ isOpen, onClose, sorgente = "popup" }: ContactPop
                     placeholder="Il tuo Cognome"
                     value={formData.cognome}
                     onChange={handleInputChange}
-                    className={`w-full px-4 py-3 bg-gray-800 border rounded-lg text-white placeholder-gray-400 focus:outline-none focus:ring-1 transition-colors ${
+                    className={`w-full px-4 py-3 bg-gray-800 border rounded-lg text-neutral-900 placeholder-gray-400 focus:outline-none focus:ring-1 transition-colors ${
                       errors.cognome ? 'border-red-500 focus:border-red-500 focus:ring-red-500' : 'border-gray-600 focus:border-blue-500 focus:ring-blue-500'
                     }`}
                     required
@@ -198,7 +198,7 @@ export function ContactPopup({ isOpen, onClose, sorgente = "popup" }: ContactPop
                     placeholder="La tua mail"
                     value={formData.email}
                     onChange={handleInputChange}
-                    className={`w-full px-4 py-3 bg-gray-800 border rounded-lg text-white placeholder-gray-400 focus:outline-none focus:ring-1 transition-colors ${
+                    className={`w-full px-4 py-3 bg-gray-800 border rounded-lg text-neutral-900 placeholder-gray-400 focus:outline-none focus:ring-1 transition-colors ${
                       errors.email ? 'border-red-500 focus:border-red-500 focus:ring-red-500' : 'border-gray-600 focus:border-blue-500 focus:ring-blue-500'
                     }`}
                     required
@@ -216,7 +216,7 @@ export function ContactPopup({ isOpen, onClose, sorgente = "popup" }: ContactPop
                     placeholder="Il tuo numero"
                     value={formData.telefono}
                     onChange={handleInputChange}
-                    className={`w-full px-4 py-3 bg-gray-800 border rounded-lg text-white placeholder-gray-400 focus:outline-none focus:ring-1 transition-colors ${
+                    className={`w-full px-4 py-3 bg-gray-800 border rounded-lg text-neutral-900 placeholder-gray-400 focus:outline-none focus:ring-1 transition-colors ${
                       errors.telefono ? 'border-red-500 focus:border-red-500 focus:ring-red-500' : 'border-gray-600 focus:border-blue-500 focus:ring-blue-500'
                     }`}
                   />
@@ -233,7 +233,7 @@ export function ContactPopup({ isOpen, onClose, sorgente = "popup" }: ContactPop
                     placeholder="Indica il nome della tua attività"
                     value={formData.azienda}
                     onChange={handleInputChange}
-                    className={`w-full px-4 py-3 bg-gray-800 border rounded-lg text-white placeholder-gray-400 focus:outline-none focus:ring-1 transition-colors ${
+                    className={`w-full px-4 py-3 bg-gray-800 border rounded-lg text-neutral-900 placeholder-gray-400 focus:outline-none focus:ring-1 transition-colors ${
                       errors.azienda ? 'border-red-500 focus:border-red-500 focus:ring-red-500' : 'border-gray-600 focus:border-blue-500 focus:ring-blue-500'
                     }`}
                   />
@@ -248,31 +248,31 @@ export function ContactPopup({ isOpen, onClose, sorgente = "popup" }: ContactPop
                     name="settore"
                     value={formData.settore}
                     onChange={handleInputChange}
-                    className={`w-full px-4 py-3 bg-gray-800 border rounded-lg text-white focus:outline-none focus:ring-1 transition-colors ${
+                    className={`w-full px-4 py-3 bg-gray-800 border rounded-lg text-neutral-900 focus:outline-none focus:ring-1 transition-colors ${
                       errors.settore ? 'border-red-500 focus:border-red-500 focus:ring-red-500' : 'border-gray-600 focus:border-blue-500 focus:ring-blue-500'
                     }`}
                     required
                   >
                     <option value="" className="text-gray-400">In che settore operi?</option>
-                    <option value="web-agency-digital-marketing" className="text-white">Web Agency / Digital Marketing</option>
-                    <option value="consulenza-servizi-legali" className="text-white">Consulenza / Servizi Legali</option>
-                    <option value="arte" className="text-white">Arte</option>
-                    <option value="formazione-no-trading" className="text-white">Formazione (No Trading)</option>
-                    <option value="produzione" className="text-white">Produzione</option>
-                    <option value="moda-abbigliamento" className="text-white">Moda e Abbigliamento</option>
-                    <option value="fitness-benessere" className="text-white">Fitness e Benessere</option>
-                    <option value="tecnologia-informatica" className="text-white">Tecnologia e Informatica</option>
-                    <option value="trading" className="text-white">Trading</option>
-                    <option value="logistica-trasporti" className="text-white">Logistica / Trasporti</option>
-                    <option value="settore-sanitario" className="text-white">Settore Sanitario</option>
-                    <option value="ristorazione" className="text-white">Ristorazione</option>
-                    <option value="automotive" className="text-white">Automotive</option>
-                    <option value="e-commerce-b2c" className="text-white">E-Commerce B2C</option>
-                    <option value="e-commerce-b2b" className="text-white">E-Commerce B2B</option>
-                    <option value="network-marketing" className="text-white">Network Marketing</option>
-                    <option value="turismo-ospitalita" className="text-white">Turismo e Ospitalità</option>
-                    <option value="immobiliare" className="text-white">Immobiliare</option>
-                    <option value="altro" className="text-white">Altro</option>
+                    <option value="web-agency-digital-marketing" className="text-neutral-900">Web Agency / Digital Marketing</option>
+                    <option value="consulenza-servizi-legali" className="text-neutral-900">Consulenza / Servizi Legali</option>
+                    <option value="arte" className="text-neutral-900">Arte</option>
+                    <option value="formazione-no-trading" className="text-neutral-900">Formazione (No Trading)</option>
+                    <option value="produzione" className="text-neutral-900">Produzione</option>
+                    <option value="moda-abbigliamento" className="text-neutral-900">Moda e Abbigliamento</option>
+                    <option value="fitness-benessere" className="text-neutral-900">Fitness e Benessere</option>
+                    <option value="tecnologia-informatica" className="text-neutral-900">Tecnologia e Informatica</option>
+                    <option value="trading" className="text-neutral-900">Trading</option>
+                    <option value="logistica-trasporti" className="text-neutral-900">Logistica / Trasporti</option>
+                    <option value="settore-sanitario" className="text-neutral-900">Settore Sanitario</option>
+                    <option value="ristorazione" className="text-neutral-900">Ristorazione</option>
+                    <option value="automotive" className="text-neutral-900">Automotive</option>
+                    <option value="e-commerce-b2c" className="text-neutral-900">E-Commerce B2C</option>
+                    <option value="e-commerce-b2b" className="text-neutral-900">E-Commerce B2B</option>
+                    <option value="network-marketing" className="text-neutral-900">Network Marketing</option>
+                    <option value="turismo-ospitalita" className="text-neutral-900">Turismo e Ospitalità</option>
+                    <option value="immobiliare" className="text-neutral-900">Immobiliare</option>
+                    <option value="altro" className="text-neutral-900">Altro</option>
                   </select>
                   {errors.settore && (
                     <p className="mt-1 text-sm text-red-400">{errors.settore[0]}</p>
@@ -333,9 +333,9 @@ export function ContactPopup({ isOpen, onClose, sorgente = "popup" }: ContactPop
                       : ''
                   }`}
                   style={!isLoading ? {
-                    background: 'linear-gradient(135deg, #FFFFFF 0%, #E0E0E0 100%)',
-                    color: '#0A0A0A',
-                    boxShadow: '0 8px 25px rgba(255,255,255,0.3)'
+                    background: 'linear-gradient(135deg, #FFFFFF 0%, #e3e3e3 100%)',
+                    color: '#ffffff',
+                    boxShadow: 'none'
                   } : {}}
                 >
                   {isLoading ? 'Invio in corso...' : 'Richiedi ora la tua consulenza gratuita'}

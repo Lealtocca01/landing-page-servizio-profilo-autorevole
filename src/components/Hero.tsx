@@ -33,31 +33,31 @@ export function Hero() {
   ];
 
   return (
-    <section id="hero" className="relative min-h-screen flex items-center justify-center overflow-hidden pt-20 lg:pt-32" style={{ background: '#0A0A0A' }}>
+    <section id="hero" className="relative min-h-screen flex items-center justify-center overflow-hidden pt-20 lg:pt-32" style={{ background: '#ffffff' }}>
 
       <div className="container-custom relative z-10 px-8 lg:px-8">
         <div className="flex flex-col lg:grid lg:grid-cols-2 gap-8 lg:gap-12 items-center lg:items-start min-h-[70vh] lg:min-h-[80vh]">
           {/* Left Side - Text Content */}
           <div className="text-left w-full mt-12 sm:mt-0">
-            <h1 className="text-5xl sm:text-6xl md:text-6xl lg:text-5xl xl:text-6xl 2xl:text-7xl font-bold text-white mb-4 lg:mb-6 leading-none sm:leading-tight lg:leading-tight">
+            <h1 className="text-5xl sm:text-6xl md:text-6xl lg:text-5xl xl:text-6xl 2xl:text-7xl font-bold text-neutral-900 mb-4 lg:mb-6 leading-none sm:leading-tight lg:leading-tight">
               {/* Prima frase - ora più piccola e senza bold */}
               <span className="text-2xl sm:text-3xl md:text-3xl lg:text-2xl xl:text-3xl 2xl:text-4xl font-normal block mb-2">
-                <span style={{ color: '#999999' }}>Sei un professionista.</span> <span style={{ color: '#FFFFFF' }}>Sai che LinkedIn conta.</span>
+                <span style={{ color: '#555555' }}>Sei un professionista.</span> <span style={{ color: '#000000' }}>Sai che LinkedIn conta.</span>
               </span>
               {/* Headline tiepido */}
-               <span className="text-[44px] sm:text-6xl md:text-6xl lg:text-5xl xl:text-6xl 2xl:text-7xl text-white font-bold">
-                Hai provato a curare il tuo profilo — ma i clienti <span style={{ color: '#FFFFFF' }}>non arrivano</span>.
+               <span className="text-[44px] sm:text-6xl md:text-6xl lg:text-5xl xl:text-6xl 2xl:text-7xl text-neutral-900 font-bold">
+                Hai provato a curare il tuo profilo — ma i clienti <span style={{ color: '#000000' }}>non arrivano</span>.
               </span>
             </h1>
 
             {/* Subheadline aggiunta */}
-            <div className="text-[17px] sm:text-2xl md:text-2xl lg:text-xl xl:text-2xl mb-6 lg:mb-8 leading-relaxed max-w-4xl italic" style={{ color: '#999999' }}>
+            <div className="text-[17px] sm:text-2xl md:text-2xl lg:text-xl xl:text-2xl mb-6 lg:mb-8 leading-relaxed max-w-4xl italic" style={{ color: '#555555' }}>
               <span style={{ fontWeight: '300' }}>Non è colpa tua. LinkedIn non funziona come gli altri social.</span>
             </div>
 
-            <div className="text-[21px] sm:text-3xl md:text-3xl lg:text-2xl xl:text-3xl mb-6 lg:mb-8 leading-snug lg:leading-loose max-w-4xl" style={{ color: '#999999' }}>
-               Serve una <span style={{ color: '#FFFFFF', fontWeight: '600' }}>strategia specifica</span>, <span style={{ fontWeight: '200' }}>contenuti mirati al tuo settore e costanza ogni settimana</span>{' '}
-               — <span style={{ color: '#999999', fontWeight: '200' }}>tre cose che richiedono </span><span className="text-white font-bold">competenze verticali </span><span style={{ fontWeight: '200' }}>che la maggior parte delle agenzie</span> <span className="text-white underline font-bold">semplicemente non ha</span>.
+            <div className="text-[21px] sm:text-3xl md:text-3xl lg:text-2xl xl:text-3xl mb-6 lg:mb-8 leading-snug lg:leading-loose max-w-4xl" style={{ color: '#555555' }}>
+               Serve una <span style={{ color: '#000000', fontWeight: '600' }}>strategia specifica</span>, <span style={{ fontWeight: '200' }}>contenuti mirati al tuo settore e costanza ogni settimana</span>{' '}
+               — <span style={{ color: '#555555', fontWeight: '200' }}>tre cose che richiedono </span><span className="text-neutral-900 font-bold">competenze verticali </span><span style={{ fontWeight: '200' }}>che la maggior parte delle agenzie</span> <span className="text-neutral-900 underline font-bold">semplicemente non ha</span>.
              </div>
 
              {/* CTA Button - Hidden on mobile, shown on desktop after subtitle */}
@@ -87,11 +87,11 @@ export function Hero() {
         {/* Pain Amplification Section - Integrated into Hero */}
         <div className="mt-16 lg:mt-4">
           <div className="text-left md:text-center mb-8 lg:mb-16">
-                                                   <h2 className="text-4xl sm:text-5xl md:text-5xl lg:text-5xl xl:text-6xl 2xl:text-7xl font-bold text-white mb-4 lg:mb-6 -mt-4 lg:-mt-8 lg:pt-4">
-             <span className="text-white">Intanto, il tuo concorrente </span><span style={{ color: '#FFFFFF' }}>cresce.</span>
+                                                   <h2 className="text-4xl sm:text-5xl md:text-5xl lg:text-5xl xl:text-6xl 2xl:text-7xl font-bold text-neutral-900 mb-4 lg:mb-6 -mt-4 lg:-mt-8 lg:pt-4">
+             <span className="text-neutral-900">Intanto, il tuo concorrente </span><span style={{ color: '#000000' }}>cresce.</span>
              </h2>
-            <p className="text-xl sm:text-2xl md:text-2xl lg:text-xl xl:text-2xl max-w-3xl mx-0 md:mx-auto" style={{ color: '#999999' }}>
-            Pubblica ogni settimana, ha un profilo curato, riceve <span className="text-white">contatti</span>. Non è più bravo di te — ma i clienti <span className="text-white">lo trovano prima</span>.
+            <p className="text-xl sm:text-2xl md:text-2xl lg:text-xl xl:text-2xl max-w-3xl mx-0 md:mx-auto" style={{ color: '#555555' }}>
+            Pubblica ogni settimana, ha un profilo curato, riceve <span className="text-neutral-900">contatti</span>. Non è più bravo di te — ma i clienti <span className="text-neutral-900">lo trovano prima</span>.
             </p>
           </div>
 
@@ -99,8 +99,8 @@ export function Hero() {
             {/* Left side - Text content */}
             <div className="lg:w-1/2">
               <div className="text-left mb-8 lg:mb-0">
-                  <h3 className="text-2xl sm:text-3xl md:text-3xl lg:text-2xl font-normal text-white mb-6">
-                  La verità è che senza una presenza curata su LinkedIn, <span className="font-bold" style={{ color: '#FFFFFF' }}>chi ti cerca non ti trova — e sceglie qualcun altro</span>.
+                  <h3 className="text-2xl sm:text-3xl md:text-3xl lg:text-2xl font-normal text-neutral-900 mb-6">
+                  La verità è che senza una presenza curata su LinkedIn, <span className="font-bold" style={{ color: '#000000' }}>chi ti cerca non ti trova — e sceglie qualcun altro</span>.
                   </h3>
                   <div className="space-y-5 mb-8">
                     {[
@@ -115,10 +115,10 @@ export function Hero() {
                       >
                         <div 
                           className={`w-1 h-5 rounded-full flex-shrink-0 mt-1.5 ${
-                            index === 3 ? 'bg-[#FFFFFF]' : 'bg-white'
+                            index === 3 ? 'bg-[#ff3700]' : 'bg-white'
                           }`}
                         />
-                        <p className="text-base sm:text-lg md:text-lg lg:text-base xl:text-lg leading-relaxed" style={{ color: '#999999' }}>
+                        <p className="text-base sm:text-lg md:text-lg lg:text-base xl:text-lg leading-relaxed" style={{ color: '#555555' }}>
                           {item.text}
                         </p>
                       </div>
@@ -129,7 +129,7 @@ export function Hero() {
                   <div className="mb-8">
                     <div className="flex items-start space-x-4">
                       <div className="w-1 h-5 rounded-full flex-shrink-0 mt-1.5 bg-transparent" />
-                      <p className="text-lg sm:text-xl md:text-xl lg:text-lg xl:text-xl" style={{ color: '#FFFFFF' }}>
+                      <p className="text-lg sm:text-xl md:text-xl lg:text-lg xl:text-xl" style={{ color: '#000000' }}>
                         C&apos;è un problema però...
                       </p>
                     </div>
@@ -181,10 +181,10 @@ export function Hero() {
           </div>
 
           <div className="text-left sm:text-center mb-8 lg:mb-16">
-            <h2 className="text-4xl sm:text-5xl md:text-5xl lg:text-5xl font-bold text-white mb-4 lg:mb-6">
-              Perché finora <span style={{ color: '#FFFFFF' }}>non ha funzionato</span>
+            <h2 className="text-4xl sm:text-5xl md:text-5xl lg:text-5xl font-bold text-neutral-900 mb-4 lg:mb-6">
+              Perché finora <span style={{ color: '#000000' }}>non ha funzionato</span>
             </h2>
-            <p className="text-xl sm:text-2xl md:text-2xl lg:text-xl max-w-3xl sm:mx-auto mb-8 lg:mb-12" style={{ color: '#999999' }}>
+            <p className="text-xl sm:text-2xl md:text-2xl lg:text-xl max-w-3xl sm:mx-auto mb-8 lg:mb-12" style={{ color: '#555555' }}>
             Hai già provato almeno una di queste strade. Ecco perché nessuna ti ha portato risultati.
             </p>
           </div>
@@ -200,7 +200,7 @@ export function Hero() {
                   baseRotation={0}
                   blurStrength={4}
                   containerClassName="mb-6"
-                  textClassName="text-4xl sm:text-5xl md:text-5xl lg:text-4xl xl:text-5xl 2xl:text-6xl font-bold text-white"
+                  textClassName="text-4xl sm:text-5xl md:text-5xl lg:text-4xl xl:text-5xl 2xl:text-6xl font-bold text-neutral-900"
                   rotationEnd="bottom center"
                   wordAnimationEnd="bottom center"
                 >
@@ -209,7 +209,7 @@ export function Hero() {
 
                 {/* Subtitle */}
                 <div className="mb-4 text-lg sm:text-xl md:text-xl lg:text-lg xl:text-xl max-w-3xl mx-auto">
-                  <span style={{ color: '#AAAAAA' }}>
+                  <span style={{ color: '#777777' }}>
                     {item.subtitle.split(' ').map((word, wordIndex) => {
                       // Highlight key words in lime
                       const highlightWords = ['costanza', 'volantino', 'calendario', 'specifica'];
@@ -218,7 +218,7 @@ export function Hero() {
                       );
                       
                       return shouldHighlight ? (
-                        <span key={wordIndex} style={{ color: '#FFFFFF', fontWeight: '600' }}>
+                        <span key={wordIndex} style={{ color: '#000000', fontWeight: '600' }}>
                           {word}{' '}
                         </span>
                       ) : (
@@ -230,7 +230,7 @@ export function Hero() {
 
                 {/* Enhanced separator with glow effect */}
                 <div 
-                  className="w-32 h-0.5 mx-auto rounded-full shadow-lg bg-gradient-to-r from-transparent via-[#FFFFFF] to-transparent shadow-[#FFFFFF]/30"
+                  className="w-32 h-0.5 mx-auto rounded-full shadow-lg bg-gradient-to-r from-transparent via-[#ff3700] to-transparent shadow-[#ff3700]/30"
                 />
               </div>
             ))}
@@ -252,8 +252,8 @@ export function BusinessStatsGraphic() {
     <div 
       className="relative w-full overflow-hidden rounded border"
       style={{
-        background: '#1C1C1C',
-        borderColor: '#2A2A2A',
+        background: '#ffffff',
+        borderColor: '#e3e3e3',
         boxShadow: '0 25px 50px -12px rgba(0, 0, 0, 0.8)'
       }}
     >
@@ -278,30 +278,30 @@ export function BusinessStatsGraphic() {
           {/* Autorità Callout */}
           <Card 
             className="group relative p-3 lg:p-4 shadow-xl backdrop-blur-md"
-            style={{ background: 'rgba(255,255,255,0.1)', border: '1px solid rgba(255,255,255,0.2)' }}
+            style={{ background: 'rgba(0,0,0,0.1)', border: '1px solid rgba(0,0,0,0.2)' }}
           >
             <div className="text-center">
-              <div className="mb-1 lg:mb-2 text-2xl lg:text-3xl font-bold text-white">+</div>
-              <h3 className="text-lg lg:text-xl font-bold text-white">Autorità</h3>
-              <p className="mt-1 lg:mt-2 text-xs lg:text-sm text-white/90">Crea la tua reputazione</p>
+              <div className="mb-1 lg:mb-2 text-2xl lg:text-3xl font-bold text-neutral-900">+</div>
+              <h3 className="text-lg lg:text-xl font-bold text-neutral-900">Autorità</h3>
+              <p className="mt-1 lg:mt-2 text-xs lg:text-sm text-neutral-900/90">Crea la tua reputazione</p>
             </div>
           </Card>
 
           {/* Fiducia Callout */}
-          <Card className="group relative p-3 lg:p-4 shadow-xl backdrop-blur-md" style={{ background: 'rgba(255,255,255,0.1)', border: '1px solid rgba(255,255,255,0.2)' }}>
+          <Card className="group relative p-3 lg:p-4 shadow-xl backdrop-blur-md" style={{ background: 'rgba(0,0,0,0.1)', border: '1px solid rgba(0,0,0,0.2)' }}>
             <div className="text-center">
-              <div className="mb-1 lg:mb-2 text-2xl lg:text-3xl font-bold text-white">+</div>
-              <h3 className="text-lg lg:text-xl font-bold text-white">Fiducia</h3>
-              <p className="mt-1 lg:mt-2 text-xs lg:text-sm text-white/90">Aumenta la tua credibilità</p>
+              <div className="mb-1 lg:mb-2 text-2xl lg:text-3xl font-bold text-neutral-900">+</div>
+              <h3 className="text-lg lg:text-xl font-bold text-neutral-900">Fiducia</h3>
+              <p className="mt-1 lg:mt-2 text-xs lg:text-sm text-neutral-900/90">Aumenta la tua credibilità</p>
             </div>
           </Card>
 
           {/* Clienti Callout */}
-          <Card className="group relative p-3 lg:p-4 shadow-xl backdrop-blur-md" style={{ background: 'rgba(255,255,255,0.1)', border: '1px solid rgba(255,255,255,0.2)' }}>
+          <Card className="group relative p-3 lg:p-4 shadow-xl backdrop-blur-md" style={{ background: 'rgba(0,0,0,0.1)', border: '1px solid rgba(0,0,0,0.2)' }}>
             <div className="text-center">
-              <div className="mb-1 lg:mb-2 text-2xl lg:text-3xl font-bold text-white">+</div>
-              <h3 className="text-lg lg:text-xl font-bold text-white">Clienti</h3>
-              <p className="mt-1 lg:mt-2 text-xs lg:text-sm text-white/90">Aumenta il tuo fatturato</p>
+              <div className="mb-1 lg:mb-2 text-2xl lg:text-3xl font-bold text-neutral-900">+</div>
+              <h3 className="text-lg lg:text-xl font-bold text-neutral-900">Clienti</h3>
+              <p className="mt-1 lg:mt-2 text-xs lg:text-sm text-neutral-900/90">Aumenta il tuo fatturato</p>
             </div>
           </Card>
         </div>

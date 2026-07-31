@@ -56,14 +56,14 @@ export function HowItWorksNew() {
 
   // Creo gli items per il GlassIcons component con colore lime consistente
   const glassIconsItems = steps.map((step, index) => ({
-    icon: <step.lucideIcon className="w-6 h-6 text-white" />,
+    icon: <step.lucideIcon className="w-6 h-6 text-neutral-900" />,
     color: 'lime', // Colore consistente lime per tutti gli step
   }))
 
 
 
   return (
-    <div className="min-h-screen" style={{ background: '#141414' }}>
+    <div className="min-h-screen" style={{ background: '#f5f5f5' }}>
 
 
       {/* Nuova sezione Benefici */}
@@ -79,20 +79,20 @@ export function HowItWorksNew() {
           <div className="grid lg:grid-cols-2 gap-8 lg:gap-12 items-center">
             {/* Left side - Text content */}
             <div className="text-left lg:text-left space-y-6">
-              <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-white leading-tight">
+              <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-neutral-900 leading-tight">
                 {/* Layout mobile con distribuzione su più righe */}
                 <div className="block md:hidden space-y-2">
                   <div><span className="text-3xl font-normal">Affidati a Profilo Autorevole,</span></div>
-                  <div>l&apos;agenzia <span style={{ color: '#FFFFFF' }}>specializzata su LinkedIn</span></div>
+                  <div>l&apos;agenzia <span style={{ color: '#000000' }}>specializzata su LinkedIn</span></div>
                   <div><span className="text-3xl font-normal">nel costruire la tua presenza</span></div>
                   <div><span className="text-3xl font-normal">su LinkedIn.</span></div>
                 </div>
                 {/* Layout desktop normale */}
                 <div className="hidden md:block">
-                  Affidati a Profilo Autorevole, l&apos;agenzia <span style={{ color: '#FFFFFF' }}>specializzata su LinkedIn</span> nel costruire la tua presenza su LinkedIn.
+                  Affidati a Profilo Autorevole, l&apos;agenzia <span style={{ color: '#000000' }}>specializzata su LinkedIn</span> nel costruire la tua presenza su LinkedIn.
                 </div>
               </h2>
-              <p className="text-xl md:text-2xl leading-relaxed" style={{ color: '#999999' }}>
+              <p className="text-xl md:text-2xl leading-relaxed" style={{ color: '#555555' }}>
                 <span className="font-bold">Nessun approccio funziona</span> se non è specifico per LinkedIn e costruito intorno al tuo settore. Noi facciamo solo questo.<br /><br />
                 <em>Online in soli 7 giorni.</em>
               </p>
@@ -114,7 +114,7 @@ export function HowItWorksNew() {
               <div 
                 className="rounded overflow-hidden shadow-2xl"
                 style={{ 
-                  background: '#141414'
+                  background: '#f5f5f5'
                 }}
               >
                 {/* Immagine di sfondo */}
@@ -144,17 +144,17 @@ export function HowItWorksNew() {
       >
         <div className="text-left md:text-center mb-16">
           {/* Preheadline */}
-          <p className="text-lg font-semibold mb-4" style={{ color: '#999999' }}>
+          <p className="text-lg font-semibold mb-4" style={{ color: '#555555' }}>
             Ma ora ti starai chiedendo..
           </p>
           
           {/* Headline principale */}
-          <h2 id="come-funziona" className="text-4xl md:text-5xl lg:text-6xl font-bold text-white mb-6 leading-tight">
-            Come funziona nel <span style={{ color: '#FFFFFF' }}>pratico</span>?
+          <h2 id="come-funziona" className="text-4xl md:text-5xl lg:text-6xl font-bold text-neutral-900 mb-6 leading-tight">
+            Come funziona nel <span style={{ color: '#000000' }}>pratico</span>?
           </h2>
           
           {/* Subheadline */}
-          <p className="text-xl md:text-2xl leading-relaxed max-w-4xl mx-auto" style={{ color: '#999999' }}>
+          <p className="text-xl md:text-2xl leading-relaxed max-w-4xl mx-auto" style={{ color: '#555555' }}>
             Ecco cosa farà Profilo Autorevole per te:
           </p>
         </div>
@@ -180,7 +180,7 @@ export function HowItWorksNew() {
               <div className="absolute inset-0 bg-gray-300 rounded-full"></div>
               
               {/* Barra lime fissa (sempre al 100%) */}
-              <div className="absolute inset-x-0 top-0 rounded-full h-full" style={{ background: '#FFFFFF' }}></div>
+              <div className="absolute inset-x-0 top-0 rounded-full h-full" style={{ background: '#000000' }}></div>
             </div>
 
             {/* Progress bar centrale fissa - Mobile */}
@@ -198,7 +198,7 @@ export function HowItWorksNew() {
               <div className="absolute inset-0 bg-gray-300 rounded-full"></div>
               
               {/* Barra lime fissa (sempre al 100%) */}
-              <div className="absolute inset-x-0 top-0 rounded-full h-full" style={{ background: '#FFFFFF' }}></div>
+              <div className="absolute inset-x-0 top-0 rounded-full h-full" style={{ background: '#000000' }}></div>
             </div>
 
             {steps.map((step, i) => (
@@ -231,12 +231,12 @@ export function HowItWorksNew() {
                       <div 
                         className="rounded-lg px-6 py-6"
                         style={{ 
-                          background: '#1C1C1C',
-                          border: '1px solid #FFFFFF'
+                          background: '#ffffff',
+                          border: '1px solid #e3e3e3'
                         }}
                       >
-                        <h3 className="text-2xl font-bold text-white mb-3">{step.title}</h3>
-                        <p className="text-sm leading-relaxed" style={{ color: '#999999' }}>{step.description}</p>
+                        <h3 className="text-2xl font-bold text-neutral-900 mb-3">{step.title}</h3>
+                        <p className="text-sm leading-relaxed" style={{ color: '#555555' }}>{step.description}</p>
                       </div>
                     </motion.div>
                     {/* Numero badge circolare lime */}
@@ -250,8 +250,8 @@ export function HowItWorksNew() {
                       <div 
                         className="w-12 h-12 rounded-full flex items-center justify-center font-bold text-lg"
                         style={{ 
-                          background: '#FFFFFF',
-                          color: '#0A0A0A'
+                          background: '#000000',
+                          color: '#ffffff'
                         }}
                       >
                         {i + 1}
@@ -274,8 +274,8 @@ export function HowItWorksNew() {
                       <div 
                         className="w-12 h-12 rounded-full flex items-center justify-center font-bold text-lg"
                         style={{ 
-                          background: '#FFFFFF',
-                          color: '#0A0A0A'
+                          background: '#000000',
+                          color: '#ffffff'
                         }}
                       >
                         {i + 1}
@@ -299,12 +299,12 @@ export function HowItWorksNew() {
                       <div 
                         className="rounded-lg px-6 py-6"
                         style={{ 
-                          background: '#1C1C1C',
-                          border: '1px solid #FFFFFF'
+                          background: '#ffffff',
+                          border: '1px solid #e3e3e3'
                         }}
                       >
-                        <h3 className="text-2xl font-bold text-white mb-3">{step.title}</h3>
-                        <p className="text-sm leading-relaxed" style={{ color: '#999999' }}>{step.description}</p>
+                        <h3 className="text-2xl font-bold text-neutral-900 mb-3">{step.title}</h3>
+                        <p className="text-sm leading-relaxed" style={{ color: '#555555' }}>{step.description}</p>
                       </div>
                     </motion.div>
                   </div>

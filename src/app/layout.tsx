@@ -1,12 +1,13 @@
 import type { Metadata } from 'next';
-import { Inter, Cormorant_Garamond } from 'next/font/google';
+import { Inter, Instrument_Serif } from 'next/font/google';
 import './globals.css';
 
 const inter = Inter({ subsets: ['latin'], variable: '--font-inter' });
-const cormorant = Cormorant_Garamond({
+const instrumentSerif = Instrument_Serif({
   subsets: ['latin'],
-  weight: ['300', '400', '500', '600', '700'],
-  variable: '--font-cormorant',
+  weight: ['400'],
+  style: ['normal', 'italic'],
+  variable: '--font-instrument-serif',
 });
 import { ScrollProgressBar } from '@/components/ScrollProgressBar';
 import { ContactPopupProvider } from '@/contexts/ContactPopupContext';
@@ -62,7 +63,7 @@ export default function RootLayout({
           async
         />
       </head>
-      <body className={`${inter.variable} ${cormorant.variable} antialiased`}>
+      <body className={`${inter.variable} ${instrumentSerif.variable} antialiased`}>
         <ContactPopupProvider>
           <ScrollProgressBar />
           {children}

@@ -14,7 +14,7 @@ export default function Error({
   }, [error]);
 
   return (
-    <div className="min-h-screen flex items-center justify-center bg-gray-900 text-white">
+    <div className="min-h-screen flex items-center justify-center bg-gray-900 text-neutral-900">
       <div className="text-center max-w-md mx-auto p-6">
         <h2 className="text-2xl font-bold mb-4 text-red-400">
           Qualcosa è andato storto!
@@ -24,7 +24,7 @@ export default function Error({
         </p>
         <button
           onClick={reset}
-          className="bg-blue-600 hover:bg-blue-700 text-white font-semibold py-2 px-4 rounded-lg transition-colors"
+          className="bg-blue-600 hover:bg-blue-700 text-neutral-900 font-semibold py-2 px-4 rounded-lg transition-colors"
         >
           Riprova
         </button>

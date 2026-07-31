@@ -41,33 +41,33 @@ export function Footer() {
   };
 
   return (
-    <footer className="border-t" style={{ background: '#0A0A0A', borderColor: '#2A2A2A' }}>
+    <footer className="border-t" style={{ background: '#ffffff', borderColor: '#e3e3e3' }}>
       <div className="container-custom py-8 md:py-16">
         <div className="max-w-4xl mx-auto">
           {/* Brand Section */}
           <div>
             <div className="mb-4 md:mb-6 text-center">
               <div className="flex items-center justify-center space-x-3 mb-3 md:mb-4">
-                <span className="font-bold text-xl md:text-2xl text-white">
-                  Profilo <span style={{ color: '#FFFFFF' }}>Autorevole</span>
+                <span className="font-bold text-xl md:text-2xl text-neutral-900">
+                  Profilo <span style={{ color: '#000000' }}>Autorevole</span>
                 </span>
               </div>
-              <p className="leading-relaxed mb-4 md:mb-6 text-sm md:text-base" style={{ color: '#999999' }}>
+              <p className="leading-relaxed mb-4 md:mb-6 text-sm md:text-base" style={{ color: '#555555' }}>
                 Costruiamo la tua presenza su LinkedIn perché i tuoi potenziali clienti ti trovino, ti scelgano e ti contattino.
               </p>
               
               {/* Contact Info */}
               <div className="space-y-2 md:space-y-3 mb-4 md:mb-6">
-                <div className="flex items-center justify-center space-x-3 text-sm" style={{ color: '#888888' }}>
-                  <Mail size={14} style={{ color: '#999999' }} />
+                <div className="flex items-center justify-center space-x-3 text-sm" style={{ color: '#777777' }}>
+                  <Mail size={14} style={{ color: '#555555' }} />
                   <span>a.cattolico@profiloautorevole.com</span>
                 </div>
-                <div className="flex items-center justify-center space-x-3 text-sm" style={{ color: '#888888' }}>
-                  <Phone size={14} style={{ color: '#999999' }} />
+                <div className="flex items-center justify-center space-x-3 text-sm" style={{ color: '#777777' }}>
+                  <Phone size={14} style={{ color: '#555555' }} />
                   <span>+39 344 251 7856</span>
                 </div>
-                <div className="flex items-center justify-center space-x-3 text-sm" style={{ color: '#888888' }}>
-                  <MapPin size={14} style={{ color: '#999999' }} />
+                <div className="flex items-center justify-center space-x-3 text-sm" style={{ color: '#777777' }}>
+                  <MapPin size={14} style={{ color: '#555555' }} />
                   <span>Milano, Italia</span>
                 </div>
               </div>
@@ -77,7 +77,7 @@ export function Footer() {
                 {socialLinks.map((social, index) => (
                   <button
                     key={index}
-                    className="w-8 h-8 md:w-10 md:h-10 rounded-full flex items-center justify-center transition-all duration-300" style={{ background: '#1C1C1C', color: '#888888' }} onMouseEnter={(e) => { e.currentTarget.style.color = '#FFFFFF'; e.currentTarget.style.background = '#141414'; }} onMouseLeave={(e) => { e.currentTarget.style.color = '#888888'; e.currentTarget.style.background = '#1C1C1C'; }}
+                    className="w-8 h-8 md:w-10 md:h-10 rounded-full flex items-center justify-center transition-all duration-300" style={{ background: '#ffffff', color: '#777777' }} onMouseEnter={(e) => { e.currentTarget.style.color = '#FFFFFF'; e.currentTarget.style.background = '#f5f5f5'; }} onMouseLeave={(e) => { e.currentTarget.style.color = '#777777'; e.currentTarget.style.background = '#ffffff'; }}
                     onClick={() => scrollToSection(social.href)}
                     aria-label={social.label}
                   >
@@ -90,9 +90,9 @@ export function Footer() {
         </div>
 
         {/* Bottom Section */}
-        <div className="border-t mt-8 md:mt-12 pt-6 md:pt-8" style={{ borderColor: '#2A2A2A' }}>
+        <div className="border-t mt-8 md:mt-12 pt-6 md:pt-8" style={{ borderColor: '#e3e3e3' }}>
           <div className="flex flex-col md:flex-row items-center justify-between space-y-4 md:space-y-0">
-            <div className="text-sm" style={{ color: '#888888' }}>
+            <div className="text-sm" style={{ color: '#777777' }}>
               © {currentYear} Profilo Autorevole. Tutti i diritti riservati.
             </div>
             
@@ -100,7 +100,7 @@ export function Footer() {
               {/* Privacy Policy con link Iubenda ufficiale */}
               <a 
                 href="https://www.iubenda.com/privacy-policy/76483844" 
-                className="transition-colors duration-200" style={{ color: '#888888' }} onMouseEnter={(e) => { e.currentTarget.style.color = '#FFFFFF'; }} onMouseLeave={(e) => { e.currentTarget.style.color = '#888888'; }}
+                className="transition-colors duration-200" style={{ color: '#777777' }} onMouseEnter={(e) => { e.currentTarget.style.color = '#FFFFFF'; }} onMouseLeave={(e) => { e.currentTarget.style.color = '#777777'; }}
                 title="Privacy Policy"
                 target="_blank"
                 rel="noopener noreferrer"
@@ -108,7 +108,7 @@ export function Footer() {
                 Privacy Policy
               </a>
               <button 
-                className="transition-colors duration-200" style={{ color: '#888888' }} onMouseEnter={(e) => { e.currentTarget.style.color = '#FFFFFF'; }} onMouseLeave={(e) => { e.currentTarget.style.color = '#888888'; }}
+                className="transition-colors duration-200" style={{ color: '#777777' }} onMouseEnter={(e) => { e.currentTarget.style.color = '#FFFFFF'; }} onMouseLeave={(e) => { e.currentTarget.style.color = '#777777'; }}
                 onClick={() => handleIubendaLink('terms')}
               >
                 Termini & Condizioni
@@ -116,7 +116,7 @@ export function Footer() {
               {/* Cookie Policy con link Iubenda ufficiale */}
               <a 
                 href="https://www.iubenda.com/privacy-policy/76483844/cookie-policy" 
-                className="transition-colors duration-200" style={{ color: '#888888' }} onMouseEnter={(e) => { e.currentTarget.style.color = '#FFFFFF'; }} onMouseLeave={(e) => { e.currentTarget.style.color = '#888888'; }}
+                className="transition-colors duration-200" style={{ color: '#777777' }} onMouseEnter={(e) => { e.currentTarget.style.color = '#FFFFFF'; }} onMouseLeave={(e) => { e.currentTarget.style.color = '#777777'; }}
                 title="Cookie Policy"
                 target="_blank"
                 rel="noopener noreferrer"

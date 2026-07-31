@@ -201,7 +201,7 @@ export default function AutoSizeImage({
         <>
           <div style={{ 
             textAlign: 'center', 
-            color: 'rgba(255, 255, 255, 0.9)', 
+            color: 'rgba(0, 0, 0, 0.9)', 
             opacity: 1,
             padding: '100px 80px',
             minHeight: '600px',
@@ -221,14 +221,14 @@ export default function AutoSizeImage({
               fontSize: 24, 
               margin: '20px 0',
               fontWeight: 'bold',
-              color: 'rgba(255, 255, 255, 0.9)'
+              color: 'rgba(0, 0, 0, 0.9)'
             }}>
               Profilo LinkedIn
             </h2>
             <p style={{ 
               fontSize: 16, 
               margin: '15px 0',
-              color: 'rgba(255, 255, 255, 0.7)',
+              color: 'rgba(0, 0, 0, 0.7)',
               lineHeight: 1.4,
               maxWidth: '300px'
             }}>
@@ -242,7 +242,7 @@ export default function AutoSizeImage({
               left: 0,
               right: 0,
               bottom: 0,
-              border: '2px solid rgba(255, 255, 255, 0.3)',
+              border: '2px solid rgba(0, 0, 0, 0.3)',
               borderRadius: '16px',
               pointerEvents: 'none',
               background: 'linear-gradient(135deg, rgba(59, 130, 246, 0.1), rgba(147, 51, 234, 0.1))'
