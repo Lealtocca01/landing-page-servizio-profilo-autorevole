@@ -1,176 +1,110 @@
 'use client';
 
-import React, { useEffect, useState } from "react";
-import { motion, AnimatePresence } from "framer-motion";
-import Link from "next/link";
-import { LucideIcon, Home, Info, ThumbsUp, Quote, CreditCard, Menu, X } from "lucide-react";
-import { cn } from "../lib/utils";
+import { useState, useEffect } from 'react';
+import { motion, AnimatePresence } from 'framer-motion';
+import { Menu, X } from 'lucide-react';
+import Image from 'next/image';
+import { useContactPopup } from '@/contexts/ContactPopupContext';
 
-interface NavItem {
-  name: string;
-  url: string;
-  icon: LucideIcon;
-}
-
-interface NavBarProps {
-  items: NavItem[];
-  className?: string;
-}
-
-export function NavBar({ items, className }: NavBarProps) {
-  const [activeTab, setActiveTab] = useState(items[0].name);
-  const [isMobile, setIsMobile] = useState(false);
-  const [isMenuOpen, setIsMenuOpen] = useState(false);
+export function Navbar() {
+  const { openPopup } = useContactPopup();
+  const [scrolled, setScrolled] = useState(false);
+  const [menuOpen, setMenuOpen] = useState(false);
 
   useEffect(() => {
-    const handleResize = () => {
-      setIsMobile(window.innerWidth < 768);
-    };
-
-    handleResize();
-    window.addEventListener("resize", handleResize);
-    return () => window.removeEventListener("resize", handleResize);
+    const onScroll = () => setScrolled(window.scrollY > 60);
+    window.addEventListener('scroll', onScroll, { passive: true });
+    return () => window.removeEventListener('scroll', onScroll);
   }, []);
 
-  const toggleMenu = () => {
-    setIsMenuOpen(!isMenuOpen);
-  };
-
-  return (
-    <>
-      {/* Mobile Navbar */}
-      {isMobile ? (
-        <div className="fixed top-0 left-0 right-0 z-50 p-4" style={{ background: '#ffffff' }}>
-          <div className="flex items-center justify-between">
-            {/* Logo */}
-            <div className="flex items-center gap-2">
-              <div className="w-8 h-8 rounded-lg flex items-center justify-center" style={{ background: '#000000' }}>
-                <div className="w-4 h-4 flex flex-col justify-between">
-                  <div className="w-full h-0.5 rounded" style={{ background: '#ffffff' }}></div>
-                  <div className="w-full h-0.5 rounded" style={{ background: '#ffffff' }}></div>
-                  <div className="w-full h-0.5 rounded" style={{ background: '#ffffff' }}></div>
-                </div>
-              </div>
-              <span className="text-xl font-bold" style={{ color: '#000000' }}>Profilo Autorevole</span>
-            </div>
-            
-            {/* Hamburger Menu */}
-            <button
-              onClick={toggleMenu}
-              className="p-2 rounded-lg transition-colors"
-              style={{ color: '#000000' }}
-            >
-              {isMenuOpen ? <X size={24} /> : <Menu size={24} />}
-            </button>
-          </div>
-          
-          {/* Separator Line */}
-          <div className="w-full h-px mt-4" style={{ background: '#000000' }}></div>
-          
-          {/* Dropdown Menu */}
-          <AnimatePresence>
-            {isMenuOpen && (
-              <motion.div
-                initial={{ opacity: 0, height: 0 }}
-                animate={{ opacity: 1, height: "auto" }}
-                exit={{ opacity: 0, height: 0 }}
-                transition={{ duration: 0.3 }}
-                className="overflow-hidden"
-              >
-                <div className="py-4 space-y-2">
-                  {items.map((item) => {
-                    const Icon = item.icon;
-                    const isActive = activeTab === item.name;
-                    
-                    return (
-                      <Link
-                        key={item.name}
-                        href={item.url}
-                        onClick={() => {
-                          setActiveTab(item.name);
-                          setIsMenuOpen(false);
-                        }}
-                        className={cn(
-                          "flex items-center gap-3 px-4 py-3 rounded-lg transition-all duration-200",
-                          isActive ? "text-neutral-900" : "text-neutral-900/80 hover:text-neutral-900"
-                        )}
-                        style={{ 
-                          background: isActive ? 'rgba(0, 0, 0, 0.1)' : 'transparent',
-                          border: isActive ? '1px solid rgba(0, 0, 0, 0.3)' : '1px solid transparent'
-                        }}
-                      >
-                        <Icon size={20} />
-                        <span className="font-medium">{item.name}</span>
-                      </Link>
-                    );
-                  })}
-                </div>
-              </motion.div>
-            )}
-          </AnimatePresence>
-        </div>
-      ) : (
-        /* Desktop Navbar */
-        <div
-          className={cn(
-            "fixed top-0 left-0 right-0 z-50 p-4",
-            className,
-          )}
-          style={{ background: '#ffffff' }}
-        >
-          <div className="flex items-center justify-between max-w-7xl mx-auto">
-            {/* Logo */}
-            <div className="flex items-center gap-3">
-              <div className="w-8 h-8 rounded-lg flex items-center justify-center" style={{ background: '#000000' }}>
-                <div className="w-4 h-4 flex flex-col justify-between">
-                  <div className="w-full h-0.5 rounded" style={{ background: '#ffffff' }}></div>
-                  <div className="w-full h-0.5 rounded" style={{ background: '#ffffff' }}></div>
-                  <div className="w-full h-0.5 rounded" style={{ background: '#ffffff' }}></div>
-                </div>
-              </div>
-              <span className="text-xl font-bold" style={{ color: '#000000' }}>Profilo Autorevole</span>
-              
-              {/* Separator */}
-              <div className="w-px h-6 bg-white ml-4"></div>
-            </div>
-            
-            {/* Navigation Links */}
-            <div className="flex items-center gap-8">
-              {items.map((item) => {
-                const isActive = activeTab === item.name;
-                
-                return (
-                  <Link
-                    key={item.name}
-                    href={item.url}
-                    onClick={() => setActiveTab(item.name)}
-                    className={cn(
-                      "text-[15px] font-medium transition-colors duration-200 flex items-center",
-                      isActive ? "text-neutral-900" : "text-neutral-900/80 hover:text-neutral-900"
-                    )}
-                  >
-                    {item.name}
-                  </Link>
-                );
-              })}
-            </div>
-          </div>
-          
-          {/* Separator Line */}
-          <div className="w-full h-px mt-4" style={{ background: '#000000' }}></div>
-        </div>
-      )}
-    </>
-  );
-}
-
-// Backwards-compatible wrapper to preserve existing <Navbar /> usage
-export function Navbar() {
-  const items: NavItem[] = [
-    { name: "Home", url: "#hero", icon: Home },
-    { name: "Come funziona", url: "#come-funziona", icon: Info },
-    { name: "Perché noi?", url: "#perche-noi", icon: ThumbsUp },
+  const links = [
+    { label: 'Come funziona', href: '#come-funziona' },
+    { label: 'Pacchetti', href: '#pricing' },
   ];
 
-  return <NavBar items={items} />;
+  return (
+    <nav
+      className={`fixed top-0 left-0 right-0 z-50 transition-all duration-500 ${
+        scrolled ? 'bg-white/95 backdrop-blur-md shadow-sm' : 'bg-transparent'
+      }`}
+    >
+      <div className="container-page flex items-center justify-between h-[72px]">
+        {/* Logo */}
+        <a href="#" className="flex items-center">
+          <Image
+            src="/images/logo-pa.png"
+            alt="Profilo Autorevole"
+            width={180}
+            height={40}
+            className={`h-10 w-auto transition-all duration-500 ${scrolled ? '' : 'brightness-0 invert'}`}
+            priority
+          />
+        </a>
+
+        {/* Desktop links */}
+        <div className="hidden md:flex items-center gap-8">
+          {links.map((link) => (
+            <a
+              key={link.href}
+              href={link.href}
+              className={`text-[15px] transition-colors duration-500 hover:opacity-70 ${
+                scrolled ? 'text-neutral-600' : 'text-white/60'
+              }`}
+            >
+              {link.label}
+            </a>
+          ))}
+          <button
+            onClick={() => openPopup('consultation')}
+            className={`text-[15px] font-bold rounded-full px-5 py-2.5 transition-all duration-500 ${
+              scrolled ? 'bg-black text-white hover:bg-neutral-800' : 'bg-white text-black hover:bg-white/90'
+            }`}
+          >
+            Contattaci
+          </button>
+        </div>
+
+        {/* Mobile hamburger */}
+        <button
+          className={`md:hidden p-2 transition-colors duration-500 ${scrolled ? 'text-black' : 'text-white'}`}
+          onClick={() => setMenuOpen(!menuOpen)}
+        >
+          {menuOpen ? <X size={24} /> : <Menu size={24} />}
+        </button>
+      </div>
+
+      {/* Mobile menu */}
+      <AnimatePresence>
+        {menuOpen && (
+          <motion.div
+            initial={{ opacity: 0, height: 0 }}
+            animate={{ opacity: 1, height: 'auto' }}
+            exit={{ opacity: 0, height: 0 }}
+            className={`md:hidden overflow-hidden ${scrolled ? 'bg-white' : 'bg-black/95 backdrop-blur-md'}`}
+          >
+            <div className="container-page py-4 space-y-3">
+              {links.map((link) => (
+                <a
+                  key={link.href}
+                  href={link.href}
+                  onClick={() => setMenuOpen(false)}
+                  className={`block text-[15px] py-2 ${scrolled ? 'text-neutral-600' : 'text-white/60'}`}
+                >
+                  {link.label}
+                </a>
+              ))}
+              <button
+                onClick={() => { openPopup('consultation'); setMenuOpen(false); }}
+                className={`w-full text-[15px] font-bold rounded-full px-5 py-3 mt-2 ${
+                  scrolled ? 'bg-black text-white' : 'bg-white text-black'
+                }`}
+              >
+                Contattaci
+              </button>
+            </div>
+          </motion.div>
+        )}
+      </AnimatePresence>
+    </nav>
+  );
 }

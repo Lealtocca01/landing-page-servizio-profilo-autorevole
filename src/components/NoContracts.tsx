@@ -1,98 +1,55 @@
 'use client';
 
-import Image from 'next/image';
-import { Shield, ArrowRight } from 'lucide-react';
-import { BGPattern } from '@/components/ui/bg-pattern';
-import GradientButton from '@/components/ui/GradientButton';
+import { BlurFade } from '@/components/ui/blur-fade';
 import { useContactPopup } from '@/contexts/ContactPopupContext';
 
 export function NoContracts() {
   const { openPopup } = useContactPopup();
 
   return (
-    <section className="pt-24 pb-20 md:pt-20 md:pb-16 lg:pt-24 lg:pb-20 relative overflow-hidden" style={{ background: '#f5f5f5' }}>
-      {/* Background effects */}
-      <div className="absolute inset-0">
-        <div className="absolute top-20 left-10 w-96 h-96 bg-blue-500 rounded-full mix-blend-multiply filter blur-xl opacity-10 animate-float" />
-        <div className="absolute bottom-20 right-10 w-96 h-96 bg-cyan-500 rounded-full mix-blend-multiply filter blur-xl opacity-10 animate-float" style={{ animationDelay: '3s' }} />
-      </div>
-      
-      {/* Background pattern - CSS diretto */}
-      <div 
-        className="absolute inset-0 z-[-5]"
-        style={{
-          backgroundImage: 'radial-gradient(rgba(0, 0, 0, 0.6) 2px, transparent 2px)',
-          backgroundSize: '30px 30px',
-        }}
-      />
-
-      <div className="container-custom relative z-10">
-        <div className="grid lg:grid-cols-2 gap-16 items-center">
-          
-          {/* Left Side - Immagine (solo desktop) */}
-          <div className="relative flex justify-center lg:justify-start hidden lg:block">
-            <div className="relative max-w-xl mx-auto">
-              <Image 
-                src="/images/tel.png" 
-                alt="Smartphone con analytics di performance e crescita business"
-                width={300}
-                height={450}
-                className="w-full h-auto object-contain"
-              />
-            </div>
-          </div>
-
-          {/* Right Side - Content */}
-          <div className="space-y-8 text-left">
-            {/* Main headline */}
-            <div>
-              <h2 className="text-2xl md:text-3xl mb-4 leading-relaxed -mt-10" style={{ color: '#555555' }}>
-                Dovrai sottostare a Vincoli Contrattuali? No.
+    <section className="section-padding dot-grid" style={{ background: '#0a0a0a' }}>
+      <div className="container-page">
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-12 items-center">
+          {/* Left — Dark visual card */}
+          <BlurFade delay={0.1} inView direction="right">
+            <div
+              className="rounded-2xl flex items-end p-8 min-h-[360px] border border-white/10"
+              style={{ background: 'rgba(255,255,255,0.05)' }}
+            >
+              <h2 className="heading-bold text-white">
+                Il tuo nome.<br />
+                La tua voce.<br />
+                La tua scelta.
               </h2>
-              <h3 className="text-4xl md:text-5xl font-bold text-neutral-900 mb-6 leading-tight">
-                Avrai la possibilità di{' '}
-                <span style={{ color: '#000000' }}>rescindere</span> quando vuoi.
-              </h3>
-              <p className="text-lg leading-relaxed" style={{ color: '#555555' }}>
-                Niente obblighi, niente vincoli o impegni.
-              </p>
-              
-              {/* Immagine solo mobile */}
-              <div className="flex justify-center lg:hidden">
-                <div className="relative max-w-sm mx-auto">
-                  <Image 
-                    src="/images/tel.png" 
-                    alt="Smartphone con analytics di performance e crescita business"
-                    width={300}
-                    height={450}
-                    className="w-full h-auto object-contain"
-                  />
-                </div>
+            </div>
+          </BlurFade>
+
+          {/* Right — Content */}
+          <BlurFade delay={0.2} inView direction="left">
+            <div className="space-y-6">
+              <h2 className="heading-bold text-white">
+                Interrompi quando vuoi.<br />
+                Niente contratti. Niente penali.
+              </h2>
+
+              <div
+                className="rounded-xl p-6 border border-white/10"
+                style={{ background: 'rgba(255,255,255,0.05)' }}
+              >
+                <p className="leading-relaxed" style={{ color: 'rgba(255,255,255,0.6)' }}>
+                  C&apos;è un però. Non accettiamo tutti. Prima facciamo una call — se il tuo
+                  settore non è adatto a LinkedIn, te lo diciamo noi per primi.
+                </p>
               </div>
-            </div>
 
-            {/* Section 2 */}
-            <div>
-              <h4 className="text-2xl md:text-3xl font-bold text-neutral-900 mb-4">
-                Dov&apos;è l&apos;inghippo allora? <span className="font-thin text-2xl"><span style={{ color: '#000000' }}>Non accettiamo</span> tutte le attività, in quanto non tutte sono adatte a questo tipo di percorso.</span>
-              </h4>
+              <button
+                onClick={() => openPopup('consultation')}
+                className="cta-white"
+              >
+                Prenota una call gratuita
+              </button>
             </div>
-
-            {/* Section 3 */}
-            <div>
-              <h4 className="text-2xl md:text-3xl font-normal text-neutral-900 mb-4">
-                <span className="font-bold">Prima di iniziare, dovrai fare un <span style={{ color: '#000000' }}>colloquio</span> con noi:</span> <span className="text-xl font-thin">serve a capire se questo percorso può davvero fare al caso tuo.</span>
-              </h4>
-
-            </div>
-
-            {/* CTA Button */}
-            <div className="flex justify-center lg:justify-start">
-              <GradientButton onClick={() => openPopup('consultation')}>
-                <span>Richiedi ora la tua consulenza gratuita</span>
-              </GradientButton>
-            </div>
-          </div>
+          </BlurFade>
         </div>
       </div>
     </section>

@@ -1,92 +1,109 @@
 'use client';
 
-import { PricingCards } from '@/components/ui/pricing-cards';
 import { useContactPopup } from '@/contexts/ContactPopupContext';
+import { BlurFade } from '@/components/ui/blur-fade';
+import { ShineBorder } from '@/components/ui/shine-border';
 
 export function FinalCTA() {
   const { openPopup } = useContactPopup();
 
-  // Definizione dei pricing tiers
-  const pricingTiers = [
-    {
-      name: "Professional",
-      price: null, // Nessun prezzo mostrato
-      pricePrefix: "",
-      interval: "",
-      description: "",
-      features: [
-        { name: "I tuoi potenziali clienti ti vedono ogni settimana — 12 contenuti al mese pubblicati per te", included: true },
-        { name: "Una strategia costruita sul tuo settore, non un template generico", included: true },
-        { name: "Contenuti e grafiche che comunicano competenza, scritti nella lingua dei tuoi clienti", included: true },
-        { name: "Mai più settimane di silenzio: pubblichiamo noi, con costanza", included: true },
-        { name: "Rispondiamo, interagiamo, costruiamo relazioni — tu lavori", included: true },
-        { name: "Monitoraggio e ottimizzazione continua", included: true },
-        { name: "2 call a settimana col tuo consulente per domande, strategia e aggiornamenti", included: true },
-      ],
-      bottomNote: "Tutto questo a meno di un terzo del costo di un dipendente PART-TIME al mese",
-      cta: {
-        text: "Scopri il pacchetto",
-        onClick: () => openPopup('package') // Apri il popup per il pacchetto
-      },
-      isPopular: true // Aggiungo il flag per "Più Popolare"
-    },
-    {
-      name: "Consulenza Gratuita",
-      price: 0,
-      pricePrefix: "€",
-      interval: "",
-      originalPrice: 75,
-      description: "GRATIS",
-      features: [
-        { name: "Analisi completa del tuo profilo LinkedIn", included: true },
-        { name: "Linee guida per posizionarti al meglio", included: true },
-        { name: "Strategia di contenuti personalizzata", included: true },
-        { name: "Analisi del mercato e dei concorrenti", included: true },
-        { name: "Script di contatto a freddo pronto", included: true },
-        { name: "30 minuti di consulenza con un esperto", included: true },
-      ],
-      bottomNote: "In cambio ti chiediamo solo un feedback sincero. Se ti saremo utili, potremo usare la tua testimonianza per dimostrare concretamente il nostro valore ad altri professionisti come te.",
-      cta: {
-        text: "Prenota la consulenza gratuita",
-        onClick: () => openPopup('consultation') // Apri il popup per la consulenza
-      },
-      isPopular: false
-    },
+  const professionalFeatures = [
+    '12 contenuti al mese pubblicati per te',
+    'Strategia costruita sul tuo settore',
+    'Calendario editoriale gestito',
+    'La tua voce professionale, amplificata',
+    'Ottimizzazioni continue basate sui dati',
+    'Un consulente dedicato a te',
+    'Nessun vincolo — esci quando vuoi',
+  ];
+
+  const consultationFeatures = [
+    'Scopri come funziona per la tua azienda',
+    'Direzione strategica personalizzata',
+    'Piano concreto per i primi 90 giorni',
+    '30 minuti dedicati a te',
+    'Nessun impegno',
   ];
 
   return (
-    <section id="cta" className="pt-12 md:pt-16 lg:pt-20 pb-4 md:pb-2 lg:pb-1 relative overflow-hidden" style={{ background: '#f5f5f5' }}>
-      {/* Background effects - rimossi per design più pulito */}
-      <div className="absolute inset-0">
-        {/* Background subtle pattern */}
-        <div className="absolute inset-0 opacity-5" style={{ background: 'radial-gradient(circle at 20% 80%, #FFFFFF 0%, transparent 50%), radial-gradient(circle at 80% 20%, #FFFFFF 0%, transparent 50%)' }} />
-      </div>
+    <section id="pricing" className="section-padding" style={{ background: 'var(--bg-alt)' }}>
+      <div className="container-page">
+        <BlurFade delay={0.1} inView>
+          <div className="mb-12">
+            <p className="label mb-3">PACCHETTI</p>
+            <h2 className="heading-lg mb-4">Quanto costa costruire la tua autorità su LinkedIn?</h2>
+            <p className="font-serif text-xl md:text-2xl" style={{ color: 'var(--fg-muted)' }}>
+              Meno di quello che stai perdendo ogni mese senza una strategia.
+            </p>
+          </div>
+        </BlurFade>
 
-      <div className="container-custom relative z-10">
-        <div className="text-left md:text-center mb-12">
-          <h2 className="text-[2.75rem] md:text-[3.5rem] lg:text-[4.25rem] font-black mb-6 leading-[1.0] md:leading-[0.9] tracking-tight" style={{ color: '#000000' }}>
-              Quanto costa costruire la tua presenza su LinkedIn?
-            </h2>
-          <p className="text-xl md:text-2xl max-w-4xl md:mx-auto leading-relaxed font-medium" style={{ color: '#777777' }}>
-            Meno di quello che stai perdendo ogni mese senza una strategia.
-          </p>
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-4">
+          {/* Professional */}
+          <BlurFade delay={0.2} inView>
+            <div
+              className="relative overflow-hidden text-white rounded-2xl p-8 flex flex-col h-full"
+              style={{ background: 'var(--fg)', boxShadow: '0 0 80px rgba(255, 55, 0, 0.15), 0 0 30px rgba(255, 55, 0, 0.1)' }}
+            >
+              <span
+                className="text-xs font-bold uppercase tracking-wider mb-4 inline-block px-3 py-1 rounded-full w-fit"
+                style={{ background: 'var(--accent)' }}
+              >
+                Molto richiesto
+              </span>
+              <h3 className="text-3xl font-bold mb-6">Professional</h3>
+              <ul className="space-y-3 mb-8 flex-1">
+                {professionalFeatures.map((feat, i) => (
+                  <li key={i} className="flex items-start gap-2 text-[15px] leading-relaxed">
+                    <span className="mt-0.5 shrink-0" style={{ color: 'var(--accent)' }}>✓</span>
+                    <span>{feat}</span>
+                  </li>
+                ))}
+              </ul>
+              <p className="font-serif text-sm mb-6 opacity-70">
+                Meno di un terzo del costo di un dipendente part-time.
+              </p>
+              <button
+                onClick={() => openPopup('package')}
+                className="w-full py-3.5 rounded-full text-base font-semibold bg-white text-black hover:opacity-90 transition-opacity"
+              >
+                Scopri il pacchetto
+              </button>
+              <ShineBorder shineColor={['#ff3700', '#ff6633', '#ff3700']} borderWidth={2} duration={10} />
+            </div>
+          </BlurFade>
+
+          {/* Consulenza Gratuita */}
+          <BlurFade delay={0.3} inView>
+            <div
+              className="rounded-2xl p-8 flex flex-col h-full border border-[var(--border)] hover:shadow-lg hover:-translate-y-1 transition-all duration-300"
+              style={{ background: 'var(--bg)' }}
+            >
+              <h3 className="text-3xl font-bold mb-4">Consulenza Gratuita</h3>
+              <p className="font-serif text-2xl mb-6">
+                <span className="line-through" style={{ color: 'var(--fg-subtle)' }}>€75</span>{' '}
+                → €0 <span className="font-bold" style={{ color: 'var(--accent)' }}>GRATIS</span>
+              </p>
+              <ul className="space-y-3 mb-8 flex-1">
+                {consultationFeatures.map((feat, i) => (
+                  <li key={i} className="flex items-start gap-2 text-[15px] leading-relaxed">
+                    <span className="mt-0.5 shrink-0">✓</span>
+                    <span>{feat}</span>
+                  </li>
+                ))}
+              </ul>
+              <p className="font-serif text-sm mb-6" style={{ color: 'var(--fg-muted)' }}>
+                Ti chiediamo solo un feedback sincero.
+              </p>
+              <button
+                onClick={() => openPopup('consultation')}
+                className="w-full py-3.5 rounded-full text-base font-semibold bg-black text-white hover:opacity-90 transition-opacity"
+              >
+                Prenota la consulenza gratuita
+              </button>
+            </div>
+          </BlurFade>
         </div>
-
-        {/* Sezione Pricing Cards */}
-        <div className="mb-8 lg:mb-4 -mt-4 lg:-mt-8">
-          <PricingCards 
-            tiers={pricingTiers}
-            sectionClassName="py-0 px-0 bg-transparent"
-            containerClassName="px-0 w-full lg:max-w-6xl mx-auto flex justify-center"
-            className="gap-4 lg:gap-6 grid grid-cols-1 lg:grid-cols-2"
-            cardClassName="backdrop-blur-sm shadow-xl"
-          />
-        </div>
-
-
-
-
-
       </div>
     </section>
   );

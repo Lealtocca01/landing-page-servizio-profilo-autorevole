@@ -1,321 +1,86 @@
-
-
-
 "use client"
 
-import { motion } from "framer-motion"
-import Image from "next/image"
-import { GlassIcons } from '@/components/ui/glass-icons'
-import GradientButton from '@/components/ui/GradientButton'
-import { User, BarChart3, Calendar, Palette, Send, TrendingUp } from 'lucide-react'
+import { BlurFade } from '@/components/ui/blur-fade'
 import { useContactPopup } from '@/contexts/ContactPopupContext'
+
+const steps = [
+  { title: "Ti studiamo", description: "capiamo cosa ti rende diverso dai concorrenti nel tuo settore." },
+  { title: "Costruiamo il posizionamento", description: "il profilo racconta cosa fai, per chi e perché sei la scelta giusta." },
+  { title: "Scriviamo i contenuti", description: "idee rilevanti, voce riconoscibile, messaggi per i clienti che vuoi." },
+  { title: "Gestiamo tutto", description: "la tua presenza resta attiva senza occupare le tue giornate." },
+  { title: "Ottimizziamo", description: "leggiamo i dati e affiniamo ciò che porta attenzione qualificata." },
+  { title: "I clienti ti trovano", description: "il tuo nome è già nella loro testa quando arriva il momento di scegliere." },
+]
 
 export function HowItWorksNew() {
   const { openPopup } = useContactPopup()
 
-  
-
-  const steps = [
-    {
-      title: "Ti studiamo",
-      description: "Capiamo chi sono i tuoi clienti ideali, come cercano su LinkedIn e cosa li convince a scegliere un professionista. Da qui costruiamo la strategia.",
-      color: "blue",
-      lucideIcon: User
-    },
-    {
-      title: "Costruiamo il tuo posizionamento",
-      description: "Ottimizziamo il tuo profilo perché comunichi competenza e affidabilità al primo sguardo. Chi ti cerca trova un professionista, non una pagina vuota.",
-      color: "purple",
-      lucideIcon: BarChart3
-    },
-    {
-      title: "Scriviamo i tuoi contenuti",
-      description: "Ogni settimana pubblichiamo contenuti che dimostrano la tua competenza nel tuo settore — senza che tu debba scrivere una riga.",
-      color: "green",
-      lucideIcon: Calendar
-    },
-    {
-      title: "Gestiamo tutto",
-      description: "Pubblicazione, commenti, interazioni: ci pensiamo noi. Tu ti concentri sul tuo lavoro, i tuoi potenziali clienti ti vedono attivo e presente.",
-      color: "orange",
-      lucideIcon: Palette
-    },
-    {
-      title: "Ottimizziamo i risultati",
-      description: "Ogni mese analizziamo cosa funziona e cosa no, e aggiustiamo la strategia. Non pubblichiamo alla cieca: miglioriamo di continuo.",
-      color: "indigo",
-      lucideIcon: Send
-    },
-    {
-      title: "I clienti ti trovano",
-      description: "I tuoi potenziali clienti iniziano a contattarti perché ti percepiscono come il riferimento nel tuo settore. Il profilo lavora per te.",
-      color: "red",
-      lucideIcon: TrendingUp
-    },
-  ]
-
-  // Creo gli items per il GlassIcons component con colore lime consistente
-  const glassIconsItems = steps.map((step, index) => ({
-    icon: <step.lucideIcon className="w-6 h-6 text-neutral-900" />,
-    color: 'black', // Colore consistente lime per tutti gli step
-  }))
-
-
-
   return (
-    <div className="min-h-screen" style={{ background: '#f5f5f5' }}>
-
-
-      {/* Nuova sezione Benefici */}
-      <div className="max-w-7xl mx-auto px-6 py-20">
-        {/* Titolo principale con immagine */}
-        <motion.div
-          initial={{ opacity: 0, y: 30 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.6 }}
-          viewport={{ once: true }}
-          className="mb-16"
-        >
-          <div className="grid lg:grid-cols-2 gap-8 lg:gap-12 items-center">
-            {/* Left side - Text content */}
-            <div className="text-left lg:text-left space-y-6">
-              <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-neutral-900 leading-tight">
-                {/* Layout mobile con distribuzione su più righe */}
-                <div className="block md:hidden space-y-2">
-                  <div><span className="text-3xl font-normal">Affidati a Profilo Autorevole,</span></div>
-                  <div>l&apos;agenzia <span style={{ color: '#000000' }}>specializzata su LinkedIn</span></div>
-                  <div><span className="text-3xl font-normal">nel costruire la tua presenza</span></div>
-                  <div><span className="text-3xl font-normal">su LinkedIn.</span></div>
-                </div>
-                {/* Layout desktop normale */}
-                <div className="hidden md:block">
-                  Affidati a Profilo Autorevole, l&apos;agenzia <span style={{ color: '#000000' }}>specializzata su LinkedIn</span> nel costruire la tua presenza su LinkedIn.
-                </div>
+    <>
+      {/* PART A — Solution intro */}
+      <section style={{ background: '#0a0a0a' }} className="dot-grid">
+        <div className="container-page section-padding">
+          <BlurFade delay={0.1} inView>
+            <div className="max-w-3xl">
+              <div className="accent-bar mb-6" />
+              <h2 className="heading-lg mb-6" style={{ color: '#ffffff' }}>
+                Con Profilo Autorevole, il tuo LinkedIn ti posiziona dove meriti.
               </h2>
-              <p className="text-xl md:text-2xl leading-relaxed" style={{ color: '#555555' }}>
-                <span className="font-bold">Nessun approccio funziona</span> se non è specifico per LinkedIn e costruito intorno al tuo settore. Noi facciamo solo questo.<br /><br />
-                <em>Online in soli 7 giorni.</em>
+              <p className="text-lg leading-relaxed max-w-2xl mb-4" style={{ color: 'rgba(255,255,255,0.55)' }}>
+                LinkedIn è il nostro unico mestiere. Studiamo il tuo settore, costruiamo il posizionamento,
+                scriviamo con la tua voce, pubblichiamo ogni settimana. Tu lavori sulla tua azienda — noi
+                sul tuo LinkedIn. Online in 7 giorni.
               </p>
-              
-              {/* CTA Button */}
-              <div className="mt-8 flex justify-start">
-                <GradientButton onClick={() => {
-                  console.log('Button clicked - opening consultation popup');
-                  openPopup('consultation');
-                }}>
-                  <span>Richiedi ora la tua consulenza gratuita</span>
-                </GradientButton>
-              </div>
-            </div>
-
-
-            {/* Right side - Image */}
-            <div className="relative">
-              <div 
-                className="rounded overflow-hidden shadow-2xl"
-                style={{ 
-                  background: '#f5f5f5'
-                }}
+              <p className="font-serif text-lg mb-8" style={{ color: 'rgba(255,255,255,0.45)' }}>
+                &ldquo;LinkedIn è il nostro unico mestiere.&rdquo;
+              </p>
+              <button
+                onClick={() => openPopup('consultation')}
+                className="cta-white"
               >
-                {/* Immagine di sfondo */}
-                <div 
-                  className="w-full h-96 lg:h-[28rem] bg-cover bg-center lg:bg-contain"
-                  style={{
-                    backgroundImage: 'url("/images/7gg.png")',
-                    backgroundRepeat: 'no-repeat',
-                    backgroundPosition: 'center'
-                  }}
-                >
-                </div>
-              </div>
+                Scopri come possiamo farlo per la tua azienda
+                <span>→</span>
+              </button>
             </div>
-          </div>
-        </motion.div>
-
-      </div>
-
-      {/* Sezione How It Works - Titolo principale */}
-      <motion.div
-        initial={{ opacity: 0, y: 30 }}
-        whileInView={{ opacity: 1, y: 0 }}
-        transition={{ duration: 0.6 }}
-        viewport={{ once: true }}
-        className="max-w-6xl mx-auto px-6 pt-4 pb-16"
-      >
-        <div className="text-left md:text-center mb-16">
-          {/* Preheadline */}
-          <p className="text-lg font-semibold mb-4" style={{ color: '#555555' }}>
-            Ma ora ti starai chiedendo..
-          </p>
-          
-          {/* Headline principale */}
-          <h2 id="come-funziona" className="text-4xl md:text-5xl lg:text-6xl font-bold text-neutral-900 mb-6 leading-tight">
-            Come funziona nel <span style={{ color: '#000000' }}>pratico</span>?
-          </h2>
-          
-          {/* Subheadline */}
-          <p className="text-xl md:text-2xl leading-relaxed max-w-4xl mx-auto" style={{ color: '#555555' }}>
-            Ecco cosa farà Profilo Autorevole per te:
-          </p>
+          </BlurFade>
         </div>
-      </motion.div>
+      </section>
 
-      {/* Demo content */}
-      <div className="max-w-6xl mx-auto px-6 pt-4 pb-12">
-
-        <div className="space-y-8">
-          <div className="relative max-w-4xl mx-auto">
-            {/* Progress bar centrale fissa - Desktop */}
-            <div 
-              className="absolute hidden lg:block"
-              style={{ 
-                left: '50%',
-                top: '1.5rem',
-                transform: 'translateX(-50%)',
-                width: '2px',
-                height: `${(steps.length + 3) * 9 + 12}rem`
-              }}
-            >
-              {/* Barra grigia di background */}
-              <div className="absolute inset-0 bg-gray-300 rounded-full"></div>
-              
-              {/* Barra lime fissa (sempre al 100%) */}
-              <div className="absolute inset-x-0 top-0 rounded-full h-full" style={{ background: '#000000' }}></div>
+      {/* PART B — Process */}
+      <section id="come-funziona" style={{ background: '#0a0a0a' }} className="dot-grid">
+        <div className="container-page section-padding">
+          <BlurFade delay={0.1} inView>
+            <div className="mb-12">
+              <p className="label-light mb-3">IL NOSTRO PROCESSO</p>
+              <h2 className="heading-bold" style={{ color: '#ffffff' }}>Come funziona.</h2>
             </div>
+          </BlurFade>
 
-            {/* Progress bar centrale fissa - Mobile */}
-            <div 
-              className="absolute block lg:hidden"
-              style={{ 
-                left: '50%',
-                top: '1.5rem',
-                transform: 'translateX(-50%)',
-                width: '2px',
-                height: `${(steps.length + 3) * 11 + 55}rem`
-              }}
-            >
-              {/* Barra grigia di background */}
-              <div className="absolute inset-0 bg-gray-300 rounded-full"></div>
-              
-              {/* Barra lime fissa (sempre al 100%) */}
-              <div className="absolute inset-x-0 top-0 rounded-full h-full" style={{ background: '#000000' }}></div>
-            </div>
-
-            {steps.map((step, i) => (
-              <motion.div
-                key={i}
-                className="flex items-center relative mb-8 last:mb-0"
-                initial={{ opacity: 0 }}
-                whileInView={{ opacity: 1 }}
-                transition={{ duration: 0.6 }}
-                viewport={{ once: true }}
-              >
-                {/* Card a sinistra per numeri pari */}
-                {i % 2 === 0 && (
-                  <div className="w-full flex justify-start items-center gap-6">
-                    <motion.div 
-                      className="w-7/12"
-                      initial={{ opacity: 0, x: -100 }}
-                      whileInView={{ opacity: 1, x: 0 }}
-                      transition={{ duration: 0.6, delay: 0.2 }}
-                      viewport={{ once: true }}
+          <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+            {steps.map((step, i) => {
+              const isLast = i === steps.length - 1
+              return (
+                <BlurFade key={i} delay={i * 0.1} inView>
+                  <div
+                    className="rounded-xl p-7 flex gap-4 items-start border border-white/10"
+                    style={{ background: isLast ? 'rgba(255,255,255,0.08)' : 'rgba(255,255,255,0.05)' }}
+                  >
+                    <span
+                      className="flex-shrink-0 w-[34px] h-[34px] rounded-full flex items-center justify-center text-sm font-bold text-white"
+                      style={{ background: isLast ? 'var(--accent)' : '#000000' }}
                     >
-                      {/* Glass Icon sopra la card, centrata */}
-                      <div className="flex justify-center mb-4" style={{ display: "none" }}>
-                        <GlassIcons 
-                          items={[glassIconsItems[i]]} 
-                          className="!grid-cols-1 !gap-0 !py-0 scale-75"
-                        />
-                      </div>
-                      {/* Step box con nuovo design */}
-                      <div 
-                        className="rounded-lg px-6 py-6"
-                        style={{ 
-                          background: '#ffffff',
-                          border: '1px solid #e3e3e3'
-                        }}
-                      >
-                        <h3 className="text-2xl font-bold text-neutral-900 mb-3">{step.title}</h3>
-                        <p className="text-sm leading-relaxed" style={{ color: '#555555' }}>{step.description}</p>
-                      </div>
-                    </motion.div>
-                    {/* Numero badge circolare lime */}
-                    <motion.div 
-                      className="flex-shrink-0 select-none"
-                      initial={{ opacity: 0, x: 100 }}
-                      whileInView={{ opacity: 1, x: 0 }}
-                      transition={{ duration: 0.6, delay: 0.4 }}
-                      viewport={{ once: true }}
-                    >
-                      <div 
-                        className="w-12 h-12 rounded-full flex items-center justify-center font-bold text-lg"
-                        style={{ 
-                          background: '#000000',
-                          color: '#ffffff'
-                        }}
-                      >
-                        {i + 1}
-                      </div>
-                    </motion.div>
+                      {i + 1}
+                    </span>
+                    <p className="text-base leading-relaxed pt-1.5" style={{ color: 'rgba(255,255,255,0.7)' }}>
+                      <strong style={{ color: '#ffffff' }}>{step.title}</strong> — {step.description}
+                    </p>
                   </div>
-                )}
-
-                {/* Card a destra per numeri dispari */}
-                {i % 2 === 1 && (
-                  <div className="w-full flex justify-end items-center gap-6">
-                    {/* Numero badge circolare lime */}
-                    <motion.div 
-                      className="flex-shrink-0 select-none"
-                      initial={{ opacity: 0, x: -100 }}
-                      whileInView={{ opacity: 1, x: 0 }}
-                      transition={{ duration: 0.6, delay: 0.2 }}
-                      viewport={{ once: true }}
-                    >
-                      <div 
-                        className="w-12 h-12 rounded-full flex items-center justify-center font-bold text-lg"
-                        style={{ 
-                          background: '#000000',
-                          color: '#ffffff'
-                        }}
-                      >
-                        {i + 1}
-                      </div>
-                    </motion.div>
-                    <motion.div 
-                      className="w-7/12"
-                      initial={{ opacity: 0, x: 100 }}
-                      whileInView={{ opacity: 1, x: 0 }}
-                      transition={{ duration: 0.6, delay: 0.4 }}
-                      viewport={{ once: true }}
-                    >
-                      {/* Glass Icon sopra la card, centrata */}
-                      <div className="flex justify-center mb-4" style={{ display: "none" }}>
-                        <GlassIcons 
-                          items={[glassIconsItems[i]]} 
-                          className="!grid-cols-1 !gap-0 !py-0 scale-75"
-                        />
-                      </div>
-                      {/* Step box con nuovo design */}
-                      <div 
-                        className="rounded-lg px-6 py-6"
-                        style={{ 
-                          background: '#ffffff',
-                          border: '1px solid #e3e3e3'
-                        }}
-                      >
-                        <h3 className="text-2xl font-bold text-neutral-900 mb-3">{step.title}</h3>
-                        <p className="text-sm leading-relaxed" style={{ color: '#555555' }}>{step.description}</p>
-                      </div>
-                    </motion.div>
-                  </div>
-                )}
-              </motion.div>
-            ))}
+                </BlurFade>
+              )
+            })}
           </div>
         </div>
-
-
-      </div>
-    </div>
+      </section>
+    </>
   )
 }

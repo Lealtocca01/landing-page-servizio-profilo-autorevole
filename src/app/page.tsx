@@ -1,23 +1,25 @@
 import { Navbar } from '@/components/Navbar';
 import { Hero } from '@/components/Hero';
-
+import { SocialProof } from '@/components/SocialProof';
+import { PainPoints } from '@/components/PainPoints';
+import { WhyItFailed } from '@/components/WhyItFailed';
 import { HowItWorksNew } from '@/components/HowItWorksNew';
-import { FreeConsultation } from '@/components/FreeConsultation';
+import { FinalCTA } from '@/components/FinalCTA';
 import { NoContracts } from '@/components/NoContracts';
 import { WhyChooseUs } from '@/components/WhyChooseUs';
-
-import { FinalCTA } from '@/components/FinalCTA';
 import { Footer } from '@/components/Footer';
 
 export default function Home() {
   return (
-    <main className="min-h-screen" style={{ background: '#ffffff' }}>
+    <main className="min-h-screen bg-white">
       <Navbar />
       <Hero />
+      <SocialProof />
+      <PainPoints />
+      <WhyItFailed />
       <HowItWorksNew />
       <FinalCTA />
       <NoContracts />
-      <FreeConsultation />
       <WhyChooseUs />
       <Footer />
     </main>
